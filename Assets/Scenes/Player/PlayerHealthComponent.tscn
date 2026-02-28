@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d3ilor6pw7bj"]
+
+[ext_resource type="Script" uid="uid://dby5d2khv6s5s" path="res://Assets/Scripts/Player/PlayerHealthComponent.gd" id="1_3ma36"]
+
+[node name="PlayerHealthComponent" type="Node" unique_id=1674705355 node_paths=PackedStringArray("cell_passive_health_timer")]
+script = ExtResource("1_3ma36")
+cell_passive_health_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=823165617]

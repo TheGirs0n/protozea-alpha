@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cgnhqjwaxj1bs"]
+
+[ext_resource type="Script" uid="uid://54xwrofoarja" path="res://Assets/Scripts/Player/PlayerCell.gd" id="1_0ljjw"]
+[ext_resource type="Resource" uid="uid://clhseiwrg7n71" path="res://Assets/Resources/test.tres" id="2_2xki1"]
+[ext_resource type="PackedScene" uid="uid://d3ilor6pw7bj" path="res://Assets/Scenes/Player/PlayerHealthComponent.tscn" id="2_qy8wf"]
+[ext_resource type="PackedScene" uid="uid://c0wll06ovmvf6" path="res://Assets/Scenes/Player/PlayerMovementComponent.tscn" id="3_2xki1"]
+[ext_resource type="PackedScene" uid="uid://yli65fvpxubm" path="res://Assets/Scenes/Player/PlayerAutoBattleComponent.tscn" id="4_tlg0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d06bf"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component")]
+script = ExtResource("1_0ljjw")
+cell_health_component = NodePath("PlayerHealthComponent")
+cell_movement_component = NodePath("PlayerMovementComponent")
+cell_auto_battle_component = NodePath("PlayerAutoBattleComponent")
+cell_start_stats_resource = ExtResource("2_2xki1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458316800]
+shape = SubResource("CircleShape2D_d06bf")
+
+[node name="PlayerHealthComponent" parent="." unique_id=1674705355 instance=ExtResource("2_qy8wf")]
+
+[node name="PlayerMovementComponent" parent="." unique_id=1329042061 instance=ExtResource("3_2xki1")]
+cell_base_speed = 150.0
+cell_current_speed = 150.0
+
+[node name="PlayerAutoBattleComponent" parent="." unique_id=569556963 instance=ExtResource("4_tlg0o")]

@@ -1,0 +1,2 @@
+extends BaseCellHealthComponent
+class_name PlayerHealthComponent

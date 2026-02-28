@@ -1,0 +1,2 @@
+extends BaseCell
+class_name PlayerCell

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://yli65fvpxubm"]
+
+[ext_resource type="Script" uid="uid://cp2kt0wrw3qwh" path="res://Assets/Scripts/Player/PlayerAutoBattleComponent.gd" id="1_vflqc"]
+
+[node name="PlayerAutoBattleComponent" type="Node" unique_id=569556963 node_paths=PackedStringArray("cell_endurance_timer")]
+script = ExtResource("1_vflqc")
+cell_endurance_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=837676536]

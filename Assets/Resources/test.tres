@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CellStartStatResource" format=3 uid="uid://clhseiwrg7n71"]
+
+[ext_resource type="Script" uid="uid://cmq7efeqhvnea" path="res://Assets/Scripts/Resources/CellStartStatResource.gd" id="1_ek2ni"]
+
+[resource]
+script = ExtResource("1_ek2ni")
+cell_base_health = 1
+cell_base_defense = 1
+cell_base_damage = 1
+cell_base_speed = 150
+cell_base_endurance = 1
+metadata/_custom_type_script = "uid://cmq7efeqhvnea"
