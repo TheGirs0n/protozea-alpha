@@ -1,0 +1,2 @@
+extends BaseCellMovementComponent
+class_name EnemyCellMovementComponent

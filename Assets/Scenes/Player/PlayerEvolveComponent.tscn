@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c6ow1rfe6rduy"]
+
+[ext_resource type="Script" uid="uid://n54cwtodt67d" path="res://Assets/Scripts/Player/PlayerCellEvolveComponent.gd" id="1_es1k1"]
+
+[node name="PlayerEvolveComponent" type="Node" unique_id=740213474]
+script = ExtResource("1_es1k1")

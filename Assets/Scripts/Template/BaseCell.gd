@@ -12,10 +12,13 @@ class_name BaseCell
 
 
 func _enter_tree() -> void:
-	cell_health_component.cell_max_health = cell_start_stats_resource.cell_base_health
-	cell_health_component.cell_base_defense = cell_start_stats_resource.cell_base_defense
+	if cell_health_component != null:
+		cell_health_component.cell_max_health = cell_start_stats_resource.cell_base_health
+		cell_health_component.cell_base_defense = cell_start_stats_resource.cell_base_defense
 	
-	cell_movement_component.cell_base_speed = cell_start_stats_resource.cell_base_speed
+	if cell_movement_component != null:
+		cell_movement_component.cell_base_speed = cell_start_stats_resource.cell_base_speed
 	
-	cell_auto_battle_component.cell_base_damage = cell_start_stats_resource.cell_base_damage
-	cell_auto_battle_component.cell_base_endurance = cell_start_stats_resource.cell_base_endurance
+	if cell_auto_battle_component != null:
+		cell_auto_battle_component.cell_base_damage = cell_start_stats_resource.cell_base_damage
+		cell_auto_battle_component.cell_base_endurance = cell_start_stats_resource.cell_base_endurance

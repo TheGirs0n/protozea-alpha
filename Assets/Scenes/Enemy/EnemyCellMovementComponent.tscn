@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bonh6iwbntuhp"]
+
+[ext_resource type="Script" uid="uid://tr0msmiyk0lt" path="res://Assets/Scripts/Enemy/EnemyCellMovementComponent.gd" id="1_n5ude"]
+
+[node name="EnemyCellMovementComponent" type="Node" unique_id=1843292205]
+script = ExtResource("1_n5ude")

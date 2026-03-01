@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwp2dgd23m42n"]
+
+[ext_resource type="Script" uid="uid://cn5broitsfm1i" path="res://Assets/Scripts/Player/PlayerEconomyComponent.gd" id="1_ph64l"]
+
+[node name="PlayerEconomyComponent" type="Node" unique_id=992692729]
+script = ExtResource("1_ph64l")

@@ -5,11 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://d3ilor6pw7bj" path="res://Assets/Scenes/Player/PlayerHealthComponent.tscn" id="2_qy8wf"]
 [ext_resource type="PackedScene" uid="uid://c0wll06ovmvf6" path="res://Assets/Scenes/Player/PlayerMovementComponent.tscn" id="3_2xki1"]
 [ext_resource type="PackedScene" uid="uid://yli65fvpxubm" path="res://Assets/Scenes/Player/PlayerAutoBattleComponent.tscn" id="4_tlg0o"]
+[ext_resource type="PackedScene" uid="uid://dwp2dgd23m42n" path="res://Assets/Scenes/Player/PlayerEconomyComponent.tscn" id="6_tlg0o"]
+[ext_resource type="PackedScene" uid="uid://c6ow1rfe6rduy" path="res://Assets/Scenes/Player/PlayerEvolveComponent.tscn" id="7_l33h3"]
+[ext_resource type="Script" uid="uid://cn672tfy6or7b" path="res://Assets/Scenes/Player/BattleAreaContact.gd" id="8_5yt3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d06bf"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_l33h3"]
+radius = 13.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "cell_health_component", "cell_movement_component", "cell_auto_battle_component")]
 script = ExtResource("1_0ljjw")
+player_economy_component = NodePath("PlayerEconomyComponent")
+player_evolve_component = NodePath("PlayerEvolveComponent")
 cell_health_component = NodePath("PlayerHealthComponent")
 cell_movement_component = NodePath("PlayerMovementComponent")
 cell_auto_battle_component = NodePath("PlayerAutoBattleComponent")
@@ -25,3 +33,15 @@ cell_base_speed = 150.0
 cell_current_speed = 150.0
 
 [node name="PlayerAutoBattleComponent" parent="." unique_id=569556963 instance=ExtResource("4_tlg0o")]
+
+[node name="PlayerEconomyComponent" parent="." unique_id=992692729 instance=ExtResource("6_tlg0o")]
+
+[node name="PlayerEvolveComponent" parent="." unique_id=740213474 instance=ExtResource("7_l33h3")]
+
+[node name="BattleAreaContact" type="Area2D" parent="." unique_id=1645639352]
+script = ExtResource("8_5yt3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleAreaContact" unique_id=747627483]
+shape = SubResource("CircleShape2D_l33h3")
+
+[connection signal="area_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_area_entered"]

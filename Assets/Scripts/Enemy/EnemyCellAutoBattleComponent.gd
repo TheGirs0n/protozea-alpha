@@ -1,0 +1,2 @@
+extends BaseCellAutoBattleComponent
+class_name EnemyCellAutoBattleComponent
