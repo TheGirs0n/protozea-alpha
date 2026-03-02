@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c4bt8yl1pxpbh"]
+
+[ext_resource type="Script" uid="uid://b0me2twjxjo1x" path="res://Assets/Scripts/UI/Main/PlayerHealthProgressBarUi.gd" id="1_g8oj1"]
+
+[node name="PlayerHealthProgressBarUi" type="Control" unique_id=322191646 node_paths=PackedStringArray("player_health_progress_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_g8oj1")
+player_health_progress_bar = NodePath("TextureProgressBar")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=770048217]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dykx8w0041quj"]
+
+[ext_resource type="Script" uid="uid://bgfhfqdkuvs3e" path="res://Assets/Scripts/UI/Main/PlayerMoneyUi.gd" id="1_g2don"]
+
+[node name="PlayerMoneyUi" type="HBoxContainer" unique_id=1798079181 node_paths=PackedStringArray("player_money_text")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+script = ExtResource("1_g2don")
+player_money_text = NodePath("RichTextLabel")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1685327714]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1998177245]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
