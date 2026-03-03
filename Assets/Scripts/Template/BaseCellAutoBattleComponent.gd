@@ -17,6 +17,8 @@ class_name BaseCellAutoBattleComponent
 var is_attack_gain : bool = false
 var target_cell : BaseCell
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 func _process(_delta: float) -> void:
 	if is_attack_gain:
@@ -35,6 +37,15 @@ func restore_endurance():
 		cell_current_endurance = cell_max_endurance
 		is_attack_gain = true
 
-	
-func set_target(target : BaseCell):
+
+# По сути обьявление битвы
+func set_target(target : BaseCell): 
 	target_cell = target
+	process_mode = Node.PROCESS_MODE_INHERIT
+	cell_endurance_timer.start()
+
+
+func reset_parameters_after_battle():
+	cell_current_endurance = 0
+	cell_endurance_timer.stop()
+	process_mode = Node.PROCESS_MODE_DISABLED
