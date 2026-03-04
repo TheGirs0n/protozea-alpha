@@ -1,0 +1,2 @@
+extends BaseCellAnimatedSprite
+class_name EnemyCellAnimatedComponent

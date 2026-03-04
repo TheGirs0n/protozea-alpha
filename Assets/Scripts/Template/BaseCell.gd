@@ -6,6 +6,7 @@ class_name BaseCell
 @export var cell_health_component : BaseCellHealthComponent
 @export var cell_movement_component : BaseCellMovementComponent
 @export var cell_auto_battle_component : BaseCellAutoBattleComponent
+@export var cell_animated_sprite_component : BaseCellAnimatedSprite
 
 @export_group("Resource")
 @export var cell_start_stats_resource : CellStartStatResource

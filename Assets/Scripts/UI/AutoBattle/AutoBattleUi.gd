@@ -9,12 +9,14 @@ class_name AutoBattleUi
 @export var player_defense_text : RichTextLabel
 @export var player_endurance_text : RichTextLabel
 @export var player_endurance_progress_bar : TextureProgressBar
+@export var player_health_progress_bar : TextureProgressBar
 
 @export_group("Enemy Text")
 @export var enemy_damage_text : RichTextLabel
 @export var enemy_defense_text : RichTextLabel
 @export var enemy_endurance_text : RichTextLabel
 @export var enemy_endurance_progress_bar : TextureProgressBar
+@export var enemy_health_progress_bar : TextureProgressBar
 
 func setup_battle_ui(player : BaseCell, enemy : BaseCell):
 	player_damage_text.text = str(player.cell_auto_battle_component.cell_current_damage)

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cu28b3r7o15h7"]
+
+[ext_resource type="Script" uid="uid://4nmg4o83fq6a" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveCardsUi.gd" id="1_igtds"]
+
+[node name="PlayerEvolveCardsUi" type="HBoxContainer" unique_id=1531975464]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_igtds")

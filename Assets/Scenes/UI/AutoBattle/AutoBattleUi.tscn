@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://7k7ygktavn84" path="res://Assets/Scripts/UI/AutoBattle/AutoBattleUi.gd" id="1_gc2vn"]
 [ext_resource type="Script" uid="uid://6rug3dsqy6cw" path="res://Assets/Scripts/UI/AutoBattle/AutoBattleHandler.gd" id="2_56xxu"]
 
-[node name="AutoBattleUi" type="Control" unique_id=299851398 node_paths=PackedStringArray("player_damage_text", "player_defense_text", "player_endurance_text", "player_endurance_progress_bar", "enemy_damage_text", "enemy_defense_text", "enemy_endurance_text", "enemy_endurance_progress_bar")]
+[node name="AutoBattleUi" type="Control" unique_id=299851398 node_paths=PackedStringArray("player_damage_text", "player_defense_text", "player_endurance_text", "player_endurance_progress_bar", "player_health_progress_bar", "enemy_damage_text", "enemy_defense_text", "enemy_endurance_text", "enemy_endurance_progress_bar", "enemy_health_progress_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,26 +12,38 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_gc2vn")
-player_damage_text = NodePath("PlayerContainer/MarginContainer/HBoxContainer/RichTextLabel")
-player_defense_text = NodePath("PlayerContainer/MarginContainer/HBoxContainer/RichTextLabel2")
-player_endurance_text = NodePath("PlayerContainer/MarginContainer/HBoxContainer/RichTextLabel3")
-player_endurance_progress_bar = NodePath("PlayerContainer/TextureProgressBar2")
-enemy_damage_text = NodePath("EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel")
-enemy_defense_text = NodePath("EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel2")
-enemy_endurance_text = NodePath("EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel3")
-enemy_endurance_progress_bar = NodePath("EnemyContainer/TextureProgressBar")
+player_damage_text = NodePath("VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer/RichTextLabel")
+player_defense_text = NodePath("VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer/RichTextLabel2")
+player_endurance_text = NodePath("VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer/RichTextLabel3")
+player_endurance_progress_bar = NodePath("VBoxContainer/PlayerContainer/PlayerEnduranceTextureProgressBar")
+player_health_progress_bar = NodePath("VBoxContainer/PlayerHealthTextureProgressBar")
+enemy_damage_text = NodePath("VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel")
+enemy_defense_text = NodePath("VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel2")
+enemy_endurance_text = NodePath("VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel3")
+enemy_endurance_progress_bar = NodePath("VBoxContainer2/EnemyContainer/EnemyEnduranceTextureProgressBar")
+enemy_health_progress_bar = NodePath("VBoxContainer2/EnemyHealthTextureProgressBar")
 
-[node name="PlayerContainer" type="HBoxContainer" parent="." unique_id=2133504155]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1446856754]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.025
-anchor_top = 0.75
-anchor_right = 0.45
+anchor_top = 0.55
+anchor_right = 0.5
 anchor_bottom = 0.975
+alignment = 1
+
+[node name="PlayerHealthTextureProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=1129529599]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="PlayerContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2133504155]
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="PlayerContainer" unique_id=1047516929]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerContainer" unique_id=1047516929]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -40,19 +52,19 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PlayerContainer/MarginContainer" unique_id=188979260]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerContainer/MarginContainer" unique_id=188979260]
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PlayerContainer/MarginContainer/HBoxContainer" unique_id=1506019899]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=1506019899]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PlayerContainer/MarginContainer/HBoxContainer" unique_id=65591151]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=65591151]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -60,14 +72,14 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="PlayerContainer/MarginContainer/HBoxContainer" unique_id=691195685]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=691195685]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="PlayerContainer/MarginContainer/HBoxContainer" unique_id=1444880734]
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=1444880734]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -75,14 +87,14 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect3" type="TextureRect" parent="PlayerContainer/MarginContainer/HBoxContainer" unique_id=636077204]
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=636077204]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="PlayerContainer/MarginContainer/HBoxContainer" unique_id=254054722]
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=254054722]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -90,27 +102,37 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="PlayerContainer" unique_id=6451809]
+[node name="PlayerEnduranceTextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/PlayerContainer" unique_id=6451809]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="EnemyContainer" type="HBoxContainer" parent="." unique_id=1771077169]
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=580142322]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.55
-anchor_top = 0.75
+anchor_left = 0.5
+anchor_top = 0.55
 anchor_right = 0.975
 anchor_bottom = 0.975
+alignment = 1
+
+[node name="EnemyHealthTextureProgressBar" type="TextureProgressBar" parent="VBoxContainer2" unique_id=1747460548]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="EnemyContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=1771077169]
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="EnemyContainer" unique_id=289740734]
+[node name="EnemyEnduranceTextureProgressBar" type="TextureProgressBar" parent="VBoxContainer2/EnemyContainer" unique_id=289740734]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="EnemyContainer" unique_id=1146528773]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/EnemyContainer" unique_id=1146528773]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -119,19 +141,19 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EnemyContainer/MarginContainer" unique_id=332705792]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/EnemyContainer/MarginContainer" unique_id=332705792]
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="EnemyContainer/MarginContainer/HBoxContainer" unique_id=1013581169]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=1013581169]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="EnemyContainer/MarginContainer/HBoxContainer" unique_id=47050977]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=47050977]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -139,14 +161,14 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="EnemyContainer/MarginContainer/HBoxContainer" unique_id=1736225089]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=1736225089]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="EnemyContainer/MarginContainer/HBoxContainer" unique_id=1947799251]
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=1947799251]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -154,14 +176,14 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect3" type="TextureRect" parent="EnemyContainer/MarginContainer/HBoxContainer" unique_id=1922471511]
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=1922471511]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="EnemyContainer/MarginContainer/HBoxContainer" unique_id=804639150]
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=804639150]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2

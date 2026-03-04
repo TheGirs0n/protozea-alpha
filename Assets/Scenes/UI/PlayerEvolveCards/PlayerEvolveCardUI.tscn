@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bww01w44deui3"]
+
+[ext_resource type="Script" uid="uid://cdw0lagh11pve" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveCardUi.gd" id="1_ok3rb"]
+
+[node name="PlayerEvolveCardUi" type="Control" unique_id=793833264]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ok3rb")

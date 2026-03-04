@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cssv6gvhw526t"]
+
+[ext_resource type="Script" uid="uid://4r0eod5gqeov" path="res://Assets/Scripts/Enemy/EnemyCellAnimatedComponent.gd" id="1_qj4qe"]
+
+[node name="EnemyCellAnimatedComponent" type="Sprite2D" unique_id=1474548172 node_paths=PackedStringArray("rotate_tween_timer", "scale_tween_timer")]
+script = ExtResource("1_qj4qe")
+rotate_tween_timer = NodePath("RotateTimer")
+scale_tween_timer = NodePath("ScaleTimer")
+
+[node name="RotateTimer" type="Timer" parent="." unique_id=1856617653]
+one_shot = true
+
+[node name="ScaleTimer" type="Timer" parent="." unique_id=278131889]
+one_shot = true

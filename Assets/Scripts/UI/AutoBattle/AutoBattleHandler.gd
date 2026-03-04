@@ -1,8 +1,8 @@
 extends Node
 class_name AutoBattleHandler
 
-@export var player_cell : BaseCell = null
-@export var enemy_cell : BaseCell = null
+var player_cell : BaseCell = null
+var enemy_cell : BaseCell = null
 
 var is_enemy_dead : bool = false
 

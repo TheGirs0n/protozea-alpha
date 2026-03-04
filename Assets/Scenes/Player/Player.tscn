@@ -8,19 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://dwp2dgd23m42n" path="res://Assets/Scenes/Player/PlayerEconomyComponent.tscn" id="6_tlg0o"]
 [ext_resource type="PackedScene" uid="uid://c6ow1rfe6rduy" path="res://Assets/Scenes/Player/PlayerEvolveComponent.tscn" id="7_l33h3"]
 [ext_resource type="Script" uid="uid://cn672tfy6or7b" path="res://Assets/Scripts/Player/BattleAreaContact.gd" id="8_5yt3c"]
+[ext_resource type="PackedScene" uid="uid://birrawmolq6n7" path="res://Assets/Scenes/Player/PlayerAnimatedSpriteComponent.tscn" id="9_5nnqe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d06bf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l33h3"]
 radius = 13.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "cell_health_component", "cell_movement_component", "cell_auto_battle_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
 script = ExtResource("1_0ljjw")
 player_economy_component = NodePath("PlayerEconomyComponent")
 player_evolve_component = NodePath("PlayerEvolveComponent")
 cell_health_component = NodePath("PlayerHealthComponent")
 cell_movement_component = NodePath("PlayerMovementComponent")
 cell_auto_battle_component = NodePath("PlayerAutoBattleComponent")
+cell_animated_sprite_component = NodePath("PlayerAnimatedSpriteComponent")
 cell_start_stats_resource = ExtResource("2_2xki1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458316800]
@@ -43,5 +45,7 @@ script = ExtResource("8_5yt3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleAreaContact" unique_id=747627483]
 shape = SubResource("CircleShape2D_l33h3")
+
+[node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 instance=ExtResource("9_5nnqe")]
 
 [connection signal="area_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_area_entered"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://birrawmolq6n7"]
+
+[ext_resource type="Script" uid="uid://d11pivr0lvctx" path="res://Assets/Scripts/Player/PlayerAnimatedSpriteComponent.gd" id="1_lrdi6"]
+
+[node name="PlayerAnimatedSpriteComponent" type="Sprite2D" unique_id=1461410180 node_paths=PackedStringArray("rotate_tween_timer", "scale_tween_timer")]
+script = ExtResource("1_lrdi6")
+rotate_tween_timer = NodePath("RotateTimer")
+scale_tween_timer = NodePath("ScaleTimer")
+
+[node name="RotateTimer" type="Timer" parent="." unique_id=225600380]
+one_shot = true
+
+[node name="ScaleTimer" type="Timer" parent="." unique_id=1535426689]
+one_shot = true
