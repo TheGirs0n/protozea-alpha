@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b20gnecxtv6td"]
+
+[ext_resource type="Script" uid="uid://dsqwxgobjlxkp" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveDefenseCard.gd" id="1_op663"]
+
+[node name="PlayerEvolveDefenseCard" type="TextureRect" unique_id=854580065]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("1_op663")
+player_evolve_stat = 1
+metadata/_custom_type_script = "uid://dnhaa7y4jjg4h"

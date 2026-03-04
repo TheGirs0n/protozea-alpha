@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cu28b3r7o15h7"]
 
 [ext_resource type="Script" uid="uid://4nmg4o83fq6a" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveCardsUi.gd" id="1_igtds"]
+[ext_resource type="PackedScene" uid="uid://d03a1lbdkvf5b" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveDamageCard.tscn" id="2_klln7"]
+[ext_resource type="PackedScene" uid="uid://b20gnecxtv6td" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveDefenseCard.tscn" id="3_0ysgm"]
+[ext_resource type="PackedScene" uid="uid://xw1hflpkc36s" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveSpeedCard.tscn" id="4_mohwl"]
 
-[node name="PlayerEvolveCardsUi" type="HBoxContainer" unique_id=1531975464]
+[node name="PlayerEvolveCardsUi" type="HBoxContainer" unique_id=1531975464 node_paths=PackedStringArray("player_damage_evolve_card", "player_defense_evolve_card", "player_speed_evolve_card")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,3 +13,15 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource("1_igtds")
+player_damage_evolve_card = NodePath("PlayerEvolveDamageCard")
+player_defense_evolve_card = NodePath("PlayerEvolveDefenseCard")
+player_speed_evolve_card = NodePath("PlayerEvolveSpeedCard")
+
+[node name="PlayerEvolveDamageCard" parent="." unique_id=957820156 instance=ExtResource("2_klln7")]
+layout_mode = 2
+
+[node name="PlayerEvolveDefenseCard" parent="." unique_id=854580065 instance=ExtResource("3_0ysgm")]
+layout_mode = 2
+
+[node name="PlayerEvolveSpeedCard" parent="." unique_id=48676999 instance=ExtResource("4_mohwl")]
+layout_mode = 2

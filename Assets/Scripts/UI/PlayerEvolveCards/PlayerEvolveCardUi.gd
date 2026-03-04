@@ -1,2 +1,3 @@
-extends Control
+@abstract
+extends TextureRect
 class_name PlayerEvolveCardUi

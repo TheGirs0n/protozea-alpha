@@ -7,7 +7,7 @@ enum PLAYER_STAT{
 	SPEED
 }
 
-var player_evolve_stat : PLAYER_STAT
+@export var player_evolve_stat : PLAYER_STAT
 
 func pick_card():
 	pass

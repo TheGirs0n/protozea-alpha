@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xw1hflpkc36s"]
+
+[ext_resource type="Script" uid="uid://jvsf64tntrip" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveSpeedCard.gd" id="1_7kep4"]
+
+[node name="PlayerEvolveSpeedCard" type="TextureRect" unique_id=48676999]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("1_7kep4")
+player_evolve_stat = 2
+metadata/_custom_type_script = "uid://b20l614van3va"

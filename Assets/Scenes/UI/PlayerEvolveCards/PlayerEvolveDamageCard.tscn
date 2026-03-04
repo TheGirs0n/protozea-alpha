@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d03a1lbdkvf5b"]
+
+[ext_resource type="Script" uid="uid://dnhaa7y4jjg4h" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveDamageCard.gd" id="1_pjovo"]
+
+[node name="PlayerEvolveDamageCard" type="TextureRect" unique_id=957820156]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("1_pjovo")
+metadata/_custom_type_script = "uid://b20l614van3va"
