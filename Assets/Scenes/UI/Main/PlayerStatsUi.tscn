@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dul6g75tafrg6"]
+
+[ext_resource type="Script" uid="uid://bt6r781fr3xhf" path="res://Assets/Scripts/UI/Main/PlayerStatsUi.gd" id="1_lt6gr"]
+
+[node name="PlayerStatsUi" type="VBoxContainer" unique_id=1361290902 node_paths=PackedStringArray("player_damage_stat_text", "player_defense_stat_text", "player_speed_stat_text")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_lt6gr")
+player_damage_stat_text = NodePath("HBoxContainer/RichTextLabel")
+player_defense_stat_text = NodePath("HBoxContainer2/RichTextLabel")
+player_speed_stat_text = NodePath("HBoxContainer3/RichTextLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1032346671]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1917575311]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=640453218]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=451058835]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=516535823]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2" unique_id=1299269830]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="." unique_id=1152926156]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3" unique_id=682911101]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer3" unique_id=929178658]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1

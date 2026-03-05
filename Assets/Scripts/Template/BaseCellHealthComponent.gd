@@ -3,9 +3,9 @@ extends Node
 class_name BaseCellHealthComponent
 
 @export_group("Health Parameters")
-@export var cell_current_health : int
-@export var cell_max_health : int
-@export var cell_passive_health_gain_per_second : int
+@export var cell_current_health : float
+@export var cell_max_health : float
+@export var cell_passive_health_gain_per_second : float
 @export var cell_passive_health_timer : Timer
 @export var cell_base_defense : int
 @export var cell_current_defense : int
@@ -18,16 +18,16 @@ func _ready() -> void:
 	cell_current_health = cell_max_health
 	cell_current_defense = cell_base_defense
 
-func try_take_damage(incoming_amount : int):
+func try_take_damage(incoming_amount : float):
 	var damage = incoming_amount - cell_current_defense
 	
 	if damage > 0:
-		cell_current_defense -= damage
+		cell_current_health -= damage
 	else:
 		return
 
 		
-func reduce_health(amount : int):
+func reduce_health(amount : float):
 	cell_current_health -= amount
 	
 	if cell_current_health > 0:
@@ -36,7 +36,7 @@ func reduce_health(amount : int):
 		die()
 
 		
-func restore_health(amount : int):
+func restore_health(amount : float):
 	cell_current_health += amount
 	
 	if cell_current_health >= cell_max_health:

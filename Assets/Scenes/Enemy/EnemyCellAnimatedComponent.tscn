@@ -12,3 +12,6 @@ one_shot = true
 
 [node name="ScaleTimer" type="Timer" parent="." unique_id=278131889]
 one_shot = true
+
+[connection signal="timeout" from="RotateTimer" to="." method="change_rotate_parameters"]
+[connection signal="timeout" from="ScaleTimer" to="." method="change_scale_parameters"]

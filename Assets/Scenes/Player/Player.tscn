@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c6ow1rfe6rduy" path="res://Assets/Scenes/Player/PlayerEvolveComponent.tscn" id="7_l33h3"]
 [ext_resource type="Script" uid="uid://cn672tfy6or7b" path="res://Assets/Scripts/Player/BattleAreaContact.gd" id="8_5yt3c"]
 [ext_resource type="PackedScene" uid="uid://birrawmolq6n7" path="res://Assets/Scenes/Player/PlayerAnimatedSpriteComponent.tscn" id="9_5nnqe"]
+[ext_resource type="Texture2D" uid="uid://borrobucm5ie6" path="res://icon.svg" id="10_3ccwg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d06bf"]
 
@@ -41,11 +42,13 @@ cell_current_speed = 150.0
 [node name="PlayerEvolveComponent" parent="." unique_id=740213474 instance=ExtResource("7_l33h3")]
 
 [node name="BattleAreaContact" type="Area2D" parent="." unique_id=1645639352]
+input_pickable = false
 script = ExtResource("8_5yt3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleAreaContact" unique_id=747627483]
 shape = SubResource("CircleShape2D_l33h3")
 
 [node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 instance=ExtResource("9_5nnqe")]
+texture = ExtResource("10_3ccwg")
 
-[connection signal="area_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_area_entered"]
+[connection signal="body_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_body_entered"]

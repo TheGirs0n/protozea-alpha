@@ -7,13 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bonh6iwbntuhp" path="res://Assets/Scenes/Enemy/EnemyCellMovementComponent.tscn" id="4_kcrxv"]
 [ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/EnemyCellAnimatedComponent.tscn" id="6_kcrxv"]
 
-[node name="EnemyCell" type="Node2D" unique_id=1347959819 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kcrxv"]
+
+[node name="EnemyCell" type="CharacterBody2D" unique_id=697730910 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
 script = ExtResource("1_0tgue")
 cell_health_component = NodePath("EnemyCellHealthComponent")
 cell_movement_component = NodePath("EnemyCellMovementComponent")
 cell_auto_battle_component = NodePath("EnemyCellAutoBattleComponent")
 cell_animated_sprite_component = NodePath("EnemyCellAnimatedComponent")
 cell_start_stats_resource = ExtResource("2_5erc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1351684231]
+shape = SubResource("CircleShape2D_kcrxv")
 
 [node name="EnemyCellHealthComponent" parent="." unique_id=488025843 instance=ExtResource("3_5erc5")]
 

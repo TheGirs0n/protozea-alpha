@@ -3,14 +3,14 @@ extends Node
 class_name BaseCellAutoBattleComponent
 
 @export_group("Damage Parameters")
-@export var cell_base_damage : int
-@export var cell_current_damage : int
+@export var cell_base_damage : float
+@export var cell_current_damage : float
 
 @export_group("Endurance Parameters")
-@export var cell_base_endurance : int
-@export var cell_current_endurance : int
+@export var cell_base_endurance : float
+@export var cell_current_endurance : float
 @export var cell_max_endurance : int
-@export var cell_gain_per_timer_endurance : int
+@export var cell_gain_per_timer_endurance : float
 @export var cell_endurance_timer : Timer
 
 
