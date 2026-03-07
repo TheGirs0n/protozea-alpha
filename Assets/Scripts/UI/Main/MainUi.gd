@@ -5,6 +5,7 @@ class_name MainUI
 @export var player_money_container : PlayerMoneyUi
 @export var player_stats_ui : PlayerStatsUi
 @export var player_evolve_progress_bar : PlayerEvolveProgressBarUi
+@export var player_can_evolve_text : RichTextLabel
 @export var player_health_progress_bar : PlayerHealthProgressBarUi
 
 @export_group("Auto Battle UI")
@@ -17,3 +18,8 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	GlobalContext.main_ui_instance = null
+
+func update_player_stats(player_strength : int, player_immune : int, player_swiftness : int):
+	player_stats_ui.set_player_damage_stat(player_strength)
+	player_stats_ui.set_player_defense_stat(player_immune)
+	player_stats_ui.set_player_speed_stat(player_swiftness)

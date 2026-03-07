@@ -7,21 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://c7w4ixigv6f14" path="res://Assets/Scenes/UI/AutoBattle/AutoBattleUi.tscn" id="5_kfg1n"]
 [ext_resource type="PackedScene" uid="uid://dul6g75tafrg6" path="res://Assets/Scenes/UI/Main/PlayerStatsUi.tscn" id="5_uoy3w"]
 
-[node name="MainUi" type="CanvasLayer" unique_id=1882197517 node_paths=PackedStringArray("player_money_container", "player_stats_ui", "player_evolve_progress_bar", "player_health_progress_bar", "auto_battle_ui")]
+[node name="MainUi" type="CanvasLayer" unique_id=1882197517 node_paths=PackedStringArray("player_money_container", "player_stats_ui", "player_evolve_progress_bar", "player_can_evolve_text", "player_health_progress_bar", "auto_battle_ui")]
 script = ExtResource("1_vw41n")
 player_money_container = NodePath("PlayerMoneyUi")
 player_stats_ui = NodePath("PlayerStatsUi")
 player_evolve_progress_bar = NodePath("VBoxContainer/PlayerEvolveProgressBarUi")
+player_can_evolve_text = NodePath("VBoxContainer/PlayerCanEvolveText")
 player_health_progress_bar = NodePath("VBoxContainer/PlayerHealthProgressBarUi")
 auto_battle_ui = NodePath("AutoBattleUi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=735896177]
 anchors_preset = -1
 anchor_left = 0.3
-anchor_top = 0.75
+anchor_top = 0.6
 anchor_right = 0.7
 anchor_bottom = 0.95
 alignment = 1
+
+[node name="PlayerCanEvolveText" type="RichTextLabel" parent="VBoxContainer" unique_id=1384491962]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerEvolveProgressBarUi" parent="VBoxContainer" unique_id=1748930590 instance=ExtResource("3_kfg1n")]
 layout_mode = 2

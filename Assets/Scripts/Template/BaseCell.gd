@@ -37,6 +37,7 @@ func set_cell_immune(new_value : int):
 	
 	cell_health_component.cell_current_defense = cell_immune_value * 5
 	cell_health_component.cell_max_health = cell_immune_value + 2 * (cell_immune_value - 1)
+	cell_health_component.cell_current_health = cell_health_component.cell_max_health
 	
 
 func set_cell_swiftness(new_value : int):

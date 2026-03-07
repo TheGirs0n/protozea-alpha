@@ -2,4 +2,4 @@ extends PlayerEvolveCardUI
 class_name PlayerEvolveDamageCardUI
 
 func pick_card():
-	pass
+	GlobalContext.player_instance.player_cell_add_one_strength()
