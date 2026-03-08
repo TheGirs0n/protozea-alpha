@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ytuk2ykpm5ta"]
+
+[ext_resource type="Script" uid="uid://cgaoxw86cpfws" path="res://Assets/Scripts/Main/MainLevel.gd" id="1_abbfq"]
+[ext_resource type="PackedScene" uid="uid://cgnhqjwaxj1bs" path="res://Assets/Scenes/Player/Player.tscn" id="2_qr88s"]
+
+[node name="MainLevel" type="Node2D" unique_id=1839840135]
+process_mode = 1
+script = ExtResource("1_abbfq")
+
+[node name="Player" parent="." unique_id=1365793493 instance=ExtResource("2_qr88s")]

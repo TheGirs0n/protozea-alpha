@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4iyktti4ky5h" path="res://Assets/Scripts/UI/Main/MainUi.gd" id="1_vw41n"]
 [ext_resource type="PackedScene" uid="uid://dykx8w0041quj" path="res://Assets/Scenes/UI/Main/PlayerMoneyUI.tscn" id="2_pp4g4"]
+[ext_resource type="PackedScene" uid="uid://cu28b3r7o15h7" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveCardsUI.tscn" id="2_qusfo"]
 [ext_resource type="PackedScene" uid="uid://b8lsnp7pmg46x" path="res://Assets/Scenes/UI/Main/PlayerEvolveProgressBarUi.tscn" id="3_kfg1n"]
 [ext_resource type="PackedScene" uid="uid://c4bt8yl1pxpbh" path="res://Assets/Scenes/UI/Main/PlayerHealthProgressBarUi.tscn" id="4_uoy3w"]
 [ext_resource type="PackedScene" uid="uid://c7w4ixigv6f14" path="res://Assets/Scenes/UI/AutoBattle/AutoBattleUi.tscn" id="5_kfg1n"]
@@ -15,6 +16,7 @@ player_evolve_progress_bar = NodePath("VBoxContainer/PlayerEvolveProgressBarUi")
 player_can_evolve_text = NodePath("VBoxContainer/PlayerCanEvolveText")
 player_health_progress_bar = NodePath("VBoxContainer/PlayerHealthProgressBarUi")
 auto_battle_ui = NodePath("AutoBattleUi")
+evolve_cards_scene = ExtResource("2_qusfo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=735896177]
 anchors_preset = -1
@@ -46,12 +48,12 @@ size_flags_vertical = 3
 anchors_preset = -1
 anchor_left = 0.025
 anchor_top = 0.15
-anchor_right = 0.2
+anchor_right = 0.15
 anchor_bottom = 0.6
 
 [node name="PlayerMoneyUi" parent="." unique_id=1798079181 instance=ExtResource("2_pp4g4")]
 anchors_preset = -1
 anchor_left = 0.025
 anchor_top = 0.025
-anchor_right = 0.2
+anchor_right = 0.15
 anchor_bottom = 0.15

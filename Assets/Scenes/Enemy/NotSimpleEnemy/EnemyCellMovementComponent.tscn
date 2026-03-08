@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bonh6iwbntuhp"]
+
+[ext_resource type="Script" uid="uid://tr0msmiyk0lt" path="res://Assets/Scripts/Enemy/NotSimpleEnemy/EnemyCellMovementComponent.gd" id="1_n5ude"]
+
+[node name="EnemyCellMovementComponent" type="Node" unique_id=1843292205 node_paths=PackedStringArray("move_timer", "chase_state_timer")]
+script = ExtResource("1_n5ude")
+move_timer = NodePath("PatrolTimer")
+chase_state_timer = NodePath("ChaseTimer")
+
+[node name="PatrolTimer" type="Timer" parent="." unique_id=729155263]
+
+[node name="ChaseTimer" type="Timer" parent="." unique_id=1987239531]

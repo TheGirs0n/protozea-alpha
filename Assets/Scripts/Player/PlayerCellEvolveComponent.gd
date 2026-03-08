@@ -13,12 +13,23 @@ var player_cell_max_speed : int = 6
 
 var player_instance : PlayerCell
 
+var can_player_evolve_in_current : bool = false
 var can_player_evolve_in_total : bool = true
+
+signal player_click_evolve
 
 func _ready() -> void:
 	cell_current_evolve_index = cell_base_evolve_index
 	cell_max_evolve_index = cell_evolve_array_cost.size() - 1
 	self.get_parent()
+
+
+func _input(event: InputEvent) -> void:
+	if can_player_evolve_in_current == false:
+		return
+		
+	if event.is_action_pressed("try_evolve"):
+		player_click_evolve.emit()
 
 
 func player_evolve():
@@ -27,6 +38,7 @@ func player_evolve():
 	else:
 		can_player_evolve_in_total = false
 		
+	
 func can_player_evolve_current():
 	if player_instance.player_economy_component.player_current_money >= cell_evolve_array_cost[cell_current_evolve_index]:
-		pass
+		can_player_evolve_in_current = true

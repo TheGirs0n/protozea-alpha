@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://exhtd8gpve7g"]
 
-[ext_resource type="Script" uid="uid://dh7pgw3mf0xbp" path="res://Assets/Scripts/Enemy/EnemyCellAutoBattleComponent.gd" id="1_jknfw"]
+[ext_resource type="Script" uid="uid://dh7pgw3mf0xbp" path="res://Assets/Scripts/Enemy/NotSimpleEnemy/EnemyCellAutoBattleComponent.gd" id="1_jknfw"]
 
 [node name="EnemyCellAutoBattleComponent" type="Node" unique_id=1463796902]
 script = ExtResource("1_jknfw")

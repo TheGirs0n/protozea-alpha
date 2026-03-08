@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tvomshh3envc"]
 
-[ext_resource type="Script" uid="uid://cuy3focgfjgur" path="res://Assets/Scripts/Enemy/EnemyCellHealthComponent.gd" id="1_8h7tq"]
+[ext_resource type="Script" uid="uid://cuy3focgfjgur" path="res://Assets/Scripts/Enemy/NotSimpleEnemy/EnemyCellHealthComponent.gd" id="1_8h7tq"]
 
 [node name="EnemyCellHealthComponent" type="Node" unique_id=488025843]
 script = ExtResource("1_8h7tq")

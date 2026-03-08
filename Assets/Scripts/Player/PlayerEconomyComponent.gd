@@ -22,9 +22,9 @@ func add_money(amount : int):
 		player_current_money = player_max_money
 	
 	player_money_changed.emit(player_current_money)
-	#GlobalContext.main_ui_instance.player_money_container.set_money(player_current_money)
-		
+	
+			
 func decrease_money(amount : int):
 	player_current_money -= amount
 	player_money_changed.emit(player_current_money)
-	#GlobalContext.main_ui_instance.player_money_container.set_money(player_current_money)
+	

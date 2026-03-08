@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dj67vt74b4ekl"]
 
-[ext_resource type="Script" uid="uid://by7v166lwyjeq" path="res://Assets/Scripts/Enemy/EnemyCell.gd" id="1_0tgue"]
+[ext_resource type="Script" uid="uid://by7v166lwyjeq" path="res://Assets/Scripts/Enemy/NotSimpleEnemy/EnemyCell.gd" id="1_0tgue"]
 [ext_resource type="Resource" uid="uid://b0hkifkwc5o5u" path="res://Assets/Resources/Enemy/SimpleCell.tres" id="2_5erc5"]
-[ext_resource type="PackedScene" uid="uid://exhtd8gpve7g" path="res://Assets/Scenes/Enemy/EnemyCellAutoBattleComponent.tscn" id="2_fh4fs"]
-[ext_resource type="PackedScene" uid="uid://tvomshh3envc" path="res://Assets/Scenes/Enemy/EnemyCellHealthComponent.tscn" id="3_5erc5"]
-[ext_resource type="PackedScene" uid="uid://bonh6iwbntuhp" path="res://Assets/Scenes/Enemy/EnemyCellMovementComponent.tscn" id="4_kcrxv"]
-[ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/EnemyCellAnimatedComponent.tscn" id="6_kcrxv"]
+[ext_resource type="PackedScene" uid="uid://exhtd8gpve7g" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAutoBattleComponent.tscn" id="2_fh4fs"]
+[ext_resource type="PackedScene" uid="uid://tvomshh3envc" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellHealthComponent.tscn" id="3_5erc5"]
+[ext_resource type="PackedScene" uid="uid://bonh6iwbntuhp" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellMovementComponent.tscn" id="4_kcrxv"]
+[ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAnimatedComponent.tscn" id="6_kcrxv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcrxv"]
 
