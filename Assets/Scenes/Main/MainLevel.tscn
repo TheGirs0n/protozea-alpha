@@ -2,9 +2,46 @@
 
 [ext_resource type="Script" uid="uid://cgaoxw86cpfws" path="res://Assets/Scripts/Main/MainLevel.gd" id="1_abbfq"]
 [ext_resource type="PackedScene" uid="uid://cgnhqjwaxj1bs" path="res://Assets/Scenes/Player/Player.tscn" id="2_qr88s"]
+[ext_resource type="PackedScene" uid="uid://bd7llf352nayv" path="res://Assets/Scenes/Enemy/SimpleEnemy/SimpleEnemy.tscn" id="3_3gtre"]
+[ext_resource type="Script" uid="uid://ilipqf1eg4o0" path="res://Assets/Scripts/Main/EnemyManager.gd" id="4_hbgnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgnp"]
+size = Vector2(1168, 675)
 
 [node name="MainLevel" type="Node2D" unique_id=1839840135]
 process_mode = 1
 script = ExtResource("1_abbfq")
 
 [node name="Player" parent="." unique_id=1365793493 instance=ExtResource("2_qr88s")]
+position = Vector2(234, 305)
+
+[node name="SimpleEnemy" parent="." unique_id=255581194 instance=ExtResource("3_3gtre")]
+position = Vector2(506, 295)
+
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=2055431314]
+
+[node name="SpawnArea" type="Area2D" parent="BackgroundSprite" unique_id=1053472310]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundSprite/SpawnArea" unique_id=621316709]
+position = Vector2(574, 327.5)
+shape = SubResource("RectangleShape2D_hbgnp")
+
+[node name="WallsCollision" type="StaticBody2D" parent="." unique_id=1206978217]
+
+[node name="BoundCollision" type="CollisionPolygon2D" parent="WallsCollision" unique_id=1651446905]
+build_mode = 1
+polygon = PackedVector2Array(0, 0, 1155, 6, 1151, 654, 4, 647)
+
+[node name="EnemyManager" type="Node" parent="." unique_id=202570633 node_paths=PackedStringArray("simple_enemy_spawn_timer", "simple_enemy_area_to_spawn")]
+script = ExtResource("4_hbgnp")
+simple_enemy_scene = ExtResource("3_3gtre")
+simple_enemy_spawn_timer = NodePath("Timer")
+simple_enemy_spawn_min_value = 3.0
+simple_enemy_spawn_max_value = 10.0
+simple_enemy_area_to_spawn = NodePath("../BackgroundSprite/SpawnArea/CollisionShape2D")
+
+[node name="Timer" type="Timer" parent="EnemyManager" unique_id=93466128]
+autostart = true
+
+[connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="spawn_simple_enemy"]

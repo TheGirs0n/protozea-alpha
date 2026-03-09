@@ -51,4 +51,8 @@ shape = SubResource("CircleShape2D_l33h3")
 [node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 instance=ExtResource("9_5nnqe")]
 texture = ExtResource("10_3ccwg")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=993236650]
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+
 [connection signal="body_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_body_entered"]

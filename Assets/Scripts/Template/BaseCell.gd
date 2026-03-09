@@ -15,6 +15,8 @@ var cell_strength_value : int = 0
 var cell_immune_value : int = 0
 var cell_swiftness_value : int = 0
 
+var cell_base_scale : Vector2 = Vector2(0.5, 0.5)
+var cell_base_increase_per_level_scale : Vector2 = Vector2(0.05, 0.05)
 
 func _enter_tree() -> void:
 	set_base_stat()
@@ -24,7 +26,8 @@ func set_base_stat():
 		set_cell_strength(cell_start_stats_resource.cell_base_strength)
 		set_cell_immune(cell_start_stats_resource.cell_base_immune)
 		set_cell_swiftness(cell_start_stats_resource.cell_base_swiftness)
-	
+		set_cell_size_scale()
+
 
 func set_cell_strength(new_value : int):
 	cell_strength_value = new_value
@@ -49,13 +52,7 @@ func set_cell_swiftness(new_value : int):
 	cell_auto_battle_component.cell_gain_per_timer_endurance = 3 - (0.3 - (cell_swiftness_value - 1))
 
 
-func get_cell_strength() -> int:
-	return cell_strength_value
-	
-
-func get_cell_immune() -> int:
-	return cell_immune_value
-	
-	
-func get_cell_swiftness() -> int:
-	return cell_swiftness_value
+func set_cell_size_scale():
+	var new_size_modifier = cell_strength_value - 1 + cell_immune_value - 1 + cell_swiftness_value - 1
+	var new_size_out_base = cell_base_scale + cell_base_increase_per_level_scale * new_size_modifier
+	self.scale = new_size_out_base

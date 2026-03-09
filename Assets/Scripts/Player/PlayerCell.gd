@@ -8,20 +8,21 @@ class_name PlayerCell
 func player_cell_add_one_strength():
 	set_cell_strength(++cell_strength_value)
 	GlobalContext.main_ui_instance.update_player_stats(cell_strength_value, cell_immune_value, cell_swiftness_value)
-
+	set_cell_size_scale()
 
 func player_cell_add_one_immune():
 	set_cell_immune(++cell_immune_value)
 	GlobalContext.main_ui_instance.update_player_stats(cell_strength_value, cell_immune_value, cell_swiftness_value)
-
+	set_cell_size_scale()
 
 func player_cell_add_one_swiftness():
 	set_cell_swiftness(++cell_swiftness_value)
 	GlobalContext.main_ui_instance.update_player_stats(cell_strength_value, cell_immune_value, cell_swiftness_value)
-
+	set_cell_size_scale()
 
 func _ready() -> void:
 	GlobalContext.player_instance = self
+	
 	if GlobalContext.main_ui_instance != null:
 		GlobalContext.main_ui_instance.update_player_stats(cell_strength_value, cell_immune_value, cell_swiftness_value)
 	

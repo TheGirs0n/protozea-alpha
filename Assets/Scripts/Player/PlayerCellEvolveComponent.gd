@@ -16,7 +16,7 @@ var player_instance : PlayerCell
 var can_player_evolve_in_current : bool = false
 var can_player_evolve_in_total : bool = true
 
-signal player_click_evolve
+signal player_click_evolve(player_strenght : int, player_immune : int, player_swiftness : int)
 
 func _ready() -> void:
 	cell_current_evolve_index = cell_base_evolve_index
@@ -29,7 +29,9 @@ func _input(event: InputEvent) -> void:
 		return
 		
 	if event.is_action_pressed("try_evolve"):
-		player_click_evolve.emit()
+		player_click_evolve.emit(player_instance.cell_strength_value, 
+		player_instance.cell_immune_value,
+		player_instance.cell_swiftness_value)
 
 
 func player_evolve():

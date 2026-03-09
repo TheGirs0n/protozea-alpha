@@ -3,7 +3,6 @@ class_name PlayerMovementComponent
 
 func _process(_delta: float) -> void:
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	move_cell()
 	
 	
 func move_cell():

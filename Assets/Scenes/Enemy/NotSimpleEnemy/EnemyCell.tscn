@@ -27,3 +27,5 @@ shape = SubResource("CircleShape2D_kcrxv")
 [node name="EnemyCellAutoBattleComponent" parent="." unique_id=1463796902 instance=ExtResource("2_fh4fs")]
 
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("6_kcrxv")]
+
+[connection signal="enemy_cell_eated" from="EnemyCellHealthComponent" to="." method="enemy_cell_die"]

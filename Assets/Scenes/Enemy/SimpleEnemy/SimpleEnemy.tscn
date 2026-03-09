@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ccugf1s3sw47i" path="res://Assets/Scripts/Enemy/SimpleEnemy/SimpleEnemy.gd" id="1_te1aw"]
 [ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAnimatedComponent.tscn" id="2_vtfkj"]
-[ext_resource type="PackedScene" uid="uid://bonh6iwbntuhp" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellMovementComponent.tscn" id="3_w2fmb"]
+[ext_resource type="PackedScene" uid="uid://cdlkm62bweph7" path="res://Assets/Scenes/Enemy/SimpleEnemy/SimpleEnemyCellMovementComponent.tscn" id="3_vtfkj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvs24"]
 
-[node name="SimpleEnemy" type="Area2D" unique_id=255581194]
-input_pickable = false
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtfkj"]
+radius = 15.0
+
+[node name="SimpleEnemy" type="CharacterBody2D" unique_id=2011984693]
 script = ExtResource("1_te1aw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=420358938]
@@ -15,6 +17,13 @@ shape = SubResource("CircleShape2D_dvs24")
 
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("2_vtfkj")]
 
-[node name="EnemyCellMovementComponent" parent="." unique_id=1843292205 instance=ExtResource("3_w2fmb")]
+[node name="SimpleEnemyCellMovementComponent" parent="." unique_id=175291346 instance=ExtResource("3_vtfkj")]
+cell_base_speed = 25.0
+cell_current_speed = 125.0
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Area2D" type="Area2D" parent="." unique_id=938557058]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1737870200]
+shape = SubResource("CircleShape2D_vtfkj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
