@@ -7,6 +7,6 @@
 [node name="MainScene" type="Node" unique_id=930684345]
 script = ExtResource("1_scsgb")
 
-[node name="MainLevel" parent="." unique_id=1839840135 instance=ExtResource("2_0ilqw")]
-
 [node name="MainUi" parent="." unique_id=1882197517 instance=ExtResource("2_scsgb")]
+
+[node name="MainLevel" parent="." unique_id=1839840135 instance=ExtResource("2_0ilqw")]

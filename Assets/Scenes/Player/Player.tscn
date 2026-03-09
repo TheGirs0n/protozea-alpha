@@ -55,4 +55,5 @@ texture = ExtResource("10_3ccwg")
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
+[connection signal="player_money_changed" from="PlayerEconomyComponent" to="PlayerEvolveComponent" method="can_player_evolve_current"]
 [connection signal="body_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_body_entered"]

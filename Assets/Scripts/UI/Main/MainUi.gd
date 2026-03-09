@@ -19,17 +19,20 @@ class_name MainUI
 @export var win_game_screen : PackedScene
 
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	GlobalContext.main_ui_instance = self
+
+func _ready() -> void:
 	GlobalContext.player_instance.player_evolve_component.player_click_evolve.connect(create_evolve_cards)
 
 
-func create_evolve_cards(player_strength : int, player_immune : int, player_swiftness : int):
+func create_evolve_cards():
 	var cards = evolve_cards_scene.instantiate() as PlayerEvolveCardsUI
 	
-	cards.prepare_cards(player_strength,
-	player_immune, 
-	player_swiftness)
+	cards.prepare_cards(
+		GlobalContext.player_instance.cell_strength_value,
+	GlobalContext.player_instance.cell_immune_value, 
+	GlobalContext.player_instance.cell_swiftness_value)
 	
 	self.add_child(cards)
 
@@ -45,10 +48,14 @@ func show_auto_battle_ui():
 
 
 func show_lose_game_screen():
+	var scene = lose_game_screen.instantiate()
+	get_tree().root.add_child(scene)
 	queue_free()
 
 
 func show_win_game_screen():
+	var scene = win_game_screen.instantiate()
+	get_tree().root.add_child(scene)
 	queue_free()
 
 

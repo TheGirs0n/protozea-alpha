@@ -9,6 +9,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcrxv"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xte72"]
+radius = 20.0
+
 [node name="EnemyCell" type="CharacterBody2D" unique_id=697730910 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
 script = ExtResource("1_0tgue")
 cell_health_component = NodePath("EnemyCellHealthComponent")
@@ -28,4 +31,11 @@ shape = SubResource("CircleShape2D_kcrxv")
 
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("6_kcrxv")]
 
+[node name="PlayerAreaContact" type="Area2D" parent="." unique_id=1885006666]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaContact" unique_id=1895422165]
+shape = SubResource("CircleShape2D_xte72")
+
 [connection signal="enemy_cell_eated" from="EnemyCellHealthComponent" to="." method="enemy_cell_die"]
+[connection signal="body_entered" from="PlayerAreaContact" to="EnemyCellMovementComponent" method="player_enter_area"]

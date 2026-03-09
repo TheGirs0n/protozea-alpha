@@ -10,13 +10,14 @@ class_name BaseCellHealthComponent
 @export var cell_base_defense : int
 @export var cell_current_defense : int
 
-
 var in_battle : bool = false
+
 
 func _ready() -> void:
 	in_battle = false
 	cell_current_health = cell_max_health
 	cell_current_defense = cell_base_defense
+
 
 func try_take_damage(incoming_amount : float):
 	var damage = incoming_amount - cell_current_defense
@@ -44,8 +45,9 @@ func restore_health(amount : float):
 	
 
 func passive_restore_health():
-	if !in_battle:
+	if !in_battle and cell_passive_health_timer != null:
 		restore_health(cell_passive_health_gain_per_second)
+	
 		
 func die():
 	queue_free()
