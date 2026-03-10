@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c7w4ixigv6f14"]
 
 [ext_resource type="Script" uid="uid://7k7ygktavn84" path="res://Assets/Scripts/UI/AutoBattle/AutoBattleUi.gd" id="1_gc2vn"]
-[ext_resource type="Script" uid="uid://6rug3dsqy6cw" path="res://Assets/Scripts/UI/AutoBattle/AutoBattleHandler.gd" id="2_56xxu"]
 
 [node name="AutoBattleUi" type="Control" unique_id=299851398 node_paths=PackedStringArray("player_damage_text", "player_defense_text", "player_endurance_text", "player_endurance_progress_bar", "player_health_progress_bar", "enemy_damage_text", "enemy_defense_text", "enemy_endurance_text", "enemy_endurance_progress_bar", "enemy_health_progress_bar")]
 layout_mode = 3
@@ -190,6 +189,3 @@ mouse_filter = 2
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AutoBattleHandler" type="Node" parent="." unique_id=1287881578]
-script = ExtResource("2_56xxu")

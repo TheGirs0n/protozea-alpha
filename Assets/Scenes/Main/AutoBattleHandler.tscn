@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpt31whvmqnmh"]
+
+[ext_resource type="Script" uid="uid://6rug3dsqy6cw" path="res://Assets/Scripts/UI/AutoBattle/AutoBattleHandler.gd" id="1_p32fa"]
+
+[node name="AutoBattleHandler" type="Node" unique_id=927895448]
+script = ExtResource("1_p32fa")

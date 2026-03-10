@@ -22,6 +22,7 @@ class_name MainUI
 func _enter_tree() -> void:
 	GlobalContext.main_ui_instance = self
 
+
 func _ready() -> void:
 	GlobalContext.player_instance.player_evolve_component.player_click_evolve.connect(create_evolve_cards)
 
@@ -43,8 +44,12 @@ func update_player_stats(player_strength : int, player_immune : int, player_swif
 	player_stats_ui.set_player_speed_stat(player_swiftness)
 
 
-func show_auto_battle_ui():
-	pass
+func show_auto_battle_ui(player: BaseCell, enemy: BaseCell) -> void:
+	auto_battle_ui.setup_battle_ui(player, enemy)
+
+
+func hide_auto_battle_ui() -> void:
+	auto_battle_ui.hide_battle_ui()
 
 
 func show_lose_game_screen():

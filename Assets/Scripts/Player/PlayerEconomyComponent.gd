@@ -11,10 +11,6 @@ func _ready() -> void:
 	player_current_money = player_base_money
 
 
-func can_buy_passive() -> bool:
-	return true
-
-
 func add_money(amount : int):
 	player_current_money += amount
 	
@@ -26,5 +22,5 @@ func add_money(amount : int):
 			
 func decrease_money(amount : int):
 	player_current_money -= amount
-	player_money_changed.emit(player_current_money)
 	
+	player_money_changed.emit(player_current_money)

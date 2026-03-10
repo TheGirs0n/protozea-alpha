@@ -16,6 +16,7 @@ var can_player_evolve_in_total : bool = true
 
 signal player_click_evolve()
 signal player_evolve_new_max(new_value : int)
+signal player_evolve_money_changed(money_amount : int)
 
 func _ready() -> void:
 	cell_current_evolve_index = cell_base_evolve_index
@@ -34,6 +35,7 @@ func _input(event: InputEvent) -> void:
 
 func player_evolve():
 	if cell_current_evolve_index < cell_evolve_array_cost.size() - 1:
+		player_evolve_money_changed.emit(cell_evolve_array_cost[cell_current_evolve_index])
 		cell_current_evolve_index += 1
 		player_evolve_new_max.emit(cell_evolve_array_cost[cell_current_evolve_index])
 	else:

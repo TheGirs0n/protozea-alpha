@@ -13,6 +13,7 @@ class_name BaseCellAutoBattleComponent
 @export var cell_gain_per_timer_endurance : float
 @export var cell_endurance_timer : Timer
 
+signal endurance_changed(new_value: float)
 
 var is_attack_gain : bool = false
 var target_cell : BaseCell
@@ -35,8 +36,11 @@ func restore_endurance():
 	
 	if cell_current_endurance >= cell_max_endurance:
 		cell_current_endurance = cell_max_endurance
+		endurance_changed.emit(cell_current_endurance)
 		is_attack_gain = true
+		cell_current_endurance = 0
 
+	endurance_changed.emit(cell_current_endurance)
 
 # По сути обьявление битвы
 func set_target(target : BaseCell): 
@@ -48,4 +52,6 @@ func set_target(target : BaseCell):
 func reset_parameters_after_battle():
 	cell_current_endurance = 0
 	cell_endurance_timer.stop()
+	is_attack_gain = false
 	process_mode = Node.PROCESS_MODE_DISABLED
+	endurance_changed.emit(0)
