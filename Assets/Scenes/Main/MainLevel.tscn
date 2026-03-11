@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bd7llf352nayv" path="res://Assets/Scenes/Enemy/SimpleEnemy/SimpleEnemy.tscn" id="3_3gtre"]
 [ext_resource type="Script" uid="uid://ilipqf1eg4o0" path="res://Assets/Scripts/Main/EnemyManager.gd" id="4_hbgnp"]
 [ext_resource type="PackedScene" uid="uid://bpt31whvmqnmh" path="res://Assets/Scenes/Main/AutoBattleHandler.tscn" id="5_yxsyi"]
+[ext_resource type="PackedScene" uid="uid://dj67vt74b4ekl" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCell.tscn" id="6_el6tv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgnp"]
 size = Vector2(1168, 675)
@@ -22,6 +23,7 @@ position = Vector2(506, 295)
 [node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=2055431314]
 
 [node name="SpawnArea" type="Area2D" parent="BackgroundSprite" unique_id=1053472310]
+collision_layer = 0
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundSprite/SpawnArea" unique_id=621316709]
@@ -29,6 +31,7 @@ position = Vector2(574, 327.5)
 shape = SubResource("RectangleShape2D_hbgnp")
 
 [node name="WallsCollision" type="StaticBody2D" parent="." unique_id=1206978217]
+collision_layer = 2
 
 [node name="BoundCollision" type="CollisionPolygon2D" parent="WallsCollision" unique_id=1651446905]
 build_mode = 1
@@ -43,7 +46,9 @@ simple_enemy_spawn_max_value = 10.0
 simple_enemy_area_to_spawn = NodePath("../BackgroundSprite/SpawnArea/CollisionShape2D")
 
 [node name="Timer" type="Timer" parent="EnemyManager" unique_id=93466128]
-autostart = true
+
+[node name="EnemyCell" parent="." unique_id=697730910 instance=ExtResource("6_el6tv")]
+position = Vector2(271, 161)
 
 [node name="AutoBattleHandler" parent="." unique_id=927895448 instance=ExtResource("5_yxsyi")]
 

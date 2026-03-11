@@ -44,11 +44,11 @@ func update_player_stats(player_strength : int, player_immune : int, player_swif
 	player_stats_ui.set_player_speed_stat(player_swiftness)
 
 
-func show_auto_battle_ui(player: BaseCell, enemy: BaseCell) -> void:
+func show_auto_battle_ui(player: BaseCell, enemy: BaseCell):
 	auto_battle_ui.setup_battle_ui(player, enemy)
 
 
-func hide_auto_battle_ui() -> void:
+func hide_auto_battle_ui():
 	auto_battle_ui.hide_battle_ui()
 
 

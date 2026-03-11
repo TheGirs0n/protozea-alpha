@@ -27,6 +27,7 @@ func _ready() -> void:
 	rotate_tween_timer.start()
 	scale_tween_timer.start()
 
+
 func change_rotate_parameters():
 	var new_rotate_value = randf_range(min_sprite_rotate, max_sprite_rotate)
 	
@@ -40,6 +41,7 @@ func change_rotate_parameters():
 	
 	rotate_tween_timer.wait_time = randf_range(min_timer_value, max_timer_value)
 	rotate_tween_timer.start()
+	
 	
 func change_scale_parameters():
 	var new_scale_value_x = randf_range(min_sprite_scale, max_sprite_scale)

@@ -24,14 +24,20 @@ enum MOVEMENT_STATE{
 @export var chase_state_timer : Timer
 
 var current_movement_state : MOVEMENT_STATE
-var target_position : Vector2
 var chased_body : PlayerCell
+
+func _ready() -> void:
+	cell_current_speed = cell_base_speed
+	target_position = body_to_move.global_position
+	
+	random_timer()
+
 
 func move_cell():
 	match current_movement_state:
 		MOVEMENT_STATE.RANDOM:
 			var distance = body_to_move.global_position.distance_to(target_position)
-
+			
 			if distance < 2.0:
 				body_to_move.velocity = Vector2.ZERO
 				body_to_move.move_and_slide()
@@ -48,8 +54,10 @@ func move_cell():
 			body_to_move.velocity = direction * cell_current_speed
 			body_to_move.move_and_slide()
 			
+			
 func _on_chase_timer_timeout():
 	change_state(false)
+
 
 func _on_timer_timeout():
 	var random_x = randf_range(random_movement_x_min_difference, random_movement_x_max_difference)

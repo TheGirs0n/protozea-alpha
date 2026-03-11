@@ -4,9 +4,7 @@
 
 [resource]
 script = ExtResource("1_ek2ni")
-cell_base_health = 1
-cell_base_defense = 1
-cell_base_damage = 1
-cell_base_speed = 150
-cell_base_endurance = 1
+cell_base_strength = 2
+cell_base_immune = 2
+cell_base_swiftness = 2
 metadata/_custom_type_script = "uid://cmq7efeqhvnea"

@@ -18,8 +18,10 @@ signal endurance_changed(new_value: float)
 var is_attack_gain : bool = false
 var target_cell : BaseCell
 
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
+
 
 func _process(_delta: float) -> void:
 	if is_attack_gain:
@@ -27,9 +29,20 @@ func _process(_delta: float) -> void:
 		is_attack_gain = false
 
 
+func set_cell_strength_parameters(cell_strength : int):
+	cell_current_damage = 1 + (cell_strength - 1) * 0.5
+
+
+func set_cell_swiftness_parameters(cell_swiftness : int):
+	cell_max_endurance = 10 # Константа
+	cell_endurance_timer.wait_time = 0.5
+	cell_gain_per_timer_endurance = 3 - (0.3 - (cell_swiftness - 1))
+	
+
 func try_hit_target():
 	target_cell.cell_health_component.try_take_damage(cell_current_damage)
-	
+	print(str(target_cell.cell_health_component.cell_current_health) + "" + target_cell.name)
+
 
 func restore_endurance():
 	cell_current_endurance += cell_gain_per_timer_endurance

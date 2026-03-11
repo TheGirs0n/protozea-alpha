@@ -7,6 +7,7 @@ const player_max_money : int = 999
 
 signal player_money_changed(new_value : int)
 
+
 func _ready() -> void:
 	player_current_money = player_base_money
 

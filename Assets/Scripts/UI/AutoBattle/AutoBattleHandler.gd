@@ -40,7 +40,6 @@ func _on_enemy_died() -> void:
 func _on_player_died() -> void:
 	enemy_cell.cell_auto_battle_component.reset_parameters_after_battle()
 	_end_battle()
-	# GlobalContet.main_ui_instance.show_lose_screen()
 	
 
 func _exit_tree() -> void:

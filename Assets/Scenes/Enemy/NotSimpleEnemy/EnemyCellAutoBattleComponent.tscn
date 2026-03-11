@@ -2,5 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dh7pgw3mf0xbp" path="res://Assets/Scripts/Enemy/NotSimpleEnemy/EnemyCellAutoBattleComponent.gd" id="1_jknfw"]
 
-[node name="EnemyCellAutoBattleComponent" type="Node" unique_id=1463796902]
+[node name="EnemyCellAutoBattleComponent" type="Node" unique_id=1463796902 node_paths=PackedStringArray("cell_endurance_timer")]
 script = ExtResource("1_jknfw")
+cell_endurance_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=1929588253]
+
+[connection signal="timeout" from="Timer" to="." method="restore_endurance"]

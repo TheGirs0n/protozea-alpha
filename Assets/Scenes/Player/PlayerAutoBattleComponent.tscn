@@ -7,3 +7,5 @@ script = ExtResource("1_vflqc")
 cell_endurance_timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="." unique_id=837676536]
+
+[connection signal="timeout" from="Timer" to="." method="restore_endurance"]

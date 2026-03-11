@@ -10,10 +10,7 @@ class_name SimpleEnemyCellMovementComponent
 @export var random_movement_y_min_difference : int = -25
 @export var random_movement_y_max_difference : int = 25
 
-var target_position : Vector2
-
 func _ready() -> void:
-	body_to_move = get_parent()
 	cell_current_speed = cell_base_speed
 	target_position = body_to_move.global_position
 	

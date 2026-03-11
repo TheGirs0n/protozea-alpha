@@ -31,9 +31,10 @@ shape = SubResource("CircleShape2D_d06bf")
 
 [node name="PlayerHealthComponent" parent="." unique_id=1674705355 instance=ExtResource("2_qy8wf")]
 
-[node name="PlayerMovementComponent" parent="." unique_id=1329042061 instance=ExtResource("3_2xki1")]
+[node name="PlayerMovementComponent" parent="." unique_id=1329042061 node_paths=PackedStringArray("body_to_move") instance=ExtResource("3_2xki1")]
 cell_base_speed = 150.0
 cell_current_speed = 150.0
+body_to_move = NodePath("..")
 
 [node name="PlayerAutoBattleComponent" parent="." unique_id=569556963 instance=ExtResource("4_tlg0o")]
 
@@ -55,6 +56,7 @@ texture = ExtResource("10_3ccwg")
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
+[connection signal="cell_stats_changed" from="." to="." method="ping_ui_update_stats"]
 [connection signal="player_money_changed" from="PlayerEconomyComponent" to="PlayerEvolveComponent" method="can_player_evolve_current"]
 [connection signal="player_evolve_money_changed" from="PlayerEvolveComponent" to="PlayerEconomyComponent" method="decrease_money"]
 [connection signal="body_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_body_entered"]

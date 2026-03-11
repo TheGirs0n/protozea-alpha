@@ -18,6 +18,7 @@ class_name AutoBattleUi
 var _player : BaseCell = null
 var _enemy : BaseCell = null
 
+
 func setup_battle_ui(player: BaseCell, enemy: BaseCell) -> void:
 	_player = player
 	_enemy = enemy
@@ -44,6 +45,7 @@ func setup_battle_ui(player: BaseCell, enemy: BaseCell) -> void:
 
 	visible = true
 	
+	
 func hide_battle_ui() -> void:
 	# Отписываемся перед скрытием
 	if _player:
@@ -57,16 +59,21 @@ func hide_battle_ui() -> void:
 	_enemy = null
 	visible = false
 
+
 func _on_player_health_changed(new_value: float) -> void:
 	player_health_progress_bar.value = new_value
+	print("#")
 
 func _on_enemy_health_changed(new_value: float) -> void:
 	enemy_health_progress_bar.value = new_value
+	print("#")
 
 func set_player_endurance_new_value(new_value: float) -> void:
 	player_endurance_progress_bar.value = new_value
 	player_endurance_text.text = str(new_value)
+	print("#")
 
 func set_enemy_endurance_new_value(new_value: float) -> void:
 	enemy_endurance_progress_bar.value = new_value
 	enemy_endurance_text.text = str(new_value)
+	print("#")

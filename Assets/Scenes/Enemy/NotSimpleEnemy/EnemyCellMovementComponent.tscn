@@ -8,6 +8,7 @@ random_move_timer = NodePath("PatrolTimer")
 chase_state_timer = NodePath("ChaseTimer")
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=729155263]
+autostart = true
 
 [node name="ChaseTimer" type="Timer" parent="." unique_id=1987239531]
 
