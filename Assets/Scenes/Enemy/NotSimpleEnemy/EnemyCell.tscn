@@ -40,4 +40,5 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaContact" unique_id=1895422165]
 shape = SubResource("CircleShape2D_xte72")
 
+[connection signal="cell_died" from="EnemyCellHealthComponent" to="." method="enemy_cell_die"]
 [connection signal="body_entered" from="PlayerAreaContact" to="EnemyCellMovementComponent" method="player_enter_area"]

@@ -11,12 +11,10 @@ class_name EnemyManager
 @export var simple_enemy_spawn_max_value : float = 3
 @export var simple_enemy_area_to_spawn : CollisionShape2D
 
-var is_all_enemy_dead : bool = false
-
 func _ready() -> void:
 	for enemy_cell in cells_to_destroy:
 		var enemy_health_component = enemy_cell.cell_health_component as EnemyCellHealthComponent
-		enemy_health_component.enemy_cell_eated.connect(check_win_condition)
+		enemy_health_component.cell_died.connect(check_win_condition)
 	
 	simple_enemy_spawn_timer.wait_time = randf_range(simple_enemy_spawn_min_value, simple_enemy_spawn_max_value)
 
@@ -38,6 +36,7 @@ func spawn_simple_enemy() -> void:
 	)
 	
 	self.add_child(simple_enemy)
+
 
 func get_random_point_in_area() -> Vector2:
 	var shape = simple_enemy_area_to_spawn.shape

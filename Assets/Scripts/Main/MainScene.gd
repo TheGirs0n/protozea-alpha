@@ -8,7 +8,11 @@ func _ready() -> void:
 	
 	
 func pause_game():
-	pass
+	GlobalContext.player_instance.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func continue_game():
+	GlobalContext.player_instance.process_mode = Node.PROCESS_MODE_INHERIT
 
 	
 func _exit_tree() -> void:

@@ -22,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+step = 0.5
 
 [node name="ProgressBarText" type="RichTextLabel" parent="." unique_id=1803491852]
 layout_mode = 1

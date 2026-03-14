@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c6ow1rfe6rduy" path="res://Assets/Scenes/Player/PlayerEvolveComponent.tscn" id="7_l33h3"]
 [ext_resource type="Script" uid="uid://cn672tfy6or7b" path="res://Assets/Scripts/Player/BattleAreaContact.gd" id="8_5yt3c"]
 [ext_resource type="PackedScene" uid="uid://birrawmolq6n7" path="res://Assets/Scenes/Player/PlayerAnimatedSpriteComponent.tscn" id="9_5nnqe"]
-[ext_resource type="Texture2D" uid="uid://borrobucm5ie6" path="res://icon.svg" id="10_3ccwg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d06bf"]
 
@@ -50,7 +49,6 @@ script = ExtResource("8_5yt3c")
 shape = SubResource("CircleShape2D_l33h3")
 
 [node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 instance=ExtResource("9_5nnqe")]
-texture = ExtResource("10_3ccwg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=993236650]
 position_smoothing_enabled = true
@@ -58,5 +56,6 @@ position_smoothing_speed = 20.0
 
 [connection signal="cell_stats_changed" from="." to="." method="ping_ui_update_stats"]
 [connection signal="player_money_changed" from="PlayerEconomyComponent" to="PlayerEvolveComponent" method="can_player_evolve_current"]
+[connection signal="player_click_evolve" from="PlayerEvolveComponent" to="PlayerEvolveComponent" method="player_evolve"]
 [connection signal="player_evolve_money_changed" from="PlayerEvolveComponent" to="PlayerEconomyComponent" method="decrease_money"]
 [connection signal="body_entered" from="BattleAreaContact" to="BattleAreaContact" method="_on_body_entered"]

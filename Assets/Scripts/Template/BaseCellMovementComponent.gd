@@ -19,9 +19,18 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	move_cell()
 
+
 func set_cell_move_speed(cell_swiftness : int):
 	cell_current_speed = cell_swiftness * 100 - 50 * (cell_swiftness - 1)
 
+
+func disable_component():
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func enable_component():
+	self.process_mode = Node.PROCESS_MODE_INHERIT
+	
 
 func move_cell():
 	pass

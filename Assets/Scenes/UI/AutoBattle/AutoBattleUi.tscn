@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7k7ygktavn84" path="res://Assets/Scripts/UI/AutoBattle/AutoBattleUi.gd" id="1_gc2vn"]
 
-[node name="AutoBattleUi" type="Control" unique_id=299851398 node_paths=PackedStringArray("player_damage_text", "player_defense_text", "player_endurance_text", "player_endurance_progress_bar", "player_health_progress_bar", "enemy_damage_text", "enemy_defense_text", "enemy_endurance_text", "enemy_endurance_progress_bar", "enemy_health_progress_bar")]
+[node name="AutoBattleUi" type="Control" unique_id=299851398 node_paths=PackedStringArray("player_damage_text", "player_defense_text", "player_endurance_text", "player_endurance_progress_bar", "player_health_progress_bar", "player_health_progress_bar_text", "player_endurance_progress_bar_text", "enemy_damage_text", "enemy_defense_text", "enemy_endurance_text", "enemy_endurance_progress_bar", "enemy_health_progress_bar", "enemy_health_progress_bar_text", "enemy_endurance_progress_bar_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,11 +16,15 @@ player_defense_text = NodePath("VBoxContainer/PlayerContainer/MarginContainer/HB
 player_endurance_text = NodePath("VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer/RichTextLabel3")
 player_endurance_progress_bar = NodePath("VBoxContainer/PlayerContainer/PlayerEnduranceTextureProgressBar")
 player_health_progress_bar = NodePath("VBoxContainer/PlayerHealthTextureProgressBar")
+player_health_progress_bar_text = NodePath("VBoxContainer/PlayerHealthTextureProgressBar/RichTextLabel")
+player_endurance_progress_bar_text = NodePath("VBoxContainer/PlayerContainer/PlayerEnduranceTextureProgressBar/RichTextLabel")
 enemy_damage_text = NodePath("VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel")
 enemy_defense_text = NodePath("VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel2")
 enemy_endurance_text = NodePath("VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer/RichTextLabel3")
 enemy_endurance_progress_bar = NodePath("VBoxContainer2/EnemyContainer/EnemyEnduranceTextureProgressBar")
 enemy_health_progress_bar = NodePath("VBoxContainer2/EnemyHealthTextureProgressBar")
+enemy_health_progress_bar_text = NodePath("VBoxContainer2/EnemyHealthTextureProgressBar/RichTextLabel")
+enemy_endurance_progress_bar_text = NodePath("VBoxContainer2/EnemyContainer/EnemyEnduranceTextureProgressBar/RichTextLabel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1446856754]
 layout_mode = 1
@@ -35,6 +39,18 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+step = 0.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PlayerHealthTextureProgressBar" unique_id=863531007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2133504155]
 layout_mode = 2
@@ -105,6 +121,18 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+step = 0.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PlayerContainer/PlayerEnduranceTextureProgressBar" unique_id=387256947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=580142322]
 layout_mode = 1
@@ -119,6 +147,18 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+step = 0.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/EnemyHealthTextureProgressBar" unique_id=1610167315]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EnemyContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=1771077169]
 layout_mode = 2
@@ -130,6 +170,18 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+step = 0.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/EnemyContainer/EnemyEnduranceTextureProgressBar" unique_id=801403572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/EnemyContainer" unique_id=1146528773]
 layout_mode = 2

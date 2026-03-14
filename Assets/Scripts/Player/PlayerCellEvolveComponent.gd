@@ -45,4 +45,4 @@ func player_evolve():
 func can_player_evolve_current(new_money : int):
 	if new_money >= cell_evolve_array_cost[cell_current_evolve_index]:
 		can_player_evolve_in_current = true
-		print("CAN EVOLVE")
+		#print("CAN EVOLVE")

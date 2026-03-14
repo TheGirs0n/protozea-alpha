@@ -11,7 +11,11 @@ func _enter_tree() -> void:
 func setup_battle_handler(player: BaseCell, enemy: BaseCell) -> void:
 	player_cell = player
 	enemy_cell = enemy
-
+	
+	# Выключить movement component у героев и ... все?
+	player.cell_movement_component.disable_component()
+	enemy.cell_movement_component.disable_component()
+	
 	player.cell_health_component.cell_died.connect(_on_player_died)
 	enemy.cell_health_component.cell_died.connect(_on_enemy_died)
 
@@ -24,8 +28,10 @@ func setup_battle_handler(player: BaseCell, enemy: BaseCell) -> void:
 func _end_battle() -> void:
 	if player_cell and player_cell.cell_health_component.cell_died.is_connected(_on_player_died):
 		player_cell.cell_health_component.cell_died.disconnect(_on_player_died)
+		enemy_cell.cell_movement_component.enable_component()
 	if enemy_cell and enemy_cell.cell_health_component.cell_died.is_connected(_on_enemy_died):
 		enemy_cell.cell_health_component.cell_died.disconnect(_on_enemy_died)
+		player_cell.cell_movement_component.enable_component()
 
 	GlobalContext.main_ui_instance.hide_auto_battle_ui()
 	player_cell = null
