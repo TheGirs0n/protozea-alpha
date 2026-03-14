@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b1sqidndjbxc3"]
+
+[ext_resource type="Script" uid="uid://cqid4mvoc3uc0" path="res://Assets/Scenes/UI/Menus/MainMenu.gd" id="1_m0ihx"]
+
+[node name="MainMenu" type="Control" unique_id=1499798231]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0ihx")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=662132745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StartGameButton" type="Button" parent="." unique_id=523181175]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.4
+anchor_right = 0.7
+anchor_bottom = 0.6
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="VBoxContainer" type="MarginContainer" parent="." unique_id=1943398474]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 0.35
+anchor_bottom = 0.95
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=64734839]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=1691900346]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer" unique_id=887549613]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MasterProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer/HBoxContainer" unique_id=2114011102]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=602500247]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=282521238]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MusicProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1239360309]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=1198872106]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1310780737]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SFXProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1839892637]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 1.0
+show_percentage = false
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer/HBoxContainer/MasterProgressBar" to="." method="_on_master_progress_bar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer/HBoxContainer3/MusicProgressBar" to="." method="_on_music_progress_bar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer/HBoxContainer2/SFXProgressBar" to="." method="_on_sfx_progress_bar_value_changed"]

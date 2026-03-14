@@ -1,3 +1,0 @@
-@abstract
-extends TextureRect
-class_name PlayerEvolveCardUi

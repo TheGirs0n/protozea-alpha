@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ilipqf1eg4o0" path="res://Assets/Scripts/Main/EnemyManager.gd" id="4_hbgnp"]
 [ext_resource type="PackedScene" uid="uid://bpt31whvmqnmh" path="res://Assets/Scenes/Main/AutoBattleHandler.tscn" id="5_yxsyi"]
 [ext_resource type="PackedScene" uid="uid://dj67vt74b4ekl" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCell.tscn" id="6_el6tv"]
+[ext_resource type="Material" uid="uid://c5rn4m5p1qgbl" path="res://Assets/Resources/Particles/MainSceneParticles.tres" id="7_xutpi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgnp"]
 size = Vector2(1168, 675)
@@ -15,12 +16,15 @@ process_mode = 1
 script = ExtResource("1_abbfq")
 
 [node name="Player" parent="." unique_id=1365793493 instance=ExtResource("2_qr88s")]
+visible = false
 position = Vector2(234, 305)
 
 [node name="SimpleEnemy" parent="." unique_id=255581194 instance=ExtResource("3_3gtre")]
+visible = false
 position = Vector2(506, 295)
 
 [node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=2055431314]
+visible = false
 
 [node name="SpawnArea" type="Area2D" parent="BackgroundSprite" unique_id=1053472310]
 collision_layer = 0
@@ -31,6 +35,7 @@ position = Vector2(574, 327.5)
 shape = SubResource("RectangleShape2D_hbgnp")
 
 [node name="WallsCollision" type="StaticBody2D" parent="." unique_id=1206978217]
+visible = false
 collision_layer = 2
 
 [node name="BoundCollision" type="CollisionPolygon2D" parent="WallsCollision" unique_id=1651446905]
@@ -38,6 +43,7 @@ build_mode = 1
 polygon = PackedVector2Array(0, 0, 1155, 6, 1151, 654, 4, 647)
 
 [node name="EnemyCell" parent="." unique_id=697730910 instance=ExtResource("6_el6tv")]
+visible = false
 position = Vector2(271, 161)
 
 [node name="EnemyManager" type="Node" parent="." unique_id=202570633 node_paths=PackedStringArray("simple_enemy_spawn_timer", "simple_enemy_area_to_spawn")]
@@ -51,5 +57,12 @@ simple_enemy_area_to_spawn = NodePath("../BackgroundSprite/SpawnArea/CollisionSh
 [node name="Timer" type="Timer" parent="EnemyManager" unique_id=93466128]
 
 [node name="AutoBattleHandler" parent="." unique_id=927895448 instance=ExtResource("5_yxsyi")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
+position = Vector2(576, 321)
+amount = 32
+lifetime = 15.0
+preprocess = 3.0
+process_material = ExtResource("7_xutpi")
 
 [connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="spawn_simple_enemy"]
