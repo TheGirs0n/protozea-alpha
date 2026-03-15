@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bddxsqg2wogo0"]
+
+[ext_resource type="Script" uid="uid://bubrc1fehooig" path="res://Assets/Scripts/UI/Menus/TutorialMenu.gd" id="1_egq8s"]
+
+[node name="TutorialMenu" type="CanvasLayer" unique_id=1863216287]
+script = ExtResource("1_egq8s")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2060941190]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.8
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect" unique_id=963280673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/HBoxContainer" unique_id=1157334784]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer/VBoxContainer" unique_id=885466868]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/HBoxContainer/VBoxContainer" unique_id=1761105390]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "TUTORIAL_SCENE_TEXT_1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/HBoxContainer" unique_id=893814178]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer/VBoxContainer2" unique_id=1085113421]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/HBoxContainer/VBoxContainer2" unique_id=623617092]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "TUTORIAL_SCENE_TEXT_2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="TextureRect/HBoxContainer" unique_id=1607692595]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer/VBoxContainer3" unique_id=1884969199]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/HBoxContainer/VBoxContainer3" unique_id=1478055802]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "TUTORIAL_SCENE_TEXT_3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1192508702]
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.85
+anchor_right = 0.6
+anchor_bottom = 0.95
+action_mode = 0
+text = "TUTORIAL_SCENE_BUTTON_TEXT"
+
+[connection signal="pressed" from="Button" to="." method="on_start_game_button"]

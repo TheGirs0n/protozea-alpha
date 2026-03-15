@@ -19,9 +19,12 @@ player_speed_evolve_card = NodePath("PlayerEvolveSpeedCard")
 
 [node name="PlayerEvolveDamageCard" parent="." unique_id=957820156 instance=ExtResource("2_klln7")]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="PlayerEvolveDefenseCard" parent="." unique_id=854580065 instance=ExtResource("3_0ysgm")]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="PlayerEvolveSpeedCard" parent="." unique_id=48676999 instance=ExtResource("4_mohwl")]
 layout_mode = 2
+size_flags_horizontal = 3

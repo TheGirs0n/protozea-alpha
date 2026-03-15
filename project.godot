@@ -63,6 +63,10 @@ try_evolve={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/Translation/TEST_TRANSLATION.en.translation", "res://Assets/Translation/TEST_TRANSLATION.ru.translation")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

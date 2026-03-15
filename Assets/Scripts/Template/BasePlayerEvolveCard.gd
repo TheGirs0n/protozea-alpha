@@ -8,8 +8,16 @@ enum PLAYER_STAT{
 	SWIFTNESS
 }
 
+@export_group("Card Stat")
 @export var player_evolve_stat : PLAYER_STAT
+@export_group("Cards Name")
+@export var card_name_array : Array[String]
+@export var card_name_text : RichTextLabel
+
 var simple_tween : Tween
+
+func _ready() -> void:
+	card_name_text.text = card_name_array.pick_random()
 
 
 func player_pick_card(event: InputEvent):

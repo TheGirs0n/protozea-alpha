@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jvsf64tntrip" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveSpeedCard.gd" id="1_7kep4"]
 
-[node name="PlayerEvolveSpeedCard" type="TextureRect" unique_id=48676999]
+[node name="PlayerEvolveSpeedCard" type="TextureRect" unique_id=48676999 node_paths=PackedStringArray("card_name_text")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,6 +12,8 @@ expand_mode = 3
 stretch_mode = 5
 script = ExtResource("1_7kep4")
 player_evolve_stat = 2
+card_name_array = Array[String](["PLAYER_EVOLVE_SWIFTNESS_TEXT_1", "PLAYER_EVOLVE_SWIFTNESS_TEXT_2", "PLAYER_EVOLVE_SWIFTNESS_TEXT_3", "PLAYER_EVOLVE_SWIFTNESS_TEXT_4", "PLAYER_EVOLVE_SWIFTNESS_TEXT_5"])
+card_name_text = NodePath("MarginContainer/TextureRect/VBoxContainer/CardName")
 metadata/_custom_type_script = "uid://b20l614van3va"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=871705556]
@@ -31,7 +33,7 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TextureRect" unique_id=1188804012]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TextureRect" unique_id=1507690131]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,27 +42,36 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=65045666]
+[node name="CardName" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=717378508]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=1514276384]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=1129869923]
+[node name="PlusIcon" type="TextureRect" parent="MarginContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=1016601285]
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 3
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=1222053922]
+[node name="StatIcon" type="TextureRect" parent="MarginContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=1054169804]
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=64606321]
+[node name="CardDescription" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=1093101237]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
+text = "PLAYER_EVOLVE_SWIFTNESS_DESCRIPTION
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 

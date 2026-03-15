@@ -7,6 +7,7 @@ class_name EnemyManager
 @export_group("Simple Enemy Spawner")
 @export var simple_enemy_scene : PackedScene
 @export var simple_enemy_spawn_timer : Timer
+@export var simple_enemy_spawn_initial_count : int = 10
 @export var simple_enemy_spawn_min_value : float = 1.5
 @export var simple_enemy_spawn_max_value : float = 3
 @export var simple_enemy_area_to_spawn : CollisionShape2D
@@ -16,6 +17,9 @@ func _ready() -> void:
 		var enemy_health_component = enemy_cell.cell_health_component as EnemyCellHealthComponent
 		enemy_health_component.cell_died.connect(check_win_condition)
 	
+	for i in range(simple_enemy_spawn_initial_count):
+		spawn_simple_enemy()
+		
 	simple_enemy_spawn_timer.wait_time = randf_range(simple_enemy_spawn_min_value, simple_enemy_spawn_max_value)
 
 
