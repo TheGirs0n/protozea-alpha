@@ -14,3 +14,7 @@ func prepare_cards(player_strength : int, player_immune : int, player_swiftness 
 		
 	if player_swiftness > 5:
 		player_speed_evolve_card.hide()
+
+
+func prepare_final_card():
+	pass
