@@ -27,8 +27,8 @@ func set_cell_health_parameters(cell_immune : int):
 	cell_current_defense = cell_immune * 5
 	cell_max_health = 5 + 2 * (cell_immune - 1)
 	cell_current_health = cell_max_health
-	health_changed.emit(cell_current_health)
 	new_maximum_health.emit(cell_current_health)
+	health_changed.emit(cell_current_health)
 	
 
 func try_take_damage(incoming_amount: float) -> void:

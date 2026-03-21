@@ -20,8 +20,12 @@ func add_money(amount : int):
 	
 	player_money_changed.emit(player_current_money)
 	
-			
+
 func decrease_money(amount : int):
 	player_current_money -= amount
 	
+	player_money_changed.emit(player_current_money)
+
+
+func signal_emmiter():
 	player_money_changed.emit(player_current_money)

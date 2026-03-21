@@ -70,11 +70,11 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "PLAYER_EVOLVE_SWIFTNESS_DESCRIPTION
-"
+text = "PLAYER_EVOLVE_SWIFTNESS_DESCRIPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="gui_input" from="." to="." method="player_pick_card_input"]
 [connection signal="mouse_entered" from="." to="." method="on_card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="on_card_mouse_exited"]
 [connection signal="gui_input" from="MarginContainer/TextureRect" to="." method="player_pick_card"]

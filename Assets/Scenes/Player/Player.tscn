@@ -16,6 +16,7 @@
 radius = 13.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
+collision_mask = 14
 script = ExtResource("1_0ljjw")
 player_economy_component = NodePath("PlayerEconomyComponent")
 player_evolve_component = NodePath("PlayerEvolveComponent")
@@ -42,6 +43,8 @@ body_to_move = NodePath("..")
 [node name="PlayerEvolveComponent" parent="." unique_id=740213474 instance=ExtResource("7_l33h3")]
 
 [node name="BattleAreaContact" type="Area2D" parent="." unique_id=1645639352]
+collision_layer = 0
+collision_mask = 4
 input_pickable = false
 script = ExtResource("8_5yt3c")
 

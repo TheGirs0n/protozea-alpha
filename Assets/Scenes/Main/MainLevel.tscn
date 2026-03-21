@@ -16,18 +16,16 @@ process_mode = 1
 script = ExtResource("1_abbfq")
 
 [node name="Player" parent="." unique_id=1365793493 instance=ExtResource("2_qr88s")]
-visible = false
 position = Vector2(234, 305)
 
 [node name="SimpleEnemy" parent="." unique_id=255581194 instance=ExtResource("3_3gtre")]
-visible = false
 position = Vector2(506, 295)
 
 [node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=2055431314]
-visible = false
 
 [node name="SpawnArea" type="Area2D" parent="BackgroundSprite" unique_id=1053472310]
 collision_layer = 0
+collision_mask = 0
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundSprite/SpawnArea" unique_id=621316709]
@@ -35,15 +33,14 @@ position = Vector2(574, 327.5)
 shape = SubResource("RectangleShape2D_hbgnp")
 
 [node name="WallsCollision" type="StaticBody2D" parent="." unique_id=1206978217]
-visible = false
-collision_layer = 2
+collision_layer = 8
+collision_mask = 7
 
 [node name="BoundCollision" type="CollisionPolygon2D" parent="WallsCollision" unique_id=1651446905]
 build_mode = 1
 polygon = PackedVector2Array(0, 0, 1155, 6, 1151, 654, 4, 647)
 
 [node name="EnemyCell" parent="." unique_id=697730910 instance=ExtResource("6_el6tv")]
-visible = false
 position = Vector2(271, 161)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
@@ -59,8 +56,7 @@ process_material = ExtResource("7_xutpi")
 script = ExtResource("4_hbgnp")
 simple_enemy_scene = ExtResource("3_3gtre")
 simple_enemy_spawn_timer = NodePath("Timer")
-simple_enemy_spawn_min_value = 3.0
-simple_enemy_spawn_max_value = 10.0
+simple_enemy_spawn_max_value = 5.0
 simple_enemy_area_to_spawn = NodePath("../BackgroundSprite/SpawnArea/CollisionShape2D")
 
 [node name="Timer" type="Timer" parent="EnemyManager" unique_id=93466128]

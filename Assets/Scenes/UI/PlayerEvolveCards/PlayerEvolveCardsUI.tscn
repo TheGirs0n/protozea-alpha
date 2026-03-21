@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d03a1lbdkvf5b" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveDamageCard.tscn" id="2_klln7"]
 [ext_resource type="PackedScene" uid="uid://b20gnecxtv6td" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveDefenseCard.tscn" id="3_0ysgm"]
 [ext_resource type="PackedScene" uid="uid://xw1hflpkc36s" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveSpeedCard.tscn" id="4_mohwl"]
+[ext_resource type="PackedScene" uid="uid://drh2heo27cjg4" path="res://Assets/Scenes/UI/PlayerEvolveCards/PlayerEvolveFinalCard.tscn" id="5_0ysgm"]
 
-[node name="PlayerEvolveCardsUi" type="HBoxContainer" unique_id=1531975464 node_paths=PackedStringArray("player_damage_evolve_card", "player_defense_evolve_card", "player_speed_evolve_card")]
+[node name="PlayerEvolveCardsUi" type="HBoxContainer" unique_id=1531975464 node_paths=PackedStringArray("player_damage_evolve_card", "player_defense_evolve_card", "player_speed_evolve_card", "player_final_evolve_card")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,15 +17,28 @@ script = ExtResource("1_igtds")
 player_damage_evolve_card = NodePath("PlayerEvolveDamageCard")
 player_defense_evolve_card = NodePath("PlayerEvolveDefenseCard")
 player_speed_evolve_card = NodePath("PlayerEvolveSpeedCard")
+player_final_evolve_card = NodePath("PlayerEvolveFinalCard")
 
 [node name="PlayerEvolveDamageCard" parent="." unique_id=957820156 instance=ExtResource("2_klln7")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PlayerEvolveDefenseCard" parent="." unique_id=854580065 instance=ExtResource("3_0ysgm")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PlayerEvolveSpeedCard" parent="." unique_id=48676999 instance=ExtResource("4_mohwl")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="PlayerEvolveFinalCard" parent="." unique_id=1256859396 instance=ExtResource("5_0ysgm")]
+visible = false
+layout_mode = 2
+
+[connection signal="player_pick_card" from="PlayerEvolveDamageCard" to="." method="player_pick_one_card"]
+[connection signal="player_pick_card" from="PlayerEvolveDefenseCard" to="." method="player_pick_one_card"]
+[connection signal="player_pick_card" from="PlayerEvolveSpeedCard" to="." method="player_pick_one_card"]
+[connection signal="player_pick_card" from="PlayerEvolveFinalCard" to="." method="player_pick_one_card"]

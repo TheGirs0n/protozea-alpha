@@ -5,7 +5,8 @@ class_name BasePlayerEvolveCardUI
 enum PLAYER_STAT{
 	STRENGTH,
 	IMMUNE,
-	SWIFTNESS
+	SWIFTNESS,
+	ALL
 }
 
 @export_group("Card Stat")
@@ -16,11 +17,14 @@ enum PLAYER_STAT{
 
 var simple_tween : Tween
 
+signal player_pick_card
+
 func _ready() -> void:
 	card_name_text.text = card_name_array.pick_random()
+	self.pivot_offset_ratio = Vector2(0.5, 0.5)
 
 
-func player_pick_card(event: InputEvent):
+func player_pick_card_input(event: InputEvent):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			pick_card()
@@ -47,4 +51,4 @@ func on_card_mouse_exited():
 
 
 func pick_card():
-	pass
+	player_pick_card.emit()

@@ -9,20 +9,17 @@ func _enter_tree() -> void:
 	
 	
 func player_cell_add_one_strength():
-	set_cell_strength(++cell_strength_value)
-	player_evolve_component.player_evolve()
+	set_cell_strength(cell_strength_value + 1)
 	set_cell_size_scale()
 	
 
 func player_cell_add_one_immune():
-	set_cell_immune(++cell_immune_value)
-	player_evolve_component.player_evolve()
+	set_cell_immune(cell_immune_value + 1)
 	set_cell_size_scale()
 	
 
 func player_cell_add_one_swiftness():
-	set_cell_swiftness(++cell_swiftness_value)
-	player_evolve_component.player_evolve()
+	set_cell_swiftness(cell_swiftness_value + 1)
 	set_cell_size_scale()
 	
 

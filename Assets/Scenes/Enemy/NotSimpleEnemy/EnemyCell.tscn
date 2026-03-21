@@ -13,6 +13,8 @@
 radius = 20.0
 
 [node name="EnemyCell" type="CharacterBody2D" unique_id=697730910 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_0tgue")
 cell_health_component = NodePath("EnemyCellHealthComponent")
 cell_movement_component = NodePath("EnemyCellMovementComponent")

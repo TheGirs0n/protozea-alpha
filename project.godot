@@ -67,6 +67,13 @@ try_evolve={
 
 locale/translations=PackedStringArray("res://Assets/Translation/TEST_TRANSLATION.en.translation", "res://Assets/Translation/TEST_TRANSLATION.ru.translation")
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="SimpleEnemy"
+2d_physics/layer_3="NotSimpleEnemy"
+2d_physics/layer_4="Walls"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

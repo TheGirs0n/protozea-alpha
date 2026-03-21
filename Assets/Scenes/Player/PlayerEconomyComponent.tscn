@@ -4,3 +4,9 @@
 
 [node name="PlayerEconomyComponent" type="Node" unique_id=992692729]
 script = ExtResource("1_ph64l")
+
+[node name="Timer" type="Timer" parent="." unique_id=903254093]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="signal_emmiter"]

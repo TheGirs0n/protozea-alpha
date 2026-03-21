@@ -37,7 +37,6 @@ func set_base_stat():
 func set_cell_strength(new_value : int):
 	cell_strength_value = new_value
 	
-	#cell_auto_battle_component.cell_current_damage = 1 + (cell_strength_value - 1) * 0.5
 	cell_auto_battle_component.set_cell_strength_parameters(cell_strength_value)
 	cell_stats_changed.emit()
 	
@@ -45,9 +44,6 @@ func set_cell_strength(new_value : int):
 func set_cell_immune(new_value : int):
 	cell_immune_value = new_value
 	
-	#cell_health_component.cell_current_defense = cell_immune_value * 5
-	#cell_health_component.cell_max_health = 5 + 2 * (cell_immune_value - 1)
-	#cell_health_component.cell_current_health = cell_health_component.cell_max_health
 	cell_health_component.set_cell_health_parameters(cell_immune_value)
 	cell_stats_changed.emit()
 	
@@ -55,11 +51,7 @@ func set_cell_immune(new_value : int):
 func set_cell_swiftness(new_value : int):
 	cell_swiftness_value = new_value
 	
-	#cell_movement_component.cell_current_speed = cell_swiftness_value * 100 - 50 * (cell_swiftness_value - 1)
 	cell_movement_component.set_cell_move_speed(cell_swiftness_value)
-	#cell_auto_battle_component.cell_max_endurance = 10 # Константа
-	#cell_auto_battle_component.cell_endurance_timer.wait_time = 0.5
-	#cell_auto_battle_component.cell_gain_per_timer_endurance = 3 - (0.3 - (cell_swiftness_value - 1))
 	cell_auto_battle_component.set_cell_swiftness_parameters(cell_swiftness_value)
 	cell_stats_changed.emit()
 

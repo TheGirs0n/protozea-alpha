@@ -23,17 +23,46 @@ enum MOVEMENT_STATE{
 @export var chase_state_timer_value : float = 5
 @export var chase_state_timer : Timer
 
+@export_group("Movement Feel")
+@export var acceleration : float = 200.0
+@export var friction : float = 250.0
+
 var current_movement_state : MOVEMENT_STATE
 var chased_body : PlayerCell
+var current_speed : float = 0.0
 
 func _ready() -> void:
 	cell_current_speed = cell_base_speed
 	target_position = body_to_move.global_position
 	
-	random_timer()
-
+	_on_timer_timeout()
 
 func move_cell():
+	var delta = get_physics_process_delta_time()
+	match current_movement_state:
+		MOVEMENT_STATE.RANDOM:
+			var distance = body_to_move.global_position.distance_to(target_position)
+			if distance < 2.0:
+				current_speed = move_toward(current_speed, 0, friction * delta)
+				body_to_move.velocity = Vector2.ZERO
+				body_to_move.move_and_slide()
+				#_on_timer_timeout()  # ← сразу новая точка
+				return
+			
+			direction = body_to_move.global_position.direction_to(target_position)
+			current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
+			body_to_move.velocity = direction * current_speed
+			body_to_move.move_and_slide()
+
+		MOVEMENT_STATE.CHASE:
+			if chased_body == null:
+				change_state(false)
+				return
+			direction = body_to_move.global_position.direction_to(chased_body.global_position)
+			current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
+			body_to_move.velocity = direction * current_speed
+			body_to_move.move_and_slide()
+	
 	match current_movement_state:
 		MOVEMENT_STATE.RANDOM:
 			var distance = body_to_move.global_position.distance_to(target_position)
@@ -50,6 +79,7 @@ func move_cell():
 			if chased_body == null:
 				change_state(false)
 				return
+				
 			direction = body_to_move.global_position.direction_to(chased_body.global_position)
 			body_to_move.velocity = direction * cell_current_speed
 			body_to_move.move_and_slide()

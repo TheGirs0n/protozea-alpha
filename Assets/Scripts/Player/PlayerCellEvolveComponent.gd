@@ -33,6 +33,7 @@ func player_evolve():
 		player_evolve_money_changed.emit(cell_evolve_array_cost[cell_current_evolve_index])
 		cell_current_evolve_index += 1
 		player_evolve_new_max.emit(cell_evolve_array_cost[cell_current_evolve_index])
+		can_player_evolve_in_current = false
 	else:
 		is_final_evolve = true
 		can_player_evolve_in_total = false
@@ -41,4 +42,3 @@ func player_evolve():
 func can_player_evolve_current(new_money : int):
 	if new_money >= cell_evolve_array_cost[cell_current_evolve_index]:
 		can_player_evolve_in_current = true
-		#print("CAN EVOLVE")
