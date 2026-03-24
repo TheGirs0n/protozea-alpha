@@ -16,6 +16,7 @@ signal player_click_evolve()
 signal player_evolve_new_max(new_value : int)
 signal player_evolve_money_changed(money_amount : int)
 
+
 func _ready() -> void:
 	cell_current_evolve_index = cell_base_evolve_index
 	cell_max_evolve_index = cell_evolve_array_cost.size() - 1

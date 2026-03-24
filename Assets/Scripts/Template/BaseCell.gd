@@ -18,6 +18,7 @@ var cell_swiftness_value : int = 0
 var cell_base_scale : Vector2 = Vector2(0.5, 0.5)
 var cell_base_increase_per_level_scale : Vector2 = Vector2(0.05, 0.05)
 
+var size_tween : Tween
 
 signal cell_stats_changed
 
@@ -59,4 +60,11 @@ func set_cell_swiftness(new_value : int):
 func set_cell_size_scale():
 	var new_size_modifier = cell_strength_value - 1 + cell_immune_value - 1 + cell_swiftness_value - 1
 	var new_size_out_base = cell_base_scale + cell_base_increase_per_level_scale * new_size_modifier
-	self.scale = new_size_out_base
+	#self.scale = new_size_out_base
+	if size_tween:
+		size_tween.kill()
+	
+	size_tween = create_tween()
+	size_tween.set_ease(Tween.EASE_OUT)
+	size_tween.set_trans(Tween.TRANS_QUAD)
+	size_tween.tween_property(self, "scale", new_size_out_base, 0.25)
