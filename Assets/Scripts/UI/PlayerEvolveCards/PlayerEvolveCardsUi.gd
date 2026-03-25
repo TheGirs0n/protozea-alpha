@@ -24,5 +24,5 @@ func prepare_final_card():
 
 
 func player_pick_one_card():
-	GlobalContext.main_scene_instance.continue_game()
+	GlobalContext.main_scene_instance.continue_player()
 	queue_free()

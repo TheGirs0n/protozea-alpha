@@ -33,6 +33,8 @@ var current_speed : float = 0.0
 
 func _ready() -> void:
 	cell_current_speed = cell_base_speed
+	acceleration = cell_current_speed
+	friction = cell_current_speed + 10
 	target_position = body_to_move.global_position
 	
 	_on_timer_timeout()

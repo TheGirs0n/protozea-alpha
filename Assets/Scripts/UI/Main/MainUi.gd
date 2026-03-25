@@ -7,6 +7,7 @@ class_name MainUI
 @export var player_health_progress_bar : PlayerHealthProgressBarUi
 @export var player_evolve_progress_bar : PlayerEvolveProgressBarUi
 @export var player_can_evolve_text : RichTextLabel
+@export var pause_ui : PauseMenu
 
 @export_group("Auto Battle UI")
 @export var auto_battle_ui : AutoBattleUi
@@ -75,6 +76,14 @@ func show_win_game_screen():
 	var scene = win_game_screen.instantiate()
 	get_tree().root.add_child(scene)
 	queue_free()
+
+
+func show_pause():
+	pause_ui.show()
+
+
+func hide_pause():
+	pause_ui.hide()
 
 
 func _exit_tree() -> void:

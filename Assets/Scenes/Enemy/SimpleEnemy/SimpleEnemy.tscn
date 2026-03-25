@@ -20,6 +20,14 @@ shape = SubResource("CircleShape2D_dvs24")
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("2_vtfkj")]
 
 [node name="SimpleEnemyCellMovementComponent" parent="." unique_id=175291346 node_paths=PackedStringArray("body_to_move") instance=ExtResource("3_vtfkj")]
+random_movement_timer_min_value = 0.8
+random_movement_timer_max_value = 2.0
+random_movement_x_min_difference = -60
+random_movement_x_max_difference = 60
+random_movement_y_min_difference = -60
+random_movement_y_max_difference = 60
+acceleration = 150.0
+friction = 200.0
 cell_base_speed = 25.0
 cell_current_speed = 125.0
 body_to_move = NodePath("..")

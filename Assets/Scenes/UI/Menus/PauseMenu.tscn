@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqk08ouk4rtat"]
 
 [ext_resource type="Script" uid="uid://1jv7ywgbhjf4" path="res://Assets/Scripts/UI/Menus/PauseMenu.gd" id="1_ev6ws"]
+[ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="2_8eqqw"]
 
 [node name="PauseMenu" type="Control" unique_id=747317209]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ev6ws")
+main_menu = ExtResource("2_8eqqw")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1955183084]
 layout_mode = 1

@@ -4,8 +4,15 @@
 
 [node name="EnemyCellMovementComponent" type="Node" unique_id=1843292205 node_paths=PackedStringArray("random_move_timer", "chase_state_timer")]
 script = ExtResource("1_n5ude")
+random_move_timer_max_value = 5.0
 random_move_timer = NodePath("PatrolTimer")
+random_movement_x_min_difference = -35
+random_movement_x_max_difference = 35
+random_movement_y_min_difference = -35
+random_movement_y_max_difference = 35
 chase_state_timer = NodePath("ChaseTimer")
+acceleration = 100.0
+friction = 100.0
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=729155263]
 autostart = true

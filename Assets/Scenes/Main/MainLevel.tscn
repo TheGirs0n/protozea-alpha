@@ -44,6 +44,7 @@ polygon = PackedVector2Array(0, 0, 1155, 6, 1151, 654, 4, 647)
 position = Vector2(271, 161)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
+process_mode = 3
 position = Vector2(576, 321)
 amount = 32
 lifetime = 15.0

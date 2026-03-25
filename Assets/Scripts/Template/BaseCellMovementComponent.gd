@@ -21,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func set_cell_move_speed(cell_swiftness : int):
-	cell_current_speed = cell_swiftness * 100 - 50 * (cell_swiftness - 1)
+	cell_current_speed = cell_swiftness * 60 - 50 * (cell_swiftness - 1)
 
 
 func disable_component():

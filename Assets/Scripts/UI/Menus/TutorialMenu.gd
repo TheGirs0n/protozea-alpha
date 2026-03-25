@@ -1,10 +1,8 @@
 extends CanvasLayer
 class_name TutorialMenu
 
-@export var game_scene : PackedScene
-
 
 func on_start_game_button() -> void:
-	var scene = game_scene.instantiate()
+	var scene = ResourceLoader.load("res://Assets/Scenes/Main/MainScene.tscn").instantiate()
 	get_tree().root.add_child(scene)
 	self.queue_free()

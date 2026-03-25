@@ -46,7 +46,7 @@ func get_random_point_in_area() -> Vector2:
 	var shape = simple_enemy_area_to_spawn.shape
 	
 	if shape is RectangleShape2D:
-		var extents = shape.size / 2
+		var extents = shape.size / 2 - Vector2(50, 50)
 		var local_point = Vector2(
 			randf_range(-extents.x, extents.x),
 			randf_range(-extents.y, extents.y)

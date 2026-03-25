@@ -2,8 +2,8 @@ extends BaseCellMovementComponent
 class_name SimpleEnemyCellMovementComponent
 
 @export_group("Random Movement Parameters")
-@export var random_movement_timer_min_value : float = 0.8  # было 2.5
-@export var random_movement_timer_max_value : float = 2.0  # было 5
+@export var random_movement_timer_min_value : float = 1.3 # было 2.5
+@export var random_movement_timer_max_value : float = 2.4  # было 5
 @export var random_movement_timer : Timer
 @export var random_movement_x_min_difference : int = -60   # было -25
 @export var random_movement_x_max_difference : int = 60    # было 25
@@ -28,7 +28,7 @@ func move_cell():
 		current_speed = move_toward(current_speed, 0, friction * get_physics_process_delta_time())
 		body_to_move.velocity = Vector2.ZERO
 		body_to_move.move_and_slide()
-		_on_timer_timeout()
+		#_on_timer_timeout()
 		return
 	
 	direction = body_to_move.global_position.direction_to(target_position)

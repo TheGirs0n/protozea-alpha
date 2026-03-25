@@ -15,11 +15,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_l33h3"]
 radius = 13.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "player_camera", "cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
 collision_mask = 14
 script = ExtResource("1_0ljjw")
 player_economy_component = NodePath("PlayerEconomyComponent")
 player_evolve_component = NodePath("PlayerEvolveComponent")
+player_camera = NodePath("Camera2D")
 cell_health_component = NodePath("PlayerHealthComponent")
 cell_movement_component = NodePath("PlayerMovementComponent")
 cell_auto_battle_component = NodePath("PlayerAutoBattleComponent")
@@ -54,8 +55,8 @@ shape = SubResource("CircleShape2D_l33h3")
 [node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 instance=ExtResource("9_5nnqe")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=993236650]
-position_smoothing_enabled = true
-position_smoothing_speed = 20.0
+zoom = Vector2(4, 4)
+position_smoothing_speed = 19.045
 
 [connection signal="cell_stats_changed" from="." to="." method="ping_ui_update_stats"]
 [connection signal="player_money_changed" from="PlayerEconomyComponent" to="PlayerEvolveComponent" method="can_player_evolve_current"]
