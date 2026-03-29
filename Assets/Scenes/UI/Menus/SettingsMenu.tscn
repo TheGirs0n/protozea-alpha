@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bmbxlv7dyjwjl"]
+
+[ext_resource type="Script" uid="uid://n7gtc3e6t61d" path="res://Assets/Scripts/UI/Menus/SettingsMenu.gd" id="1_xtnii"]
+
+[node name="VBoxContainer" type="MarginContainer" unique_id=713898436 node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "en_button", "ru_button")]
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 0.35
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_xtnii")
+master_slider = NodePath("VBoxContainer/HBoxContainer/MasterProgressBar")
+music_slider = NodePath("VBoxContainer/HBoxContainer3/MusicProgressBar")
+sfx_slider = NodePath("VBoxContainer/HBoxContainer2/SFXProgressBar")
+en_button = NodePath("VBoxContainer/HBoxContainer4/ENLanguageButton")
+ru_button = NodePath("VBoxContainer/HBoxContainer4/RULanguageButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=962036524]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1845744482]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1965335598]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MasterProgressBar" type="HSlider" parent="VBoxContainer/HBoxContainer" unique_id=613382618]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1423342977]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=315395000]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MusicProgressBar" type="HSlider" parent="VBoxContainer/HBoxContainer3" unique_id=1354202665]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1296313434]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=706194183]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SFXProgressBar" type="HSlider" parent="VBoxContainer/HBoxContainer2" unique_id=1398976092]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=470804641]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RULanguageButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4" unique_id=1230045279]
+layout_mode = 2
+size_flags_horizontal = 3
+action_mode = 0
+stretch_mode = 5
+
+[node name="ENLanguageButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4" unique_id=355281748]
+layout_mode = 2
+size_flags_horizontal = 3
+action_mode = 0
+stretch_mode = 5
+
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/MasterProgressBar" to="." method="_on_master_progress_bar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer3/MusicProgressBar" to="." method="_on_music_progress_bar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/SFXProgressBar" to="." method="_on_sfx_progress_bar_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/RULanguageButton" to="." method="_on_ru_language_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/ENLanguageButton" to="." method="_on_en_language_button_pressed"]
