@@ -8,6 +8,8 @@ class_name PlayerCell
 var camera_scale_per_level : Vector2 = Vector2(0.2, 0.2)
 var camera_tween : Tween
 
+signal player_cell_stats_check_evolve(stat_sum : int)
+
 func _enter_tree() -> void:
 	GlobalContext.player_instance = self
 	
@@ -29,6 +31,8 @@ func player_cell_add_one_swiftness():
 
 func ping_ui_update_stats():
 	GlobalContext.main_ui_instance.update_player_stats(cell_strength_value, cell_immune_value, cell_swiftness_value)
+	var sum = cell_strength_value + cell_immune_value + cell_swiftness_value
+	player_cell_stats_check_evolve.emit(sum)
 	
 	var new_player_camera_zoom = player_camera.zoom - camera_scale_per_level
 	

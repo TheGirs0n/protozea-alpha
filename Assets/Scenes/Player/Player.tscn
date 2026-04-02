@@ -59,6 +59,7 @@ zoom = Vector2(4, 4)
 position_smoothing_speed = 19.045
 
 [connection signal="cell_stats_changed" from="." to="." method="ping_ui_update_stats"]
+[connection signal="player_cell_stats_check_evolve" from="." to="PlayerAnimatedSpriteComponent" method="_on_player_cell_stats_check_evolve"]
 [connection signal="player_money_changed" from="PlayerEconomyComponent" to="PlayerEvolveComponent" method="can_player_evolve_current"]
 [connection signal="player_click_evolve" from="PlayerEvolveComponent" to="PlayerEvolveComponent" method="player_evolve"]
 [connection signal="player_evolve_money_changed" from="PlayerEvolveComponent" to="PlayerEconomyComponent" method="decrease_money"]

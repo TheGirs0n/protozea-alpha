@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bddxsqg2wogo0"]
 
 [ext_resource type="Script" uid="uid://bubrc1fehooig" path="res://Assets/Scripts/UI/Menus/TutorialMenu.gd" id="1_egq8s"]
+[ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="2_vfxey"]
 
 [node name="TutorialMenu" type="CanvasLayer" unique_id=1863216287]
 script = ExtResource("1_egq8s")
+main_menu = ExtResource("2_vfxey")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2060941190]
 anchors_preset = -1

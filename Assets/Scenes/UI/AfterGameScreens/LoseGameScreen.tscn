@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://1ql7tktfuy0p"]
 
 [ext_resource type="Script" uid="uid://bgfd0y27uqcxo" path="res://Assets/Scripts/UI/AfterGameScreens/LoseGameScreen.gd" id="1_t18wb"]
+[ext_resource type="PackedScene" uid="uid://b3btk723jylqi" path="res://Assets/Scenes/Main/MainScene.tscn" id="2_bpa5r"]
+[ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="3_cfjg0"]
 
 [node name="LoseGameScreen" type="Control" unique_id=916210923]
 layout_mode = 3
@@ -10,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t18wb")
+main_scene = ExtResource("2_bpa5r")
+main_menu = ExtResource("3_cfjg0")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1823220219]
 layout_mode = 1

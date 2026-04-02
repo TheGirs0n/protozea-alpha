@@ -51,8 +51,7 @@ text = "GO_TO_MAIN_MENU
 "
 
 [node name="VBoxContainer2" parent="." unique_id=713898436 instance=ExtResource("3_aq7i4")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/ContineGameButton" to="." method="_on_contine_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
