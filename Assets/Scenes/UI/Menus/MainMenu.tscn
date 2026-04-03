@@ -1,13 +1,18 @@
 [gd_scene format=3 uid="uid://b1sqidndjbxc3"]
 
 [ext_resource type="Script" uid="uid://cqid4mvoc3uc0" path="res://Assets/Scripts/UI/Menus/MainMenu.gd" id="1_m0ihx"]
-[ext_resource type="PackedScene" uid="uid://bddxsqg2wogo0" path="res://Assets/Scenes/UI/Menus/TutorialMenu.tscn" id="2_p3vtt"]
 
-[node name="MainMenu" type="CanvasLayer" unique_id=907439645]
+[node name="MainMenu" type="Control" unique_id=278524652]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_m0ihx")
-tutorial_screen = ExtResource("2_p3vtt")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=662132745]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,6 +22,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="StartGameButton" type="Button" parent="." unique_id=523181175]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
 anchor_top = 0.4
@@ -27,6 +33,7 @@ action_mode = 0
 text = "START_GAME"
 
 [node name="VBoxContainer" type="MarginContainer" parent="." unique_id=1943398474]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.7
 anchor_right = 0.35
@@ -110,8 +117,3 @@ action_mode = 0
 stretch_mode = 5
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/VBoxContainer/HBoxContainer/MasterProgressBar" to="." method="_on_master_progress_bar_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/VBoxContainer/HBoxContainer3/MusicProgressBar" to="." method="_on_music_progress_bar_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/VBoxContainer/HBoxContainer2/SFXProgressBar" to="." method="_on_sfx_progress_bar_value_changed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer4/RULanguageButton" to="." method="_on_ru_language_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer4/ENLanguageButton" to="." method="_on_en_language_button_pressed"]

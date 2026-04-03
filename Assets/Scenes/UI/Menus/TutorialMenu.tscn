@@ -3,11 +3,18 @@
 [ext_resource type="Script" uid="uid://bubrc1fehooig" path="res://Assets/Scripts/UI/Menus/TutorialMenu.gd" id="1_egq8s"]
 [ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="2_vfxey"]
 
-[node name="TutorialMenu" type="CanvasLayer" unique_id=1863216287]
+[node name="TutorialMenu" type="Control" unique_id=611833999]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_egq8s")
 main_menu = ExtResource("2_vfxey")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2060941190]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
 anchor_top = 0.05
@@ -86,6 +93,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=1192508702]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
 anchor_top = 0.85
