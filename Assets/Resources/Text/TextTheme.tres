@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://cvn157j0qm0e3"]
+
+[ext_resource type="FontFile" uid="uid://d3xxdc0wuutmv" path="res://Assets/Fonts/Sjz.otf" id="1_w221h"]
+
+[resource]
+default_font = ExtResource("1_w221h")
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 10
+RichTextLabel/font_sizes/normal_font_size = 30

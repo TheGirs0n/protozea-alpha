@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d03a1lbdkvf5b"]
 
 [ext_resource type="Script" uid="uid://dnhaa7y4jjg4h" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveDamageCard.gd" id="1_pjovo"]
+[ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="2_qrj5i"]
 
 [node name="PlayerEvolveDamageCard" type="TextureRect" unique_id=2022065151 node_paths=PackedStringArray("card_name_text")]
 anchors_preset = 15
@@ -44,6 +45,7 @@ alignment = 1
 [node name="CardName" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=934486500]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_qrj5i")
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -68,6 +70,7 @@ stretch_mode = 5
 [node name="CardDescription" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=610197111]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_qrj5i")
 bbcode_enabled = true
 text = "PLAYER_EVOLVE_STRENGTH_DESCRIPTION"
 horizontal_alignment = 1

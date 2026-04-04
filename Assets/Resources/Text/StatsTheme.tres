@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://e6gh4qe1g1e8"]
+
+[ext_resource type="FontFile" uid="uid://d3xxdc0wuutmv" path="res://Assets/Fonts/Sjz.otf" id="1_rteaf"]
+
+[resource]
+default_font = ExtResource("1_rteaf")
+RichTextLabel/constants/outline_size = 15
+RichTextLabel/font_sizes/normal_font_size = 46

@@ -4,11 +4,12 @@ PAUSE_GAME_TEXT;Деление приостановлено;Division Paused
 CONTINUE_GAME;Продолжить выживание;Continue Surviving
 GO_TO_MAIN_MENU;Покинуть колонию;Leave the Colony
 LOSE_SCREEN_TEXT;Поглощён. Ты не выжил.;Consumed. You didn't survive.
+LOSE_SCREEN_RESTART;Еще один шанс?;Another chance?
 WIN_SCREEN_TEXT;Колония покорена. Ты — апекс.;Colony conquered. You are the apex.
 TUTORIAL_SCENE_TEXT_1;Поглощай слабых — это твоя природа;Consume the weak — it's your nature
 TUTORIAL_SCENE_TEXT_2;Сражайся за выживание в каждой клетке;Fight for survival at every cell
 TUTORIAL_SCENE_TEXT_3;Эволюционируй или исчезни;Evolve or perish
-TUTORIAL_SCENE_BUTTON_TEXT;RU_10;EN_10
+TUTORIAL_SCENE_BUTTON_TEXT;Вперед;Go on
 PLAYER_EVOLVE_TEXT;Эволюция;Evolution
 PLAYER_EVOLVE_STRENGTH_DESCRIPTION;Поглощай и уничтожай;Consume and destroy
 PLAYER_EVOLVE_IMMUNE_DESCRIPTION;Выдержи любой удар;Endure any strike

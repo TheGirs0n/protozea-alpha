@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b20gnecxtv6td"]
 
 [ext_resource type="Script" uid="uid://dsqwxgobjlxkp" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveDefenseCard.gd" id="1_op663"]
+[ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="2_kjmym"]
 
 [node name="PlayerEvolveDefenseCard" type="TextureRect" unique_id=854580065 node_paths=PackedStringArray("card_name_text")]
 anchors_preset = 15
@@ -45,6 +46,7 @@ alignment = 1
 [node name="CardName" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=1824070859]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_kjmym")
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -69,6 +71,7 @@ stretch_mode = 5
 [node name="CardDescription" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=1064779743]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_kjmym")
 bbcode_enabled = true
 text = "PLAYER_EVOLVE_IMMUNE_DESCRIPTION"
 horizontal_alignment = 1

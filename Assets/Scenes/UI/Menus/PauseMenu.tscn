@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://1jv7ywgbhjf4" path="res://Assets/Scripts/UI/Menus/PauseMenu.gd" id="1_ev6ws"]
 [ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="2_8eqqw"]
 [ext_resource type="PackedScene" uid="uid://bmbxlv7dyjwjl" path="res://Assets/Scenes/UI/Menus/SettingsMenu.tscn" id="3_aq7i4"]
+[ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="3_ftgsw"]
+[ext_resource type="Theme" uid="uid://bgh4rh8eskkto" path="res://Assets/Resources/Text/ButtonTheme.tres" id="3_wkqc4"]
 
 [node name="PauseMenu" type="Control" unique_id=747317209]
 layout_mode = 3
@@ -21,9 +23,10 @@ anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.8
 anchor_bottom = 0.4
+theme = ExtResource("3_ftgsw")
+theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
-text = "PAUSE_GAME_TEXT
-"
+text = "PAUSE_GAME_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -34,21 +37,24 @@ anchor_left = 0.4
 anchor_top = 0.4
 anchor_right = 0.6
 anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 25
 alignment = 1
 
 [node name="ContineGameButton" type="Button" parent="VBoxContainer" unique_id=770783575]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_wkqc4")
 action_mode = 0
 text = "CONTINUE_GAME"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=1656167970]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_wkqc4")
 action_mode = 0
-text = "GO_TO_MAIN_MENU
-"
+text = "GO_TO_MAIN_MENU"
 
 [node name="VBoxContainer2" parent="." unique_id=713898436 instance=ExtResource("3_aq7i4")]
 layout_mode = 1

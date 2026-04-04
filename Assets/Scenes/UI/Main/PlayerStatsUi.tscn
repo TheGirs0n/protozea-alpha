@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dul6g75tafrg6"]
 
 [ext_resource type="Script" uid="uid://bt6r781fr3xhf" path="res://Assets/Scripts/UI/Main/PlayerStatsUi.gd" id="1_lt6gr"]
+[ext_resource type="Theme" uid="uid://e6gh4qe1g1e8" path="res://Assets/Resources/Text/StatsTheme.tres" id="2_rflsb"]
 
 [node name="PlayerStatsUi" type="VBoxContainer" unique_id=1361290902 node_paths=PackedStringArray("player_damage_stat_text", "player_defense_stat_text", "player_speed_stat_text")]
 anchors_preset = 15
@@ -26,7 +27,9 @@ size_flags_horizontal = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=640453218]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_rflsb")
 bbcode_enabled = true
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -42,7 +45,9 @@ size_flags_horizontal = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2" unique_id=1299269830]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_rflsb")
 bbcode_enabled = true
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -58,6 +63,8 @@ size_flags_horizontal = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer3" unique_id=929178658]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_rflsb")
 bbcode_enabled = true
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1

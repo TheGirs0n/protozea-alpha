@@ -2,6 +2,45 @@
 
 [ext_resource type="Script" uid="uid://davppsfm23cqn" path="res://Assets/Scripts/UI/AfterGameScreens/WinGameScreen.gd" id="1_2bhut"]
 [ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="2_f5fp7"]
+[ext_resource type="Theme" uid="uid://bgh4rh8eskkto" path="res://Assets/Resources/Text/ButtonTheme.tres" id="3_6edl6"]
+[ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="3_l7coi"]
+
+[sub_resource type="Animation" id="Animation_f5fp7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6edl6"]
+resource_name = "new_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7coi"]
+_data = {
+&"RESET": SubResource("Animation_f5fp7"),
+&"new_animation": SubResource("Animation_6edl6")
+}
 
 [node name="WinGameScreen" type="Control" unique_id=422814991]
 layout_mode = 3
@@ -30,6 +69,8 @@ anchor_left = 0.2
 anchor_top = 0.3
 anchor_right = 0.8
 anchor_bottom = 0.5
+theme = ExtResource("3_l7coi")
+theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
 text = "WIN_SCREEN_TEXT"
 horizontal_alignment = 1
@@ -42,6 +83,13 @@ anchor_left = 0.4
 anchor_top = 0.6
 anchor_right = 0.6
 anchor_bottom = 0.8
+grow_horizontal = 2
+theme = ExtResource("3_6edl6")
 action_mode = 0
+text = "GO_TO_MAIN_MENU"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=534487392]
+libraries/ = SubResource("AnimationLibrary_l7coi")
+autoplay = &"new_animation"
 
 [connection signal="pressed" from="TextureRect/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

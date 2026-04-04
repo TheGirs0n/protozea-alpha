@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b1sqidndjbxc3"]
 
 [ext_resource type="Script" uid="uid://cqid4mvoc3uc0" path="res://Assets/Scripts/UI/Menus/MainMenu.gd" id="1_m0ihx"]
+[ext_resource type="PackedScene" uid="uid://bmbxlv7dyjwjl" path="res://Assets/Scenes/UI/Menus/SettingsMenu.tscn" id="2_p3vtt"]
+[ext_resource type="Theme" uid="uid://bgh4rh8eskkto" path="res://Assets/Resources/Text/ButtonTheme.tres" id="2_vjo3j"]
 
 [node name="MainMenu" type="Control" unique_id=278524652]
 layout_mode = 3
@@ -29,91 +31,12 @@ anchor_top = 0.4
 anchor_right = 0.7
 anchor_bottom = 0.6
 offset_bottom = 8.0
+theme = ExtResource("2_vjo3j")
 action_mode = 0
 text = "START_GAME"
 
-[node name="VBoxContainer" type="MarginContainer" parent="." unique_id=1943398474]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 0.35
-anchor_bottom = 1.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=64734839]
-layout_mode = 2
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=1691900346]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer" unique_id=887549613]
-layout_mode = 2
-size_flags_horizontal = 3
-expand_mode = 3
-stretch_mode = 5
-
-[node name="MasterProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer/HBoxContainer" unique_id=2114011102]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-show_percentage = false
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=602500247]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=282521238]
-layout_mode = 2
-size_flags_horizontal = 3
-expand_mode = 3
-stretch_mode = 5
-
-[node name="MusicProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1239360309]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-show_percentage = false
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=1198872106]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1310780737]
-layout_mode = 2
-size_flags_horizontal = 3
-expand_mode = 3
-stretch_mode = 5
-
-[node name="SFXProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1839892637]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-step = 1.0
-show_percentage = false
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=1334807410]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="RULanguageButton" type="TextureButton" parent="VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1600838552]
-layout_mode = 2
-size_flags_horizontal = 3
-action_mode = 0
-stretch_mode = 5
-
-[node name="ENLanguageButton" type="TextureButton" parent="VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1172106933]
-layout_mode = 2
-size_flags_horizontal = 3
-action_mode = 0
-stretch_mode = 5
+[node name="VBoxContainer" parent="." unique_id=713898436 instance=ExtResource("2_p3vtt")]
+layout_mode = 0
+anchors_preset = 0
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]

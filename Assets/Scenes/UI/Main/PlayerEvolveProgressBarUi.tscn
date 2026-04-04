@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8lsnp7pmg46x"]
 
 [ext_resource type="Script" uid="uid://777ixewc7bw1" path="res://Assets/Scripts/UI/Main/PlayerEvolveProgressBarUi.gd" id="1_7igi2"]
+[ext_resource type="Theme" uid="uid://e6gh4qe1g1e8" path="res://Assets/Resources/Text/StatsTheme.tres" id="2_kq552"]
 
 [node name="PlayerEvolveProgressBarUi" type="Control" unique_id=1748930590 node_paths=PackedStringArray("player_evolve_progress_bar", "player_evolve_progress_bar_text")]
 layout_mode = 3
@@ -22,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-step = 0.5
+step = 0.1
 
 [node name="ProgressBarText" type="RichTextLabel" parent="." unique_id=1803491852]
 layout_mode = 1
@@ -31,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_kq552")
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1

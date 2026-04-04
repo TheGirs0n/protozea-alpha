@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bddxsqg2wogo0"]
 
 [ext_resource type="Script" uid="uid://bubrc1fehooig" path="res://Assets/Scripts/UI/Menus/TutorialMenu.gd" id="1_egq8s"]
-[ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="2_vfxey"]
+[ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="2_vfxey"]
+[ext_resource type="Theme" uid="uid://bgh4rh8eskkto" path="res://Assets/Resources/Text/ButtonTheme.tres" id="3_hgtva"]
 
 [node name="TutorialMenu" type="Control" unique_id=611833999]
 layout_mode = 3
@@ -11,7 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_egq8s")
-main_menu = ExtResource("2_vfxey")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2060941190]
 layout_mode = 1
@@ -47,6 +47,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/HBoxContainer/VBoxContainer" unique_id=1761105390]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_vfxey")
 bbcode_enabled = true
 text = "TUTORIAL_SCENE_TEXT_1"
 horizontal_alignment = 1
@@ -67,6 +68,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/HBoxContainer/VBoxContainer2" unique_id=623617092]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_vfxey")
 bbcode_enabled = true
 text = "TUTORIAL_SCENE_TEXT_2"
 horizontal_alignment = 1
@@ -87,6 +89,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/HBoxContainer/VBoxContainer3" unique_id=1478055802]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_vfxey")
 bbcode_enabled = true
 text = "TUTORIAL_SCENE_TEXT_3"
 horizontal_alignment = 1
@@ -99,6 +102,7 @@ anchor_left = 0.4
 anchor_top = 0.85
 anchor_right = 0.6
 anchor_bottom = 0.95
+theme = ExtResource("3_hgtva")
 action_mode = 0
 text = "TUTORIAL_SCENE_BUTTON_TEXT"
 

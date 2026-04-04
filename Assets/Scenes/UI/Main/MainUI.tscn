@@ -50,13 +50,14 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AutoBattleUi" parent="." unique_id=299851398 instance=ExtResource("5_kfg1n")]
+visible = false
 
 [node name="PlayerStatsUi" parent="." unique_id=1361290902 instance=ExtResource("5_uoy3w")]
 anchors_preset = -1
 anchor_left = 0.025
 anchor_top = 0.15
 anchor_right = 0.15
-anchor_bottom = 0.6
+anchor_bottom = 0.45
 
 [node name="PlayerMoneyUi" parent="." unique_id=1798079181 instance=ExtResource("2_pp4g4")]
 anchors_preset = -1
