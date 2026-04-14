@@ -13,8 +13,8 @@ class_name BaseCellAnimatedSprite
 @export var max_sprite_scale = 1.05
 
 @export_group("Rotate Parameters")
-@export var min_sprite_rotate = 0
-@export var max_sprite_rotate = 360
+@export var min_sprite_rotate = 30
+@export var max_sprite_rotate = 360 
 
 var rotate_tween : Tween
 var scale_tween : Tween
@@ -26,7 +26,7 @@ func _ready() -> void:
 	
 	rotate_tween_timer.start()
 	scale_tween_timer.start()
-
+	
 
 func change_rotate_parameters():
 	var new_rotate_value = randf_range(min_sprite_rotate, max_sprite_rotate)
@@ -39,6 +39,7 @@ func change_rotate_parameters():
 	rotate_tween.set_ease(Tween.EASE_IN_OUT)
 	rotate_tween.tween_property(self, "rotation_degrees", new_rotate_value, rotate_tween_timer.wait_time)
 	
+	print(new_rotate_value)
 	rotate_tween_timer.wait_time = randf_range(min_timer_value, max_timer_value)
 	rotate_tween_timer.start()
 	
@@ -49,12 +50,13 @@ func change_scale_parameters():
 	scale_vector = Vector2(new_scale_value_x, new_scale_value_y)
 	
 	if scale_tween:
-		rotate_tween.kill()
+		scale_tween.kill()
 		
 	scale_tween = create_tween()
 	scale_tween.set_trans(Tween.TRANS_QUAD)
 	scale_tween.set_ease(Tween.EASE_IN_OUT)
 	scale_tween.tween_property(self, "scale", scale_vector, scale_tween_timer.wait_time)
 	
+	print(new_scale_value_x)
 	scale_tween_timer.wait_time = randf_range(min_timer_value, max_timer_value)
 	scale_tween_timer.start()

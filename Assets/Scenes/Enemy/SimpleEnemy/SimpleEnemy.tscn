@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ccugf1s3sw47i" path="res://Assets/Scripts/Enemy/SimpleEnemy/SimpleEnemy.gd" id="1_te1aw"]
 [ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAnimatedComponent.tscn" id="2_vtfkj"]
+[ext_resource type="Texture2D" uid="uid://cs22wms0vxhxa" path="res://Assets/Sprites/plancton_1.png" id="3_ht5lm"]
 [ext_resource type="PackedScene" uid="uid://cdlkm62bweph7" path="res://Assets/Scenes/Enemy/SimpleEnemy/SimpleEnemyCellMovementComponent.tscn" id="3_vtfkj"]
+[ext_resource type="Texture2D" uid="uid://ldgeq2pipl6a" path="res://Assets/Sprites/plancton_2.png" id="4_shmc3"]
+[ext_resource type="Texture2D" uid="uid://byxmoabmwl42v" path="res://Assets/Sprites/plancton_3.png" id="5_7vsci"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvs24"]
 
@@ -18,6 +21,7 @@ script = ExtResource("1_te1aw")
 shape = SubResource("CircleShape2D_dvs24")
 
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("2_vtfkj")]
+sprites_array = Array[CompressedTexture2D]([ExtResource("3_ht5lm"), ExtResource("4_shmc3"), ExtResource("5_7vsci")])
 
 [node name="SimpleEnemyCellMovementComponent" parent="." unique_id=175291346 node_paths=PackedStringArray("body_to_move") instance=ExtResource("3_vtfkj")]
 random_movement_timer_min_value = 0.8

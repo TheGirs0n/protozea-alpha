@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://tvomshh3envc" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellHealthComponent.tscn" id="3_5erc5"]
 [ext_resource type="PackedScene" uid="uid://bonh6iwbntuhp" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellMovementComponent.tscn" id="4_kcrxv"]
 [ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAnimatedComponent.tscn" id="6_kcrxv"]
+[ext_resource type="Texture2D" uid="uid://cjem0546avnr0" path="res://Assets/Sprites/predator_1.png" id="7_hhs5d"]
+[ext_resource type="Texture2D" uid="uid://cd3n4od7uhrqj" path="res://Assets/Sprites/predator_2.png" id="8_luwtw"]
+[ext_resource type="Texture2D" uid="uid://dr35kqjdx1pue" path="res://Assets/Sprites/predator_3.png" id="9_4vnvj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcrxv"]
 
@@ -34,7 +37,9 @@ body_to_move = NodePath("..")
 
 [node name="EnemyCellAutoBattleComponent" parent="." unique_id=1463796902 instance=ExtResource("2_fh4fs")]
 
-[node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("6_kcrxv")]
+[node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 node_paths=PackedStringArray("body_to_mod") instance=ExtResource("6_kcrxv")]
+sprites_array = Array[CompressedTexture2D]([ExtResource("7_hhs5d"), ExtResource("8_luwtw"), ExtResource("9_4vnvj")])
+body_to_mod = NodePath("..")
 
 [node name="PlayerAreaContact" type="Area2D" parent="." unique_id=1885006666]
 input_pickable = false

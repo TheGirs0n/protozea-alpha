@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c6ow1rfe6rduy" path="res://Assets/Scenes/Player/PlayerEvolveComponent.tscn" id="7_l33h3"]
 [ext_resource type="Script" uid="uid://cn672tfy6or7b" path="res://Assets/Scripts/Player/BattleAreaContact.gd" id="8_5yt3c"]
 [ext_resource type="PackedScene" uid="uid://birrawmolq6n7" path="res://Assets/Scenes/Player/PlayerAnimatedSpriteComponent.tscn" id="9_5nnqe"]
+[ext_resource type="Texture2D" uid="uid://bwxmvvymcw83v" path="res://Assets/Sprites/player_cell_1.png" id="10_gfuib"]
+[ext_resource type="Texture2D" uid="uid://b8inmjdarqm8h" path="res://Assets/Sprites/player_cell_2.png" id="11_lvufu"]
+[ext_resource type="Texture2D" uid="uid://bru4xnmadwsc1" path="res://Assets/Sprites/player_cell_3.png" id="12_8crlb"]
+[ext_resource type="Texture2D" uid="uid://dwdablpa8dyp4" path="res://Assets/Sprites/player_cell_4.png" id="13_mplli"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d06bf"]
 
@@ -52,7 +56,10 @@ script = ExtResource("8_5yt3c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleAreaContact" unique_id=747627483]
 shape = SubResource("CircleShape2D_l33h3")
 
-[node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 instance=ExtResource("9_5nnqe")]
+[node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 node_paths=PackedStringArray("body_to_mod") instance=ExtResource("9_5nnqe")]
+texture = ExtResource("10_gfuib")
+sprites_array = Array[CompressedTexture2D]([ExtResource("10_gfuib"), ExtResource("11_lvufu"), ExtResource("12_8crlb"), ExtResource("13_mplli")])
+body_to_mod = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=993236650]
 zoom = Vector2(4, 4)
