@@ -14,7 +14,7 @@ class_name BaseCellAnimatedSprite
 
 @export_group("Rotate Parameters")
 @export var min_sprite_rotate = 30
-@export var max_sprite_rotate = 360 
+@export var max_sprite_rotate = 120
 
 var rotate_tween : Tween
 var scale_tween : Tween

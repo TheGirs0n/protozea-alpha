@@ -21,9 +21,6 @@ script = ExtResource("1_abbfq")
 [node name="Player" parent="." unique_id=1365793493 instance=ExtResource("2_qr88s")]
 position = Vector2(234, 305)
 
-[node name="SimpleEnemy" parent="." unique_id=255581194 instance=ExtResource("3_3gtre")]
-position = Vector2(506, 295)
-
 [node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=2055431314]
 position = Vector2(651, 287)
 texture = ExtResource("4_dk1rd")
@@ -34,7 +31,6 @@ collision_mask = 0
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundSprite/SpawnArea" unique_id=621316709]
-position = Vector2(-16.5, -16)
 shape = SubResource("RectangleShape2D_hbgnp")
 
 [node name="WallsCollision" type="StaticBody2D" parent="BackgroundSprite" unique_id=1206978217]
@@ -44,16 +40,13 @@ collision_mask = 7
 [node name="BoundCollision" type="CollisionPolygon2D" parent="BackgroundSprite/WallsCollision" unique_id=1651446905]
 scale = Vector2(0.9701554, 1)
 build_mode = 1
-polygon = PackedVector2Array(-1284, -695, 1273, -702, 1252, 724, -1248, 745)
+polygon = PackedVector2Array(-1244.1306, -622, 1193.6232, -618, 1240.0074, 604, -1256.4998, 604)
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundSprite/WallsCollision" unique_id=1116474146]
 texture = ExtResource("5_k8dgl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="BackgroundSprite/WallsCollision" unique_id=1213582708]
 texture = ExtResource("6_k8dgl")
-
-[node name="EnemyCell" parent="." unique_id=697730910 instance=ExtResource("6_el6tv")]
-position = Vector2(271, 161)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
 process_mode = 3
@@ -73,5 +66,11 @@ simple_enemy_spawn_max_value = 5.0
 simple_enemy_area_to_spawn = NodePath("../BackgroundSprite/SpawnArea/CollisionShape2D")
 
 [node name="Timer" type="Timer" parent="EnemyManager" unique_id=93466128]
+
+[node name="EnemyCell" parent="EnemyManager" unique_id=697730910 instance=ExtResource("6_el6tv")]
+position = Vector2(271, 161)
+
+[node name="SimpleEnemy" parent="EnemyManager" unique_id=255581194 instance=ExtResource("3_3gtre")]
+position = Vector2(506, 295)
 
 [connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="spawn_simple_enemy"]
