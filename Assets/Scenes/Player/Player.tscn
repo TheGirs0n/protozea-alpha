@@ -57,12 +57,14 @@ script = ExtResource("8_5yt3c")
 shape = SubResource("CircleShape2D_l33h3")
 
 [node name="PlayerAnimatedSpriteComponent" parent="." unique_id=1461410180 instance=ExtResource("9_5nnqe")]
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_gfuib")
 sprites_array = Array[CompressedTexture2D]([ExtResource("10_gfuib"), ExtResource("11_lvufu"), ExtResource("12_8crlb"), ExtResource("13_mplli")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=993236650]
-zoom = Vector2(4, 4)
-position_smoothing_speed = 19.045
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
 
 [connection signal="cell_stats_changed" from="." to="." method="ping_ui_update_stats"]
 [connection signal="player_cell_stats_check_evolve" from="." to="PlayerAnimatedSpriteComponent" method="_on_player_cell_stats_check_evolve"]

@@ -13,6 +13,7 @@
 radius = 15.0
 
 [node name="SimpleEnemy" type="CharacterBody2D" unique_id=2011984693]
+position = Vector2(569, 246)
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_te1aw")
@@ -21,6 +22,8 @@ script = ExtResource("1_te1aw")
 shape = SubResource("CircleShape2D_dvs24")
 
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("2_vtfkj")]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_ht5lm")
 sprites_array = Array[CompressedTexture2D]([ExtResource("3_ht5lm"), ExtResource("4_shmc3"), ExtResource("5_7vsci")])
 
 [node name="SimpleEnemyCellMovementComponent" parent="." unique_id=175291346 node_paths=PackedStringArray("body_to_move") instance=ExtResource("3_vtfkj")]

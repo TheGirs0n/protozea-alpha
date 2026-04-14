@@ -16,6 +16,7 @@
 radius = 20.0
 
 [node name="EnemyCell" type="CharacterBody2D" unique_id=697730910 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
+position = Vector2(594, 238)
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_0tgue")
@@ -38,6 +39,8 @@ body_to_move = NodePath("..")
 [node name="EnemyCellAutoBattleComponent" parent="." unique_id=1463796902 instance=ExtResource("2_fh4fs")]
 
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("6_kcrxv")]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_hhs5d")
 sprites_array = Array[CompressedTexture2D]([ExtResource("7_hhs5d"), ExtResource("8_luwtw"), ExtResource("9_4vnvj")])
 
 [node name="PlayerAreaContact" type="Area2D" parent="." unique_id=1885006666]

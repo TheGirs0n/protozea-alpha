@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1ql7tktfuy0p"]
 
 [ext_resource type="Script" uid="uid://bgfd0y27uqcxo" path="res://Assets/Scripts/UI/AfterGameScreens/LoseGameScreen.gd" id="1_t18wb"]
-[ext_resource type="PackedScene" uid="uid://b3btk723jylqi" path="res://Assets/Scenes/Main/MainScene.tscn" id="2_bpa5r"]
+[ext_resource type="PackedScene" uid="uid://bddxsqg2wogo0" path="res://Assets/Scenes/UI/Menus/TutorialMenu.tscn" id="2_431kv"]
 [ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="3_bpa5r"]
 [ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="4_431kv"]
 [ext_resource type="Theme" uid="uid://bgh4rh8eskkto" path="res://Assets/Resources/Text/ButtonTheme.tres" id="5_aeqnb"]
@@ -51,7 +51,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t18wb")
-main_scene = ExtResource("2_bpa5r")
+tutorial_scene = ExtResource("2_431kv")
 main_menu = ExtResource("3_bpa5r")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1823220219]
