@@ -9,5 +9,6 @@ script = ExtResource("1_scsgb")
 main_level = NodePath("MainLevel")
 
 [node name="MainUi" parent="." unique_id=1882197517 instance=ExtResource("2_scsgb")]
+layer = -1
 
 [node name="MainLevel" parent="." unique_id=1839840135 instance=ExtResource("2_0ilqw")]

@@ -25,7 +25,6 @@ signal cell_stats_changed
 
 func _ready() -> void:
 	self.scale = cell_base_scale
-	print(self.scale)
 	set_base_stat()
 
 
@@ -70,4 +69,4 @@ func set_cell_size_scale():
 	size_tween.set_ease(Tween.EASE_OUT)
 	size_tween.set_trans(Tween.TRANS_QUAD)
 	size_tween.tween_property(self, "scale", new_size_out_base, 0.25)
-	print(name + ": " + str(new_size_out_base))
+	

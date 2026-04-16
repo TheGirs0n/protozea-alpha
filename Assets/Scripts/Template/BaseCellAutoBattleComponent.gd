@@ -41,8 +41,7 @@ func set_cell_swiftness_parameters(cell_swiftness : int):
 
 func try_hit_target():
 	target_cell.cell_health_component.try_take_damage(cell_current_damage)
-	print(str(target_cell.cell_health_component.cell_current_health) + "-" + target_cell.name)
-
+	
 
 func restore_endurance():
 	cell_current_endurance += cell_gain_per_timer_endurance

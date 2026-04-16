@@ -7,12 +7,19 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_g35pu"]
 curve = SubResource("Curve_f6fh2")
 
+[sub_resource type="Curve" id="Curve_tmmsw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dikyf"]
+curve = SubResource("Curve_tmmsw")
+
 [resource]
 lifetime_randomness = 0.25
 particle_flag_disable_z = true
-emission_shape_scale = Vector3(75, 50, 1)
+emission_shape_scale = Vector3(32, 20, 1)
 emission_shape = 3
-emission_box_extents = Vector3(20, 20, 1)
+emission_box_extents = Vector3(17.47, 15.085, 1)
 spread = 180.0
 angular_velocity_min = -15.0
 angular_velocity_max = 15.0
@@ -26,4 +33,7 @@ radial_accel_max = 2.4999976
 tangential_accel_min = -5.0
 tangential_accel_max = 10.0
 damping_max = 2.5
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_dikyf")
 alpha_curve = SubResource("CurveTexture_g35pu")

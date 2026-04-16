@@ -35,30 +35,31 @@ polygon = PackedVector2Array(-1283.2996, -681, -151.5221, -677, -155.64514, -107
 
 [node name="AutoBattleHandler" parent="." unique_id=927895448 instance=ExtResource("5_yxsyi")]
 
-[node name="EnemyManager" type="Node" parent="." unique_id=202570633 node_paths=PackedStringArray("simple_enemy_spawn_timer", "simple_enemy_area_to_spawn")]
+[node name="EnemyManager" type="Node" parent="." unique_id=202570633 node_paths=PackedStringArray("simple_enemy_spawn_timer", "simple_enemy_area_to_spawn", "enemy_spawn_timer", "enemy_area_to_spawn")]
 script = ExtResource("4_hbgnp")
 simple_enemy_scene = ExtResource("3_3gtre")
 simple_enemy_spawn_timer = NodePath("Timer")
-simple_enemy_spawn_max_value = 5.0
 simple_enemy_area_to_spawn = NodePath("../SpawnArea/CollisionShape2D")
+enemy_scene = ExtResource("6_el6tv")
+enemy_spawn_timer = NodePath("Timer2")
+enemy_area_to_spawn = NodePath("../SpawnArea/CollisionShape2D")
 
 [node name="Timer" type="Timer" parent="EnemyManager" unique_id=93466128]
+autostart = true
 
-[node name="EnemyCell" parent="EnemyManager" unique_id=697730910 instance=ExtResource("6_el6tv")]
-position = Vector2(271, 161)
-
-[node name="SimpleEnemy" parent="EnemyManager" unique_id=255581194 instance=ExtResource("3_3gtre")]
-position = Vector2(506, 295)
+[node name="Timer2" type="Timer" parent="EnemyManager" unique_id=1769101575]
+autostart = true
 
 [node name="Player" parent="." unique_id=1365793493 instance=ExtResource("2_qr88s")]
 position = Vector2(622, 355)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
 process_mode = 3
-position = Vector2(576, 321)
-amount = 32
+position = Vector2(595, 319)
+amount = 64
 lifetime = 15.0
 preprocess = 3.0
 process_material = ExtResource("7_xutpi")
 
 [connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="spawn_simple_enemy"]
+[connection signal="timeout" from="EnemyManager/Timer2" to="EnemyManager" method="spawn_enemy"]

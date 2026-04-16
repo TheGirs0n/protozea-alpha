@@ -9,10 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://b5hol2b5abolu" path="res://Assets/Scenes/UI/AfterGameScreens/WinGameScreen.tscn" id="4_ylo10"]
 [ext_resource type="PackedScene" uid="uid://c7w4ixigv6f14" path="res://Assets/Scenes/UI/AutoBattle/AutoBattleUi.tscn" id="5_kfg1n"]
 [ext_resource type="PackedScene" uid="uid://dul6g75tafrg6" path="res://Assets/Scenes/UI/Main/PlayerStatsUi.tscn" id="5_uoy3w"]
+[ext_resource type="Shader" uid="uid://dsq1llws34h5n" path="res://Assets/Resources/Shaders/back_shader.gdshader" id="6_1s7fu"]
 [ext_resource type="Texture2D" uid="uid://7dmgqmh1de23" path="res://Assets/Sprites/ворсинки_даль.png" id="6_xmy76"]
 [ext_resource type="Texture2D" uid="uid://2cpcnwgken4o" path="res://Assets/Sprites/ворсинки_близь.png" id="7_1s7fu"]
 [ext_resource type="PackedScene" uid="uid://cqk08ouk4rtat" path="res://Assets/Scenes/UI/Menus/PauseMenu.tscn" id="10_ylo10"]
 [ext_resource type="Texture2D" uid="uid://brxt7g1xr778c" path="res://Assets/Sprites/liquid.png" id="11_uhwur"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17rqv"]
+shader = ExtResource("6_1s7fu")
+shader_parameter/amplitude = 2.0
+shader_parameter/speed = 1.5
 
 [node name="MainUi" type="CanvasLayer" unique_id=1882197517 node_paths=PackedStringArray("player_money_container", "player_stats_ui", "player_health_progress_bar", "player_evolve_progress_bar", "player_can_evolve_text", "pause_ui", "auto_battle_ui")]
 script = ExtResource("1_vw41n")
@@ -38,6 +44,7 @@ expand_mode = 3
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=907073869]
+material = SubResource("ShaderMaterial_17rqv")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,6 +56,7 @@ expand_mode = 3
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=962376546]
+material = SubResource("ShaderMaterial_17rqv")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

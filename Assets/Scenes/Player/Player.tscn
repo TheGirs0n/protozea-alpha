@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b8inmjdarqm8h" path="res://Assets/Sprites/player_cell_2.png" id="11_lvufu"]
 [ext_resource type="Texture2D" uid="uid://bru4xnmadwsc1" path="res://Assets/Sprites/player_cell_3.png" id="12_8crlb"]
 [ext_resource type="Texture2D" uid="uid://dwdablpa8dyp4" path="res://Assets/Sprites/player_cell_4.png" id="13_mplli"]
+[ext_resource type="Material" uid="uid://8mj25sprexqt" path="res://Assets/Resources/Particles/PlayerParticles.tres" id="14_lvufu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d06bf"]
 
@@ -45,6 +46,7 @@ body_to_move = NodePath("..")
 [node name="PlayerEconomyComponent" parent="." unique_id=992692729 instance=ExtResource("6_tlg0o")]
 
 [node name="PlayerEvolveComponent" parent="." unique_id=740213474 instance=ExtResource("7_l33h3")]
+cell_evolve_array_cost = Array[int]([5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35])
 
 [node name="BattleAreaContact" type="Area2D" parent="." unique_id=1645639352]
 collision_layer = 0
@@ -59,6 +61,13 @@ shape = SubResource("CircleShape2D_l33h3")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_gfuib")
 sprites_array = Array[CompressedTexture2D]([ExtResource("10_gfuib"), ExtResource("11_lvufu"), ExtResource("12_8crlb"), ExtResource("13_mplli")])
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=942920105]
+amount = 16
+lifetime = 3.0
+speed_scale = 0.25
+randomness = 0.5
+process_material = ExtResource("14_lvufu")
 
 [connection signal="cell_stats_changed" from="." to="." method="ping_ui_update_stats"]
 [connection signal="player_cell_stats_check_evolve" from="." to="PlayerAnimatedSpriteComponent" method="_on_player_cell_stats_check_evolve"]
