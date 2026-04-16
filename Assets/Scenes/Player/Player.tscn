@@ -19,12 +19,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_l33h3"]
 radius = 13.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "player_camera", "cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1365793493 node_paths=PackedStringArray("player_economy_component", "player_evolve_component", "cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
 collision_mask = 14
 script = ExtResource("1_0ljjw")
 player_economy_component = NodePath("PlayerEconomyComponent")
 player_evolve_component = NodePath("PlayerEvolveComponent")
-player_camera = NodePath("Camera2D")
 cell_health_component = NodePath("PlayerHealthComponent")
 cell_movement_component = NodePath("PlayerMovementComponent")
 cell_auto_battle_component = NodePath("PlayerAutoBattleComponent")
@@ -60,11 +59,6 @@ shape = SubResource("CircleShape2D_l33h3")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_gfuib")
 sprites_array = Array[CompressedTexture2D]([ExtResource("10_gfuib"), ExtResource("11_lvufu"), ExtResource("12_8crlb"), ExtResource("13_mplli")])
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=993236650]
-zoom = Vector2(5, 5)
-position_smoothing_enabled = true
-position_smoothing_speed = 15.0
 
 [connection signal="cell_stats_changed" from="." to="." method="ping_ui_update_stats"]
 [connection signal="player_cell_stats_check_evolve" from="." to="PlayerAnimatedSpriteComponent" method="_on_player_cell_stats_check_evolve"]

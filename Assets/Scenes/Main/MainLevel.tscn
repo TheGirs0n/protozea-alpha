@@ -3,55 +3,35 @@
 [ext_resource type="Script" uid="uid://cgaoxw86cpfws" path="res://Assets/Scripts/Main/MainLevel.gd" id="1_abbfq"]
 [ext_resource type="PackedScene" uid="uid://cgnhqjwaxj1bs" path="res://Assets/Scenes/Player/Player.tscn" id="2_qr88s"]
 [ext_resource type="PackedScene" uid="uid://bd7llf352nayv" path="res://Assets/Scenes/Enemy/SimpleEnemy/SimpleEnemy.tscn" id="3_3gtre"]
-[ext_resource type="Texture2D" uid="uid://brxt7g1xr778c" path="res://Assets/Sprites/liquid.png" id="4_dk1rd"]
 [ext_resource type="Script" uid="uid://ilipqf1eg4o0" path="res://Assets/Scripts/Main/EnemyManager.gd" id="4_hbgnp"]
-[ext_resource type="Texture2D" uid="uid://7dmgqmh1de23" path="res://Assets/Sprites/ворсинки_даль.png" id="5_k8dgl"]
 [ext_resource type="PackedScene" uid="uid://bpt31whvmqnmh" path="res://Assets/Scenes/Main/AutoBattleHandler.tscn" id="5_yxsyi"]
 [ext_resource type="PackedScene" uid="uid://dj67vt74b4ekl" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCell.tscn" id="6_el6tv"]
-[ext_resource type="Texture2D" uid="uid://2cpcnwgken4o" path="res://Assets/Sprites/ворсинки_близь.png" id="6_k8dgl"]
 [ext_resource type="Material" uid="uid://c5rn4m5p1qgbl" path="res://Assets/Resources/Particles/MainSceneParticles.tres" id="7_xutpi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgnp"]
-size = Vector2(2333, 1128)
+size = Vector2(1143, 611)
 
 [node name="MainLevel" type="Node2D" unique_id=1839840135]
 process_mode = 1
 script = ExtResource("1_abbfq")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=2055431314]
-position = Vector2(651, 287)
-texture = ExtResource("4_dk1rd")
-
-[node name="SpawnArea" type="Area2D" parent="BackgroundSprite" unique_id=1053472310]
+[node name="SpawnArea" type="Area2D" parent="." unique_id=1053472310]
+position = Vector2(595, 317)
 collision_layer = 0
 collision_mask = 0
 input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundSprite/SpawnArea" unique_id=621316709]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=621316709]
 shape = SubResource("RectangleShape2D_hbgnp")
 
-[node name="WallsCollision" type="StaticBody2D" parent="BackgroundSprite" unique_id=1206978217]
+[node name="WallsCollision" type="StaticBody2D" parent="." unique_id=1206978217]
 collision_layer = 8
 collision_mask = 7
 
-[node name="BoundCollision" type="CollisionPolygon2D" parent="BackgroundSprite/WallsCollision" unique_id=1651446905]
-scale = Vector2(0.9701554, 1)
+[node name="BoundCollision" type="CollisionPolygon2D" parent="WallsCollision" unique_id=1651446905]
+position = Vector2(1307, 701)
 build_mode = 1
-polygon = PackedVector2Array(-1244.1306, -622, 1193.6232, -618, 1240.0074, 604, -1256.4998, 604)
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundSprite/WallsCollision" unique_id=1116474146]
-texture = ExtResource("5_k8dgl")
-
-[node name="Sprite2D2" type="Sprite2D" parent="BackgroundSprite/WallsCollision" unique_id=1213582708]
-texture = ExtResource("6_k8dgl")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
-process_mode = 3
-position = Vector2(576, 321)
-amount = 32
-lifetime = 15.0
-preprocess = 3.0
-process_material = ExtResource("7_xutpi")
+polygon = PackedVector2Array(-1283.2996, -681, -151.5221, -677, -155.64514, -107, -1293.6072, -107)
 
 [node name="AutoBattleHandler" parent="." unique_id=927895448 instance=ExtResource("5_yxsyi")]
 
@@ -60,7 +40,7 @@ script = ExtResource("4_hbgnp")
 simple_enemy_scene = ExtResource("3_3gtre")
 simple_enemy_spawn_timer = NodePath("Timer")
 simple_enemy_spawn_max_value = 5.0
-simple_enemy_area_to_spawn = NodePath("../BackgroundSprite/SpawnArea/CollisionShape2D")
+simple_enemy_area_to_spawn = NodePath("../SpawnArea/CollisionShape2D")
 
 [node name="Timer" type="Timer" parent="EnemyManager" unique_id=93466128]
 
@@ -71,6 +51,14 @@ position = Vector2(271, 161)
 position = Vector2(506, 295)
 
 [node name="Player" parent="." unique_id=1365793493 instance=ExtResource("2_qr88s")]
-position = Vector2(0, 1)
+position = Vector2(622, 355)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
+process_mode = 3
+position = Vector2(576, 321)
+amount = 32
+lifetime = 15.0
+preprocess = 3.0
+process_material = ExtResource("7_xutpi")
 
 [connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="spawn_simple_enemy"]
