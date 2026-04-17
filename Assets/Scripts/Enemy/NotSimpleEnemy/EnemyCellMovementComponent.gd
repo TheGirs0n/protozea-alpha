@@ -39,6 +39,7 @@ func _ready() -> void:
 	
 	_on_timer_timeout()
 
+
 func move_cell():
 	var delta = get_physics_process_delta_time()
 	match current_movement_state:
@@ -48,34 +49,13 @@ func move_cell():
 				current_speed = move_toward(current_speed, 0, friction * delta)
 				body_to_move.velocity = Vector2.ZERO
 				body_to_move.move_and_slide()
-				#_on_timer_timeout()  # ← сразу новая точка
 				return
 			
 			direction = body_to_move.global_position.direction_to(target_position)
+			var dir_angle = direction.angle() + PI/2
+			body_to_move.cell_animated_sprite_component.rotation = lerp_angle(body_to_move.cell_animated_sprite_component.rotation, dir_angle, 5.0 * delta)
 			current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
 			body_to_move.velocity = direction * current_speed
-			body_to_move.move_and_slide()
-
-		MOVEMENT_STATE.CHASE:
-			if chased_body == null:
-				change_state(false)
-				return
-			direction = body_to_move.global_position.direction_to(chased_body.global_position)
-			current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
-			body_to_move.velocity = direction * current_speed
-			body_to_move.move_and_slide()
-	
-	match current_movement_state:
-		MOVEMENT_STATE.RANDOM:
-			var distance = body_to_move.global_position.distance_to(target_position)
-			
-			if distance < 2.0:
-				body_to_move.velocity = Vector2.ZERO
-				body_to_move.move_and_slide()
-				return
-			
-			direction = body_to_move.global_position.direction_to(target_position)
-			body_to_move.velocity = direction * cell_current_speed
 			body_to_move.move_and_slide()
 		MOVEMENT_STATE.CHASE:
 			if chased_body == null:
@@ -83,7 +63,10 @@ func move_cell():
 				return
 				
 			direction = body_to_move.global_position.direction_to(chased_body.global_position)
-			body_to_move.velocity = direction * cell_current_speed
+			var dir_angle = direction.angle() + PI/2
+			body_to_move.cell_animated_sprite_component.rotation = lerp_angle(body_to_move.cell_animated_sprite_component.rotation, dir_angle, 5.0 * delta)
+			current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
+			body_to_move.velocity = direction * current_speed
 			body_to_move.move_and_slide()
 			
 			

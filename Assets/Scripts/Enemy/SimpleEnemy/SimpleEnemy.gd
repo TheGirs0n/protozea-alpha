@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends BaseCell
 class_name SimpleEnemyCell
 
 @export_group("Simple Enemy Money Parameters")

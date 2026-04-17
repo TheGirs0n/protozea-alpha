@@ -2,13 +2,14 @@ extends BaseCellMovementComponent
 class_name SimpleEnemyCellMovementComponent
 
 @export_group("Random Movement Parameters")
-@export var random_movement_timer_min_value : float = 1.3 # было 2.5
-@export var random_movement_timer_max_value : float = 2.4  # было 5
+@export var random_movement_timer_min_value : float = 1.3 
+@export var random_movement_timer_max_value : float = 2.4  
 @export var random_movement_timer : Timer
-@export var random_movement_x_min_difference : int = -60   # было -25
-@export var random_movement_x_max_difference : int = 60    # было 25
-@export var random_movement_y_min_difference : int = -60   # было -25
-@export var random_movement_y_max_difference : int = 60    # было 25int = 25
+@export var random_movement_x_min_difference : int = -60   
+@export var random_movement_x_max_difference : int = 60    
+@export var random_movement_y_min_difference : int = -60   
+@export var random_movement_y_max_difference : int = 60    
+
 @export_group("Movement Feel")
 @export var acceleration : float = 150.0
 @export var friction : float = 200.0
@@ -24,14 +25,16 @@ func _ready() -> void:
 
 func move_cell():
 	var distance = body_to_move.global_position.distance_to(target_position)
+	var delta = get_physics_process_delta_time()
 	if distance < 2.0:
 		current_speed = move_toward(current_speed, 0, friction * get_physics_process_delta_time())
 		body_to_move.velocity = Vector2.ZERO
 		body_to_move.move_and_slide()
-		#_on_timer_timeout()
 		return
 	
 	direction = body_to_move.global_position.direction_to(target_position)
+	var dir_angle = direction.angle() + PI/2
+	body_to_move.cell_animated_sprite_component.rotation = lerp_angle(body_to_move.cell_animated_sprite_component.rotation, dir_angle, 5.0 * delta)
 	current_speed = move_toward(current_speed, cell_current_speed, acceleration * get_physics_process_delta_time())
 	body_to_move.velocity = direction * current_speed
 	body_to_move.move_and_slide()

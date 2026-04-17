@@ -2,6 +2,7 @@ extends Node
 class_name MainScene
 
 @export var main_level : MainLevel
+@export var main_ui : MainUI
 
 func _ready() -> void:
 	GlobalContext.main_scene_instance = self
@@ -25,6 +26,7 @@ func pause_game():
 func continue_game():
 	main_level.process_mode = Node.PROCESS_MODE_INHERIT
 	GlobalContext.main_ui_instance.hide_pause()
+	
 	
 func continue_player():
 	GlobalContext.player_instance.process_mode = Node.PROCESS_MODE_INHERIT

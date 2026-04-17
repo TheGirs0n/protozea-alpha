@@ -10,32 +10,28 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvs24"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vtfkj"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shmc3"]
 radius = 15.0
+height = 70.0
 
-[node name="SimpleEnemy" type="CharacterBody2D" unique_id=2011984693]
-position = Vector2(281, 178)
+[node name="SimpleEnemy" type="CharacterBody2D" unique_id=2011984693 node_paths=PackedStringArray("cell_movement_component", "cell_animated_sprite_component")]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_te1aw")
+cell_movement_component = NodePath("SimpleEnemyCellMovementComponent")
+cell_animated_sprite_component = NodePath("EnemyCellAnimatedComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=420358938]
 shape = SubResource("CircleShape2D_dvs24")
 
 [node name="EnemyCellAnimatedComponent" parent="." unique_id=1474548172 instance=ExtResource("2_vtfkj")]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_ht5lm")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_shmc3")
 sprites_array = Array[CompressedTexture2D]([ExtResource("3_ht5lm"), ExtResource("4_shmc3"), ExtResource("5_7vsci")])
 
 [node name="SimpleEnemyCellMovementComponent" parent="." unique_id=175291346 node_paths=PackedStringArray("body_to_move") instance=ExtResource("3_vtfkj")]
 random_movement_timer_min_value = 0.8
 random_movement_timer_max_value = 2.0
-random_movement_x_min_difference = -60
-random_movement_x_max_difference = 60
-random_movement_y_min_difference = -60
-random_movement_y_max_difference = 60
-acceleration = 150.0
-friction = 200.0
 cell_base_speed = 25.0
 cell_current_speed = 125.0
 body_to_move = NodePath("..")
@@ -43,7 +39,7 @@ body_to_move = NodePath("..")
 [node name="Area2D" type="Area2D" parent="." unique_id=938557058]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1737870200]
-shape = SubResource("CircleShape2D_vtfkj")
+shape = SubResource("CapsuleShape2D_shmc3")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1879284472]
 amount = 16

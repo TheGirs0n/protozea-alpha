@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dj67vt74b4ekl"]
 
 [ext_resource type="Script" uid="uid://by7v166lwyjeq" path="res://Assets/Scripts/Enemy/NotSimpleEnemy/EnemyCell.gd" id="1_0tgue"]
-[ext_resource type="Resource" uid="uid://b0hkifkwc5o5u" path="res://Assets/Resources/Enemy/SimpleCell.tres" id="2_5erc5"]
+[ext_resource type="Resource" uid="uid://b0hkifkwc5o5u" path="res://Assets/Resources/CellResources/Enemy/SimpleCell_1.tres" id="2_5erc5"]
 [ext_resource type="PackedScene" uid="uid://exhtd8gpve7g" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAutoBattleComponent.tscn" id="2_fh4fs"]
 [ext_resource type="PackedScene" uid="uid://tvomshh3envc" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellHealthComponent.tscn" id="3_5erc5"]
 [ext_resource type="PackedScene" uid="uid://bonh6iwbntuhp" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellMovementComponent.tscn" id="4_kcrxv"]
@@ -17,7 +17,6 @@
 radius = 20.0
 
 [node name="EnemyCell" type="CharacterBody2D" unique_id=697730910 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
-position = Vector2(594, 238)
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_0tgue")

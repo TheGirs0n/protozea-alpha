@@ -12,7 +12,6 @@ func setup_battle_handler(player: BaseCell, enemy: BaseCell) -> void:
 	player_cell = player
 	enemy_cell = enemy
 	
-	# Выключить movement component у героев и ... все?
 	player.cell_movement_component.disable_component()
 	enemy.cell_movement_component.disable_component()
 	

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalContext="*uid://vxeg2kamowff"
+CellStatsResourceFabric="*uid://lujva23f5u7p"
 
 [file_customization]
 

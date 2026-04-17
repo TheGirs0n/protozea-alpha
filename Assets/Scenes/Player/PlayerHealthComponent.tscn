@@ -7,3 +7,6 @@ script = ExtResource("1_3ma36")
 cell_passive_health_timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="." unique_id=823165617]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="passive_restore_health"]

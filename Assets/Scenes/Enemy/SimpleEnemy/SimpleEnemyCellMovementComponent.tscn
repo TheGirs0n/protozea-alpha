@@ -4,17 +4,7 @@
 
 [node name="SimpleEnemyCellMovementComponent" type="Node" unique_id=175291346 node_paths=PackedStringArray("random_movement_timer")]
 script = ExtResource("1_xne6i")
-random_movement_timer_min_value = null
-random_movement_timer_max_value = null
 random_movement_timer = NodePath("Timer")
-random_movement_x_min_difference = null
-random_movement_x_max_difference = null
-random_movement_y_min_difference = null
-random_movement_y_max_difference = null
-acceleration = null
-friction = null
-cell_base_speed = null
-cell_current_speed = null
 
 [node name="Timer" type="Timer" parent="." unique_id=1432362944]
 autostart = true

@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://ytuk2ykpm5ta" path="res://Assets/Scenes/Main/MainLevel.tscn" id="2_0ilqw"]
 [ext_resource type="PackedScene" uid="uid://b23t35a6tvy0f" path="res://Assets/Scenes/UI/Main/MainUI.tscn" id="2_scsgb"]
 
-[node name="MainScene" type="Node" unique_id=930684345 node_paths=PackedStringArray("main_level")]
+[node name="MainScene" type="Node" unique_id=930684345 node_paths=PackedStringArray("main_level", "main_ui")]
 script = ExtResource("1_scsgb")
 main_level = NodePath("MainLevel")
+main_ui = NodePath("MainUi")
 
 [node name="MainUi" parent="." unique_id=1882197517 instance=ExtResource("2_scsgb")]
 layer = -1

@@ -29,18 +29,19 @@ func _ready() -> void:
 	
 
 func change_rotate_parameters():
-	var new_rotate_value = randf_range(min_sprite_rotate, max_sprite_rotate)
-	
-	if rotate_tween:
-		rotate_tween.kill()
-		
-	rotate_tween = create_tween()
-	rotate_tween.set_trans(Tween.TRANS_QUAD)
-	rotate_tween.set_ease(Tween.EASE_IN_OUT)
-	rotate_tween.tween_property(self, "rotation_degrees", new_rotate_value, rotate_tween_timer.wait_time)
-	
-	rotate_tween_timer.wait_time = randf_range(min_timer_value, max_timer_value)
-	rotate_tween_timer.start()
+	#var new_rotate_value = randf_range(min_sprite_rotate, max_sprite_rotate)
+	#
+	#if rotate_tween:
+		#rotate_tween.kill()
+		#
+	#rotate_tween = create_tween()
+	#rotate_tween.set_trans(Tween.TRANS_QUAD)
+	#rotate_tween.set_ease(Tween.EASE_IN_OUT)
+	#rotate_tween.tween_property(self, "rotation_degrees", new_rotate_value, rotate_tween_timer.wait_time)
+	#
+	#rotate_tween_timer.wait_time = randf_range(min_timer_value, max_timer_value)
+	#rotate_tween_timer.start()
+	pass
 	
 	
 func change_scale_parameters():
