@@ -27,7 +27,8 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	GlobalContext.player_instance.player_evolve_component.player_click_evolve.connect(create_evolve_cards)
-	
+	var p = GlobalContext.player_instance
+	update_player_stats(p.cell_strength_value, p.cell_immune_value, p.cell_swiftness_value)
 
 func create_evolve_cards():
 	var cards = evolve_cards_scene.instantiate() as PlayerEvolveCardsUI

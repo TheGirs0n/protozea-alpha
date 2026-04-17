@@ -6,9 +6,15 @@ class_name PlayerHealthProgressBarUi
 
 
 func _ready() -> void:
-	GlobalContext.player_instance.cell_health_component.health_changed.connect(set_new_value)
-	GlobalContext.player_instance.cell_health_component.new_maximum_health.connect(set_new_max)
-
+	var health_comp = GlobalContext.player_instance.cell_health_component
+	
+	health_comp.health_changed.connect(set_new_value)
+	health_comp.new_maximum_health.connect(set_new_max)
+	
+	# Явно запрашиваем начальные значения после подключения
+	set_new_max(health_comp.cell_max_health)
+	set_new_value(health_comp.cell_current_health)
+	
 
 func set_new_value(new_value : float):
 	player_health_progress_bar.value = new_value

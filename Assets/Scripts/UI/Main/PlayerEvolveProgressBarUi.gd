@@ -5,9 +5,16 @@ class_name PlayerEvolveProgressBarUi
 @export var player_evolve_progress_bar_text : RichTextLabel
 
 func _ready() -> void:
-	GlobalContext.player_instance.player_economy_component.player_money_changed.connect(set_value)
-	GlobalContext.player_instance.player_evolve_component.player_evolve_new_max.connect(set_new_max)
-
+	var economy_comp = GlobalContext.player_instance.player_economy_component
+	var evolve_comp = GlobalContext.player_instance.player_evolve_component
+	
+	economy_comp.player_money_changed.connect(set_value)
+	evolve_comp.player_evolve_new_max.connect(set_new_max)
+	
+	# Явно запрашиваем начальные значения
+	set_new_max(evolve_comp.cell_evolve_array_cost[evolve_comp.cell_current_evolve_index])
+	set_value(economy_comp.player_current_money)
+	
 
 func set_new_max(new_max : int):
 	player_evolve_progress_bar.max_value = new_max

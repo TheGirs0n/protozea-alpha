@@ -23,6 +23,7 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1917575311]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=640453218]
 layout_mode = 2
@@ -41,6 +42,7 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=516535823]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2" unique_id=1299269830]
 layout_mode = 2
@@ -59,6 +61,7 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer3" unique_id=682911101]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer3" unique_id=929178658]
 layout_mode = 2

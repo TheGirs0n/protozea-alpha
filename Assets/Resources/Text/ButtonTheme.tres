@@ -16,7 +16,7 @@ texture = ExtResource("3_gd3yq")
 
 [resource]
 default_font = ExtResource("1_4r5fm")
-Button/font_sizes/font_size = 30
+Button/font_sizes/font_size = 24
 Button/styles/hover = SubResource("StyleBoxTexture_nuo1d")
 Button/styles/normal = SubResource("StyleBoxTexture_sryqc")
 Button/styles/pressed = SubResource("StyleBoxTexture_jjorf")
