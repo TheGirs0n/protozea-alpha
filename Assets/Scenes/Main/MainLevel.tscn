@@ -16,7 +16,7 @@ process_mode = 1
 script = ExtResource("1_abbfq")
 
 [node name="SpawnArea" type="Area2D" parent="." unique_id=1053472310]
-position = Vector2(595, 317)
+position = Vector2(576, 317)
 collision_layer = 0
 collision_mask = 0
 input_pickable = false
@@ -31,7 +31,7 @@ collision_mask = 7
 [node name="BoundCollision" type="CollisionPolygon2D" parent="WallsCollision" unique_id=1651446905]
 position = Vector2(1307, 701)
 build_mode = 1
-polygon = PackedVector2Array(-1283.2996, -681, -151.5221, -677, -155.64514, -107, -1293.6072, -107)
+polygon = PackedVector2Array(-1304, -690, -158, -689, -159, -77, -1303, -81)
 
 [node name="AutoBattleHandler" parent="." unique_id=927895448 instance=ExtResource("5_yxsyi")]
 

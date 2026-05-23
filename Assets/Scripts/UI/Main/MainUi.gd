@@ -30,6 +30,7 @@ func _ready() -> void:
 	var p = GlobalContext.player_instance
 	update_player_stats(p.cell_strength_value, p.cell_immune_value, p.cell_swiftness_value)
 
+
 func create_evolve_cards():
 	var cards = evolve_cards_scene.instantiate() as PlayerEvolveCardsUI
 	
@@ -40,6 +41,7 @@ func create_evolve_cards():
 		
 	self.add_child(cards)
 	player_can_evolve_text.hide()
+
 
 func update_player_stats(player_strength : int, player_immune : int, player_swiftness : int):
 	player_stats_ui.set_player_damage_stat(player_strength)

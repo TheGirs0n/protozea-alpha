@@ -4,7 +4,7 @@
 
 [node name="VBoxContainer" type="MarginContainer" unique_id=713898436 node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "en_button", "ru_button")]
 anchors_preset = -1
-anchor_top = 0.7
+anchor_top = 0.6
 anchor_right = 0.35
 anchor_bottom = 1.0
 theme_override_constants/margin_left = 10
@@ -20,6 +20,7 @@ ru_button = NodePath("VBoxContainer/HBoxContainer4/RULanguageButton")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=962036524]
 layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1845744482]
