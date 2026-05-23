@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ilipqf1eg4o0" path="res://Assets/Scripts/Main/EnemyManager.gd" id="4_hbgnp"]
 [ext_resource type="PackedScene" uid="uid://bpt31whvmqnmh" path="res://Assets/Scenes/Main/AutoBattleHandler.tscn" id="5_yxsyi"]
 [ext_resource type="PackedScene" uid="uid://dj67vt74b4ekl" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCell.tscn" id="6_el6tv"]
+[ext_resource type="Texture2D" uid="uid://bhgr40x7g1q2h" path="res://Assets/Sprites/particle_5.png" id="7_6mpxr"]
 [ext_resource type="Material" uid="uid://c5rn4m5p1qgbl" path="res://Assets/Resources/Particles/MainSceneParticles.tres" id="7_xutpi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgnp"]
@@ -56,7 +57,8 @@ position = Vector2(622, 355)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=410703407]
 process_mode = 3
 position = Vector2(595, 319)
-amount = 64
+amount = 70
+texture = ExtResource("7_6mpxr")
 lifetime = 15.0
 preprocess = 3.0
 process_material = ExtResource("7_xutpi")
