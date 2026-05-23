@@ -1,5 +1,5 @@
 @abstract
-extends TextureRect
+extends TextureButton
 class_name BasePlayerEvolveCardUI
 
 enum PLAYER_STAT{
