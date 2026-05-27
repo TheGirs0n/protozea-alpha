@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://bmbxlv7dyjwjl"]
 
 [ext_resource type="Script" uid="uid://n7gtc3e6t61d" path="res://Assets/Scripts/UI/Menus/SettingsMenu.gd" id="1_xtnii"]
+[ext_resource type="Texture2D" uid="uid://bv633teeleotb" path="res://Assets/Sprites/UI/Settings/sound_icon.png" id="2_fpg45"]
+[ext_resource type="Texture2D" uid="uid://dhhpcqdm41n0q" path="res://Assets/Sprites/UI/Settings/bar_icon.png" id="2_hpy3m"]
+[ext_resource type="Texture2D" uid="uid://dt8y8q4two4g0" path="res://Assets/Sprites/UI/Settings/slider_icon.png" id="3_63b8d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpg45"]
+content_margin_left = 105.0
+content_margin_top = 15.0
+texture = ExtResource("2_hpy3m")
 
 [node name="VBoxContainer" type="MarginContainer" unique_id=713898436 node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "en_button", "ru_button")]
 anchors_preset = -1
 anchor_top = 0.6
 anchor_right = 0.35
 anchor_bottom = 1.0
+offset_bottom = 15.800049
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -28,16 +37,28 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1965335598]
+[node name="TextureRect" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1451897883]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=711691454]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_fpg45")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=495635613]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MasterProgressBar" type="HSlider" parent="VBoxContainer/HBoxContainer" unique_id=613382618]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("3_63b8d")
+theme_override_styles/slider = SubResource("StyleBoxTexture_fpg45")
 max_value = 1.0
 step = 0.01
 
@@ -46,16 +67,28 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=315395000]
+[node name="TextureRect" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3" unique_id=1912138339]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3/TextureRect" unique_id=292136318]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_fpg45")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3/TextureRect" unique_id=1885544547]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MusicProgressBar" type="HSlider" parent="VBoxContainer/HBoxContainer3" unique_id=1354202665]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("3_63b8d")
+theme_override_styles/slider = SubResource("StyleBoxTexture_fpg45")
 max_value = 1.0
 step = 0.01
 
@@ -64,16 +97,28 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=706194183]
+[node name="TextureRect" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=209673395]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/TextureRect" unique_id=1571480710]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_fpg45")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/TextureRect" unique_id=660904230]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="SFXProgressBar" type="HSlider" parent="VBoxContainer/HBoxContainer2" unique_id=1398976092]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("3_63b8d")
+theme_override_styles/slider = SubResource("StyleBoxTexture_fpg45")
 max_value = 1.0
 step = 0.01
 

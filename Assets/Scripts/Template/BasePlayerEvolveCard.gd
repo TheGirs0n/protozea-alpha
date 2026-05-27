@@ -11,6 +11,7 @@ enum PLAYER_STAT{
 
 @export_group("Card Stat")
 @export var player_evolve_stat : PLAYER_STAT
+
 @export_group("Cards Name")
 @export var card_name_array : Array[String]
 @export var card_name_text : RichTextLabel
@@ -22,12 +23,6 @@ signal player_pick_card
 func _ready() -> void:
 	card_name_text.text = card_name_array.pick_random()
 	self.pivot_offset_ratio = Vector2(0.5, 0.5)
-
-
-func player_pick_card_input(event: InputEvent):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			pick_card()
 
 
 func on_card_mouse_entered():

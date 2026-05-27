@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ccugf1s3sw47i" path="res://Assets/Scripts/Enemy/SimpleEnemy/SimpleEnemy.gd" id="1_te1aw"]
 [ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAnimatedComponent.tscn" id="2_vtfkj"]
-[ext_resource type="Texture2D" uid="uid://cs22wms0vxhxa" path="res://Assets/Sprites/plancton_1.png" id="3_ht5lm"]
+[ext_resource type="Texture2D" uid="uid://cs22wms0vxhxa" path="res://Assets/Sprites/Entities/SimpleEnemy/plancton_1.png" id="3_ht5lm"]
 [ext_resource type="PackedScene" uid="uid://cdlkm62bweph7" path="res://Assets/Scenes/Enemy/SimpleEnemy/SimpleEnemyCellMovementComponent.tscn" id="3_vtfkj"]
-[ext_resource type="Texture2D" uid="uid://ldgeq2pipl6a" path="res://Assets/Sprites/plancton_2.png" id="4_shmc3"]
-[ext_resource type="Texture2D" uid="uid://byxmoabmwl42v" path="res://Assets/Sprites/plancton_3.png" id="5_7vsci"]
-[ext_resource type="Material" uid="uid://bmjsgmvbhuhct" path="res://Assets/Resources/Particles/SimpleEnemyParticles.tres" id="7_shmc3"]
+[ext_resource type="Texture2D" uid="uid://ldgeq2pipl6a" path="res://Assets/Sprites/Entities/SimpleEnemy/plancton_2.png" id="4_shmc3"]
+[ext_resource type="Texture2D" uid="uid://byxmoabmwl42v" path="res://Assets/Sprites/Entities/SimpleEnemy/plancton_3.png" id="5_7vsci"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvs24"]
 
@@ -40,12 +39,5 @@ body_to_move = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1737870200]
 shape = SubResource("CapsuleShape2D_shmc3")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1879284472]
-amount = 16
-lifetime = 3.0
-speed_scale = 0.25
-randomness = 0.5
-process_material = ExtResource("7_shmc3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

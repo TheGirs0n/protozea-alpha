@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://tvomshh3envc" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellHealthComponent.tscn" id="3_5erc5"]
 [ext_resource type="PackedScene" uid="uid://bonh6iwbntuhp" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellMovementComponent.tscn" id="4_kcrxv"]
 [ext_resource type="PackedScene" uid="uid://cssv6gvhw526t" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCellAnimatedComponent.tscn" id="6_kcrxv"]
-[ext_resource type="Texture2D" uid="uid://cjem0546avnr0" path="res://Assets/Sprites/predator_1.png" id="7_hhs5d"]
-[ext_resource type="Texture2D" uid="uid://cd3n4od7uhrqj" path="res://Assets/Sprites/predator_2.png" id="8_luwtw"]
-[ext_resource type="Texture2D" uid="uid://dr35kqjdx1pue" path="res://Assets/Sprites/predator_3.png" id="9_4vnvj"]
-[ext_resource type="Material" uid="uid://p08ysw24bk7g" path="res://Assets/Resources/Particles/EnemyParticles.tres" id="10_luwtw"]
+[ext_resource type="Texture2D" uid="uid://cjem0546avnr0" path="res://Assets/Sprites/Entities/Enemy/predator_1.png" id="7_hhs5d"]
+[ext_resource type="Texture2D" uid="uid://cd3n4od7uhrqj" path="res://Assets/Sprites/Entities/Enemy/predator_2.png" id="8_luwtw"]
+[ext_resource type="Texture2D" uid="uid://dr35kqjdx1pue" path="res://Assets/Sprites/Entities/Enemy/predator_3.png" id="9_4vnvj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcrxv"]
 
@@ -48,13 +47,6 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaContact" unique_id=1895422165]
 shape = SubResource("CircleShape2D_xte72")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1206685783]
-amount = 16
-lifetime = 3.0
-speed_scale = 0.25
-randomness = 0.5
-process_material = ExtResource("10_luwtw")
 
 [connection signal="cell_died" from="EnemyCellHealthComponent" to="." method="enemy_cell_die"]
 [connection signal="body_entered" from="PlayerAreaContact" to="EnemyCellMovementComponent" method="player_enter_area"]

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b1sqidndjbxc3"]
 
 [ext_resource type="Script" uid="uid://cqid4mvoc3uc0" path="res://Assets/Scripts/UI/Menus/MainMenu.gd" id="1_m0ihx"]
-[ext_resource type="Texture2D" uid="uid://bm8msk1nvpuce" path="res://Assets/Sprites/start_menu_background.png" id="2_fgg7k"]
+[ext_resource type="Texture2D" uid="uid://bm8msk1nvpuce" path="res://Assets/Sprites/UI/Menu/start_menu_background.png" id="2_fgg7k"]
 [ext_resource type="PackedScene" uid="uid://bmbxlv7dyjwjl" path="res://Assets/Scenes/UI/Menus/SettingsMenu.tscn" id="2_p3vtt"]
 [ext_resource type="Theme" uid="uid://bgh4rh8eskkto" path="res://Assets/Resources/Text/ButtonTheme.tres" id="2_vjo3j"]
-[ext_resource type="Texture2D" uid="uid://bgwgpdanklnor" path="res://Assets/Sprites/logo.png" id="3_lno8n"]
+[ext_resource type="Texture2D" uid="uid://bgwgpdanklnor" path="res://Assets/Sprites/UI/Menu/logo.png" id="3_lno8n"]
 
 [node name="MainMenu" type="Control" unique_id=278524652]
 layout_mode = 3
@@ -57,5 +57,8 @@ text = "START_GAME"
 [node name="VBoxContainer" parent="." unique_id=713898436 instance=ExtResource("2_p3vtt")]
 layout_mode = 0
 anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]

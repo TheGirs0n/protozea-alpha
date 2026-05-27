@@ -1,75 +1,64 @@
 [gd_scene format=3 uid="uid://b20gnecxtv6td"]
 
+[ext_resource type="Texture2D" uid="uid://ddlwkquaw0i7t" path="res://Assets/Sprites/UI/LevelCards/CardsTexture/level_card_calm.png" id="1_gxbxo"]
 [ext_resource type="Script" uid="uid://dsqwxgobjlxkp" path="res://Assets/Scripts/UI/PlayerEvolveCards/PlayerEvolveDefenseCard.gd" id="1_op663"]
 [ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="2_kjmym"]
+[ext_resource type="Texture2D" uid="uid://ddcwvkqpvw1w7" path="res://Assets/Sprites/UI/LevelCards/CardsTexture/level_card_click.png" id="2_usyfq"]
+[ext_resource type="Texture2D" uid="uid://dbd3bm7y00ect" path="res://Assets/Sprites/UI/LevelCards/CardsTexture/level_card_touch.png" id="3_fuhwy"]
+[ext_resource type="Texture2D" uid="uid://crin2fsfj4lpk" path="res://Assets/Sprites/UI/LevelCards/CardsStatIcons/level_icon_health_calm.png" id="3_ydq5m"]
 
-[node name="PlayerEvolveDefenseCard" type="TextureRect" unique_id=854580065 node_paths=PackedStringArray("card_name_text")]
+[node name="PlayerEvolveDefenseCard" type="TextureButton" unique_id=28301153 node_paths=PackedStringArray("card_name_text")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 3
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource("1_gxbxo")
+texture_pressed = ExtResource("2_usyfq")
+texture_hover = ExtResource("3_fuhwy")
+ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("1_op663")
 player_evolve_stat = 1
 card_name_array = Array[String](["PLAYER_EVOLVE_IMMUNE_TEXT_1", "PLAYER_EVOLVE_IMMUNE_TEXT_2", "PLAYER_EVOLVE_IMMUNE_TEXT_3", "PLAYER_EVOLVE_IMMUNE_TEXT_4", "PLAYER_EVOLVE_IMMUNE_TEXT_5"])
-card_name_text = NodePath("MarginContainer/TextureRect/VBoxContainer/CardName")
-metadata/_custom_type_script = "uid://dnhaa7y4jjg4h"
+card_name_text = NodePath("CardName")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1728649221]
+[node name="CardName" type="RichTextLabel" parent="." unique_id=1824070859]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1184216013]
-layout_mode = 2
-expand_mode = 3
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TextureRect" unique_id=1661250521]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="CardName" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=1824070859]
-layout_mode = 2
+anchors_preset = -1
+anchor_left = 0.36
+anchor_top = 0.005
+anchor_right = 0.64
+anchor_bottom = 0.124
 size_flags_vertical = 3
 theme = ExtResource("2_kjmym")
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=1056327737]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="PlusIcon" type="TextureRect" parent="MarginContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=665934313]
-layout_mode = 2
+[node name="StatIcon" type="TextureRect" parent="." unique_id=887219713]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.295
+anchor_top = 0.114
+anchor_right = 0.71
+anchor_bottom = 0.586
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
+texture = ExtResource("3_ydq5m")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="StatIcon" type="TextureRect" parent="MarginContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=887219713]
-layout_mode = 2
-size_flags_horizontal = 3
-expand_mode = 3
-stretch_mode = 5
-
-[node name="CardDescription" type="RichTextLabel" parent="MarginContainer/TextureRect/VBoxContainer" unique_id=1064779743]
-layout_mode = 2
+[node name="CardDescription" type="RichTextLabel" parent="." unique_id=1064779743]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.581
+anchor_right = 0.686
+anchor_bottom = 0.929
 size_flags_vertical = 3
 theme = ExtResource("2_kjmym")
 bbcode_enabled = true
@@ -77,7 +66,6 @@ text = "PLAYER_EVOLVE_IMMUNE_DESCRIPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="gui_input" from="." to="." method="player_pick_card_input"]
 [connection signal="mouse_entered" from="." to="." method="on_card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="on_card_mouse_exited"]
-[connection signal="gui_input" from="MarginContainer/TextureRect" to="." method="player_pick_card"]
+[connection signal="player_pick_card" from="." to="." method="pick_card"]
