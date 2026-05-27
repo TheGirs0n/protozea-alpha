@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://bgh4rh8eskkto"]
 
-[ext_resource type="FontFile" uid="uid://d3xxdc0wuutmv" path="res://Assets/Fonts/Sjz.otf" id="1_4r5fm"]
 [ext_resource type="Texture2D" uid="uid://baln18xbxag6j" path="res://Assets/Sprites/UI/Buttons/menu_butt_3_focus.png" id="1_7yas6"]
 [ext_resource type="Texture2D" uid="uid://n65ragruhskw" path="res://Assets/Sprites/UI/Buttons/menu_butt_3_calm.png" id="2_7yas6"]
 [ext_resource type="Texture2D" uid="uid://cpyc5hlu2yyam" path="res://Assets/Sprites/UI/Buttons/menu_butt_4_click.png" id="3_gd3yq"]
+[ext_resource type="FontFile" uid="uid://d3xxdc0wuutmv" path="res://Assets/Fonts/Sjz.otf" id="4_7yas6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nuo1d"]
 texture = ExtResource("1_7yas6")
@@ -15,7 +15,7 @@ texture = ExtResource("2_7yas6")
 texture = ExtResource("3_gd3yq")
 
 [resource]
-default_font = ExtResource("1_4r5fm")
+default_font = ExtResource("4_7yas6")
 Button/font_sizes/font_size = 24
 Button/styles/hover = SubResource("StyleBoxTexture_nuo1d")
 Button/styles/normal = SubResource("StyleBoxTexture_sryqc")

@@ -8,30 +8,43 @@
 [ext_resource type="PackedScene" uid="uid://dj67vt74b4ekl" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCell.tscn" id="6_el6tv"]
 [ext_resource type="Texture2D" uid="uid://bhgr40x7g1q2h" path="res://Assets/Sprites/MainLevel/Particles/particle_5.png" id="7_6mpxr"]
 [ext_resource type="Material" uid="uid://c5rn4m5p1qgbl" path="res://Assets/Resources/Particles/MainSceneParticles.tres" id="7_xutpi"]
+[ext_resource type="Texture2D" uid="uid://c432gfpiyvrk3" path="res://Assets/Sprites/MainLevel/Particles/particle_1-0 (1).png" id="9_dk1rd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgnp"]
 size = Vector2(1143, 611)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6mpxr"]
 particles_animation = true
-particles_anim_h_frames = 1
+particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="Curve" id="Curve_k8dgl"]
+_data = [Vector2(0, 0.49888146), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k7pld"]
+curve = SubResource("Curve_k8dgl")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dk1rd"]
 particle_flag_disable_z = true
-emission_shape_scale = Vector3(50, 50, 1)
+emission_shape_scale = Vector3(40, 40, 1)
 emission_shape = 3
-emission_box_extents = Vector3(12, 7, 1)
-radial_velocity_min = -1.0000223
-radial_velocity_max = -2.2351742e-05
+emission_box_extents = Vector3(12, 6.675, 1)
+initial_velocity_max = 10.0
+angular_velocity_min = -100.000015
+angular_velocity_max = 99.999985
+radial_velocity_min = -25.000021
+radial_velocity_max = 24.999977
 linear_accel_min = -100.0
 linear_accel_max = 99.99999
-radial_accel_min = -34.57
-radial_accel_max = 18.289997
+radial_accel_min = -10.000002
+radial_accel_max = 44.999996
 tangential_accel_min = -30.86
-tangential_accel_max = 30.489998
-damping_max = 100.00001
+tangential_accel_max = 29.999996
+damping_max = 50.000004
+alpha_curve = SubResource("CurveTexture_k7pld")
+anim_offset_max = 1.0
 
 [node name="MainLevel" type="Node2D" unique_id=1839840135]
 process_mode = 1
@@ -88,6 +101,7 @@ process_material = ExtResource("7_xutpi")
 material = SubResource("CanvasItemMaterial_6mpxr")
 position = Vector2(586, 317)
 amount = 35
+texture = ExtResource("9_dk1rd")
 lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_dk1rd")
 
