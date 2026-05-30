@@ -9,6 +9,10 @@ class_name MainUI
 @export var player_can_evolve_text : RichTextLabel
 @export var pause_ui : PauseMenu
 
+@export_group("Background Texture Parallax Speed")
+@export var main_background : TextureRect
+@export var main_background_speed : float = 2.0
+
 @export_group("Auto Battle UI")
 @export var auto_battle_ui : AutoBattleUi
 
@@ -79,6 +83,11 @@ func show_win_game_screen():
 	var scene = win_game_screen.instantiate()
 	get_tree().root.add_child(scene)
 	queue_free()
+
+
+func move_main_background(direction : Vector2):
+	if direction != Vector2.ZERO:
+		main_background.position += direction * main_background_speed
 
 
 func show_pause():

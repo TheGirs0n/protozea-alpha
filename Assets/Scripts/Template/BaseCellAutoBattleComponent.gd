@@ -67,3 +67,4 @@ func reset_parameters_after_battle():
 	is_attack_gain = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	endurance_changed.emit(0)
+	target_cell = null

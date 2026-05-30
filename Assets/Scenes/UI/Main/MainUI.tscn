@@ -20,7 +20,7 @@ shader = ExtResource("6_1s7fu")
 shader_parameter/amplitude = 2.0
 shader_parameter/speed = 1.5
 
-[node name="MainUi" type="CanvasLayer" unique_id=1882197517 node_paths=PackedStringArray("player_money_container", "player_stats_ui", "player_health_progress_bar", "player_evolve_progress_bar", "player_can_evolve_text", "pause_ui", "auto_battle_ui")]
+[node name="MainUi" type="CanvasLayer" unique_id=1882197517 node_paths=PackedStringArray("player_money_container", "player_stats_ui", "player_health_progress_bar", "player_evolve_progress_bar", "player_can_evolve_text", "pause_ui", "main_background", "auto_battle_ui")]
 layer = -1
 script = ExtResource("1_vw41n")
 player_money_container = NodePath("PlayerMoneyUi")
@@ -29,24 +29,31 @@ player_health_progress_bar = NodePath("VBoxContainer/PlayerHealthProgressBarUi")
 player_evolve_progress_bar = NodePath("VBoxContainer/PlayerEvolveProgressBarUi")
 player_can_evolve_text = NodePath("VBoxContainer/PlayerCanEvolveText")
 pause_ui = NodePath("PauseMenu")
+main_background = NodePath("TextureRect")
+main_background_speed = 0.5
 auto_battle_ui = NodePath("AutoBattleUi")
 evolve_cards_scene = ExtResource("2_qusfo")
 lose_game_screen = ExtResource("3_f88tq")
 win_game_screen = ExtResource("4_ylo10")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1418598605]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = 1280.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("11_uhwur")
-expand_mode = 3
-stretch_mode = 6
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=907073869]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=907073869]
 material = SubResource("ShaderMaterial_17rqv")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -56,9 +63,8 @@ texture = ExtResource("6_xmy76")
 expand_mode = 3
 stretch_mode = 6
 
-[node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=962376546]
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=962376546]
 material = SubResource("ShaderMaterial_17rqv")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -99,9 +105,9 @@ visible = false
 [node name="PlayerStatsUi" parent="." unique_id=1361290902 instance=ExtResource("5_uoy3w")]
 anchors_preset = -1
 anchor_left = 0.025
-anchor_top = 0.2
+anchor_top = 0.15
 anchor_right = 0.1
-anchor_bottom = 0.5
+anchor_bottom = 0.425
 
 [node name="PlayerMoneyUi" parent="." unique_id=1798079181 instance=ExtResource("2_pp4g4")]
 anchors_preset = -1

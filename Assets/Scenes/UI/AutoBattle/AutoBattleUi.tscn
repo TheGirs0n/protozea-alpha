@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://7k7ygktavn84" path="res://Assets/Scripts/UI/AutoBattle/AutoBattleUi.gd" id="1_gc2vn"]
 [ext_resource type="Theme" uid="uid://e6gh4qe1g1e8" path="res://Assets/Resources/Text/StatsTheme.tres" id="2_56xxu"]
+[ext_resource type="Texture2D" uid="uid://caayxmrw02cm1" path="res://Assets/Sprites/UI/LevelCards/CardsStatIcons/level_icon_predator_calm.png" id="3_thcbo"]
+[ext_resource type="Texture2D" uid="uid://crin2fsfj4lpk" path="res://Assets/Sprites/UI/LevelCards/CardsStatIcons/level_icon_health_calm.png" id="4_hqann"]
+[ext_resource type="Texture2D" uid="uid://1d3fy4mquwmj" path="res://Assets/Sprites/UI/LevelCards/CardsStatIcons/level_icon_agility_calm.png" id="5_uascy"]
 
 [node name="AutoBattleUi" type="Control" unique_id=299851398 node_paths=PackedStringArray("player_damage_text", "player_defense_text", "player_endurance_text", "player_endurance_progress_bar", "player_health_progress_bar", "player_health_progress_bar_text", "player_endurance_progress_bar_text", "enemy_damage_text", "enemy_defense_text", "enemy_endurance_text", "enemy_endurance_progress_bar", "enemy_health_progress_bar", "enemy_health_progress_bar_text", "enemy_endurance_progress_bar_text")]
 layout_mode = 3
@@ -79,7 +82,8 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-expand_mode = 3
+texture = ExtResource("3_thcbo")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=65591151]
@@ -96,7 +100,8 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-expand_mode = 3
+texture = ExtResource("4_hqann")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=1444880734]
@@ -113,7 +118,8 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-expand_mode = 3
+texture = ExtResource("5_uascy")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/PlayerContainer/MarginContainer/HBoxContainer" unique_id=254054722]
@@ -216,7 +222,8 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-expand_mode = 3
+texture = ExtResource("3_thcbo")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=47050977]
@@ -233,7 +240,8 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-expand_mode = 3
+texture = ExtResource("4_hqann")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=1947799251]
@@ -250,7 +258,8 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-expand_mode = 3
+texture = ExtResource("5_uascy")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer2/EnemyContainer/MarginContainer/HBoxContainer" unique_id=804639150]

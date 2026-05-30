@@ -22,7 +22,7 @@ func add_money(amount : int):
 	
 
 func decrease_money(amount : int):
-	player_current_money -= amount
+	player_current_money = max(0, player_current_money - amount)
 	
 	player_money_changed.emit(player_current_money)
 
