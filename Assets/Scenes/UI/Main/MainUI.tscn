@@ -13,15 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://7dmgqmh1de23" path="res://Assets/Sprites/MainLevel/Bounds/ворсинки_даль.png" id="6_xmy76"]
 [ext_resource type="Texture2D" uid="uid://2cpcnwgken4o" path="res://Assets/Sprites/MainLevel/Bounds/ворсинки_близь.png" id="7_1s7fu"]
 [ext_resource type="PackedScene" uid="uid://cqk08ouk4rtat" path="res://Assets/Scenes/UI/Menus/PauseMenu.tscn" id="10_ylo10"]
-[ext_resource type="Texture2D" uid="uid://brxt7g1xr778c" path="res://Assets/Sprites/MainLevel/liquid.png" id="11_uhwur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_17rqv"]
 shader = ExtResource("6_1s7fu")
 shader_parameter/amplitude = 2.0
 shader_parameter/speed = 1.5
 
-[node name="MainUi" type="CanvasLayer" unique_id=1882197517 node_paths=PackedStringArray("player_money_container", "player_stats_ui", "player_health_progress_bar", "player_evolve_progress_bar", "player_can_evolve_text", "pause_ui", "main_background", "auto_battle_ui")]
-layer = -1
+[node name="MainUi" type="CanvasLayer" unique_id=1882197517 node_paths=PackedStringArray("player_money_container", "player_stats_ui", "player_health_progress_bar", "player_evolve_progress_bar", "player_can_evolve_text", "pause_ui", "auto_battle_ui")]
 script = ExtResource("1_vw41n")
 player_money_container = NodePath("PlayerMoneyUi")
 player_stats_ui = NodePath("PlayerStatsUi")
@@ -29,28 +27,10 @@ player_health_progress_bar = NodePath("VBoxContainer/PlayerHealthProgressBarUi")
 player_evolve_progress_bar = NodePath("VBoxContainer/PlayerEvolveProgressBarUi")
 player_can_evolve_text = NodePath("VBoxContainer/PlayerCanEvolveText")
 pause_ui = NodePath("PauseMenu")
-main_background = NodePath("TextureRect")
-main_background_speed = 0.5
 auto_battle_ui = NodePath("AutoBattleUi")
 evolve_cards_scene = ExtResource("2_qusfo")
 lose_game_screen = ExtResource("3_f88tq")
 win_game_screen = ExtResource("4_ylo10")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1418598605]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1280.0
-offset_top = -720.0
-offset_right = 1280.0
-offset_bottom = 720.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("11_uhwur")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=907073869]
 material = SubResource("ShaderMaterial_17rqv")
@@ -118,4 +98,4 @@ anchor_bottom = 0.15
 
 [node name="PauseMenu" parent="." unique_id=747317209 instance=ExtResource("10_ylo10")]
 visible = false
-z_index = 1
+z_index = 2

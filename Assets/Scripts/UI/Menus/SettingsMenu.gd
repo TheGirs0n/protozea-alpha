@@ -30,8 +30,8 @@ func _on_sfx_progress_bar_value_changed(value: float) -> void:
 
 
 func _on_ru_language_button_pressed() -> void:
-	TranslationServer.set_locale("RU")
+	TranslationServer.set_locale("ru")
 
 
 func _on_en_language_button_pressed() -> void:
-	TranslationServer.set_locale("EN")
+	TranslationServer.set_locale("en")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ytuk2ykpm5ta"]
 
 [ext_resource type="Script" uid="uid://cgaoxw86cpfws" path="res://Assets/Scripts/Main/MainLevel.gd" id="1_abbfq"]
+[ext_resource type="Texture2D" uid="uid://brxt7g1xr778c" path="res://Assets/Sprites/MainLevel/liquid.png" id="2_k8dgl"]
 [ext_resource type="PackedScene" uid="uid://cgnhqjwaxj1bs" path="res://Assets/Scenes/Player/Player.tscn" id="2_qr88s"]
 [ext_resource type="PackedScene" uid="uid://bd7llf352nayv" path="res://Assets/Scenes/Enemy/SimpleEnemy/SimpleEnemy.tscn" id="3_3gtre"]
 [ext_resource type="Script" uid="uid://ilipqf1eg4o0" path="res://Assets/Scripts/Main/EnemyManager.gd" id="4_hbgnp"]
@@ -46,9 +47,14 @@ damping_max = 50.000004
 alpha_curve = SubResource("CurveTexture_k7pld")
 anim_offset_max = 1.0
 
-[node name="MainLevel" type="Node2D" unique_id=1839840135]
+[node name="MainLevel" type="Node2D" unique_id=1839840135 node_paths=PackedStringArray("main_background")]
 process_mode = 1
 script = ExtResource("1_abbfq")
+main_background = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1266000547]
+position = Vector2(562, 401)
+texture = ExtResource("2_k8dgl")
 
 [node name="SpawnArea" type="Area2D" parent="." unique_id=1053472310]
 position = Vector2(576, 317)
