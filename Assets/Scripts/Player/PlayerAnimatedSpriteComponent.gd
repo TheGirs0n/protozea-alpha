@@ -4,6 +4,7 @@ class_name PlayerCellAnimatedSpriteComponent
 @export var sprites_array : Array[CompressedTexture2D]
 
 func _ready() -> void:
+	super()
 	self.texture = sprites_array[0]
 
 

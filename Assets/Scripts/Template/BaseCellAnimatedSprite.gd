@@ -15,7 +15,11 @@ class_name BaseCellAnimatedSprite
 var scale_tween : Tween
 var scale_vector : Vector2
 
+# Scale from the scene; breathing oscillates around it instead of compounding
+var _base_scale : Vector2
+
 func _ready() -> void:
+	_base_scale = scale
 	rotate_tween_timer.wait_time = randf_range(min_timer_value, max_timer_value)
 	scale_tween_timer.wait_time = randf_range(min_timer_value, max_timer_value)
 	
@@ -24,7 +28,7 @@ func _ready() -> void:
 	
 	
 func change_scale_parameters():
-	scale_vector = randf_range(min_sprite_scale, max_sprite_scale) * scale
+	scale_vector = randf_range(min_sprite_scale, max_sprite_scale) * _base_scale
 	
 	if scale_tween:
 		scale_tween.kill()

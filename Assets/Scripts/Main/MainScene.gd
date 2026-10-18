@@ -29,6 +29,11 @@ func _wire_events() -> void:
 		EventBus.continue_requested.connect(continue_game)
 	if not EventBus.go_to_main_menu_requested.is_connected(queue_free):
 		EventBus.go_to_main_menu_requested.connect(queue_free)
+	# The game is over: MainUI shows the result screen, the level goes away.
+	if not EventBus.player_died.is_connected(queue_free):
+		EventBus.player_died.connect(queue_free)
+	if not EventBus.all_enemies_cleared.is_connected(queue_free):
+		EventBus.all_enemies_cleared.connect(queue_free)
 	if not EventBus.player_resume_requested.is_connected(continue_player):
 		EventBus.player_resume_requested.connect(continue_player)
 	if not player.player_evolve_component.player_click_evolve.is_connected(pause_player):

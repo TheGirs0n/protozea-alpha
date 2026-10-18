@@ -53,7 +53,6 @@ func create_evolve_cards() -> void:
 		_player.cell_immune_value,
 		_player.cell_swiftness_value
 	)
-	cards.setup(_player)
 	add_child(cards)
 	player_can_evolve_text.hide()
 
@@ -84,16 +83,15 @@ func show_evolve_text() -> void:
 		player_can_evolve_text.show()
 
 
+## MainScene frees itself (and this UI) on the same EventBus signals.
 func show_lose_game_screen() -> void:
-	var scene := lose_game_screen.instantiate()
+	var scene: Node = lose_game_screen.instantiate()
 	get_tree().root.add_child(scene)
-	queue_free()
 
 
 func show_win_game_screen() -> void:
-	var scene := win_game_screen.instantiate()
+	var scene: Node = win_game_screen.instantiate()
 	get_tree().root.add_child(scene)
-	queue_free()
 
 
 func show_pause() -> void:

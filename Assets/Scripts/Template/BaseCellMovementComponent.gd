@@ -21,7 +21,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func set_cell_move_speed(cell_swiftness : int):
-	cell_current_speed = cell_swiftness * 60 - 50 * (cell_swiftness - 1)
+	# Base speed comes from the stat; states like chase scale it and return to it
+	cell_base_speed = cell_swiftness * 60 - 50 * (cell_swiftness - 1)
+	cell_current_speed = cell_base_speed
 
 
 func disable_component():
