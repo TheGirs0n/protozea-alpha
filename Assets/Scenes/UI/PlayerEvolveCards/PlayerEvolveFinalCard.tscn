@@ -21,7 +21,6 @@ texture_hover = ExtResource("3_hapgu")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("1_kqae0")
-player_evolve_stat = 3
 card_name_array = Array[String](["PLAYER_EVOLVE_OVERRAL_TEXT"])
 card_name_text = NodePath("CardName")
 

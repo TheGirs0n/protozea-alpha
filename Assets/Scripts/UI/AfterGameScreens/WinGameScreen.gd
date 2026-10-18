@@ -6,6 +6,4 @@ class_name WinGameScreen
 
 ## Connected in WinGameScreen.tscn to MainMenuButton.pressed.
 func _on_main_menu_button_pressed() -> void:
-	var scene: Node = main_menu.instantiate()
-	get_tree().root.add_child(scene)
-	queue_free()
+	get_tree().change_scene_to_packed(main_menu)

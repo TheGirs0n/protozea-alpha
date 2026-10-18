@@ -15,6 +15,7 @@ signal cell_died
 @export var cell_base_defense: int
 @export var cell_current_defense: int
 
+## Set by AutoBattleHandler; stops passive regeneration during a battle.
 var in_battle: bool = false
 
 
@@ -24,9 +25,9 @@ func _ready() -> void:
 	cell_current_defense = cell_base_defense
 
 
-func set_cell_health_parameters(cell_immune: int) -> void:
-	cell_current_defense = cell_immune * 5
-	cell_max_health = 5 + 2 * (cell_immune - 1)
+func set_cell_health_parameters(cell_immune: int, balance: CellBalanceConfig) -> void:
+	cell_current_defense = balance.defense(cell_immune)
+	cell_max_health = balance.health(cell_immune)
 	cell_current_health = cell_max_health
 	new_maximum_health.emit(cell_current_health)
 	health_changed.emit(cell_current_health)

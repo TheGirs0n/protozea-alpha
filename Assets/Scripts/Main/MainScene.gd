@@ -2,7 +2,7 @@ extends Node
 class_name MainScene
 
 ## Composition Root — единственное место, где все узлы знают друг о друге.
-## Удалены: GlobalContext.main_scene_instance = self / null
+## Уход со сцены (меню, проигрыш, победа) — через change_scene_to_*, сцена удаляется движком.
 
 @export var main_level: MainLevel
 @export var main_ui: MainUI
@@ -27,13 +27,6 @@ func _wire_dependencies() -> void:
 func _wire_events() -> void:
 	if not EventBus.continue_requested.is_connected(continue_game):
 		EventBus.continue_requested.connect(continue_game)
-	if not EventBus.go_to_main_menu_requested.is_connected(queue_free):
-		EventBus.go_to_main_menu_requested.connect(queue_free)
-	# The game is over: MainUI shows the result screen, the level goes away.
-	if not EventBus.player_died.is_connected(queue_free):
-		EventBus.player_died.connect(queue_free)
-	if not EventBus.all_enemies_cleared.is_connected(queue_free):
-		EventBus.all_enemies_cleared.connect(queue_free)
 	if not EventBus.player_resume_requested.is_connected(continue_player):
 		EventBus.player_resume_requested.connect(continue_player)
 	if not player.player_evolve_component.player_click_evolve.is_connected(pause_player):
@@ -41,7 +34,7 @@ func _wire_events() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause_game"):
+	if event.is_action_pressed(&"pause_game"):
 		pause_game()
 
 

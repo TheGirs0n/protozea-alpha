@@ -5,7 +5,7 @@ class_name PlayerMoneyUi
 
 
 func setup(player: PlayerCell) -> void:
-	player_money_text.text = str(0)
+	set_money(player.player_economy_component.player_current_money)
 	player.player_economy_component.player_money_changed.connect(set_money)
 
 

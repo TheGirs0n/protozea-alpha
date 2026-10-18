@@ -50,7 +50,7 @@ func spawn_enemy() -> void:
 		return
 
 	var enemy: EnemyCell = enemy_scene.instantiate() as EnemyCell
-	enemy.cell_start_stats_resource = CellStatsResourceFabric.create_random()
+	enemy.cell_start_stats_resource = CellStartStatResource.create_random(enemy.cell_balance)
 	enemy.global_position = get_random_point_in_area(enemy_area_to_spawn)
 
 	enemy.cell_health_component.cell_died.connect(func() -> void:

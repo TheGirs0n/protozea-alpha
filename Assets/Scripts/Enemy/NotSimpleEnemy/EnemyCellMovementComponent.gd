@@ -1,10 +1,7 @@
 extends BaseCellMovementComponent
 class_name EnemyCellMovementComponent
 
-enum MOVEMENT_STATE { RANDOM, CHASE }
-
-@export_group("Movement State")
-@export var base_movement_state: MOVEMENT_STATE = MOVEMENT_STATE.RANDOM
+enum MovementState { NONE, RANDOM, CHASE }
 
 @export_group("Move Patrol State Parameters")
 @export var random_move_timer_min_value: float = 1.5
@@ -24,26 +21,27 @@ enum MOVEMENT_STATE { RANDOM, CHASE }
 @export var acceleration: float = 200.0
 @export var friction: float = 250.0
 
-var current_movement_state: MOVEMENT_STATE
+var current_movement_state: MovementState = MovementState.NONE
 var chased_body: PlayerCell
 var current_speed: float = 0.0
 
 
 func _ready() -> void:
 	super()
+	current_movement_state = MovementState.RANDOM
 	_sync_acceleration()
 	_on_timer_timeout()
 
 
-func set_cell_move_speed(cell_swiftness: int) -> void:
+func set_cell_move_speed(cell_swiftness: int, balance: CellBalanceConfig) -> void:
 	# Keep acceleration in sync with the stat speed
-	super.set_cell_move_speed(cell_swiftness)
+	super.set_cell_move_speed(cell_swiftness, balance)
 	_sync_acceleration()
 
 
 func move_cell(delta: float) -> void:
 	match current_movement_state:
-		MOVEMENT_STATE.RANDOM:
+		MovementState.RANDOM:
 			var distance: float = body_to_move.global_position.distance_to(target_position)
 			if distance < 2.0:
 				current_speed = move_toward(current_speed, 0, friction * delta)
@@ -54,7 +52,7 @@ func move_cell(delta: float) -> void:
 			direction = body_to_move.global_position.direction_to(target_position)
 			_steer(delta)
 
-		MOVEMENT_STATE.CHASE:
+		MovementState.CHASE:
 			if not is_instance_valid(chased_body):
 				change_state(false)
 				return
@@ -71,14 +69,14 @@ func random_timer() -> void:
 
 func change_state(is_chasing: bool) -> void:
 	if is_chasing:
-		current_movement_state = MOVEMENT_STATE.CHASE
+		current_movement_state = MovementState.CHASE
 		cell_current_speed = cell_base_speed * move_speed_chase_modifier
 		_sync_acceleration()
 		random_move_timer.stop()
 		chase_state_timer.wait_time = chase_state_timer_value
 		chase_state_timer.start()
 	else:
-		current_movement_state = MOVEMENT_STATE.RANDOM
+		current_movement_state = MovementState.RANDOM
 		cell_current_speed = cell_base_speed
 		_sync_acceleration()
 		chased_body = null

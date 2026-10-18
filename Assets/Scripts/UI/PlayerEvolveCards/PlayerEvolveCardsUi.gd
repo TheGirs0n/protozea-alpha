@@ -7,17 +7,20 @@ class_name PlayerEvolveCardsUI
 @export var player_final_evolve_card: PlayerEvolveFinalCardUI
 
 
-func prepare_cards(player_strength: int, player_immune: int, player_swiftness: int) -> void:
-	if player_strength == 5 and player_immune == 5 and player_swiftness == 5:
+## Shows a card for every stat below the cap, or the final card when all are capped.
+func prepare_cards(player: PlayerCell) -> void:
+	var max_stat: int = player.cell_balance.max_stat
+	var can_raise_strength: bool = player.cell_strength_value < max_stat
+	var can_raise_immune: bool = player.cell_immune_value < max_stat
+	var can_raise_swiftness: bool = player.cell_swiftness_value < max_stat
+
+	if not can_raise_strength and not can_raise_immune and not can_raise_swiftness:
 		prepare_final_card()
 		return
 
-	if player_strength < 5:
-		player_damage_evolve_card.show()
-	if player_immune < 5:
-		player_defense_evolve_card.show()
-	if player_swiftness < 5:
-		player_speed_evolve_card.show()
+	player_damage_evolve_card.visible = can_raise_strength
+	player_defense_evolve_card.visible = can_raise_immune
+	player_speed_evolve_card.visible = can_raise_swiftness
 
 
 func prepare_final_card() -> void:

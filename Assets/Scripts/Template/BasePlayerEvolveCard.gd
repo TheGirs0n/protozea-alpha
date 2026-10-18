@@ -2,17 +2,8 @@
 extends TextureButton
 class_name BasePlayerEvolveCardUI
 
+## Each card script emits its own EventBus evolve signal before this one.
 signal player_pick_card
-
-enum PLAYER_STAT{
-	STRENGTH,
-	IMMUNE,
-	SWIFTNESS,
-	ALL
-}
-
-@export_group("Card Stat")
-@export var player_evolve_stat: PLAYER_STAT
 
 @export_group("Cards Name")
 @export var card_name_array: Array[String]

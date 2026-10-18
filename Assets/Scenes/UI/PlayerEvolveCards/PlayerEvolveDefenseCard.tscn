@@ -21,7 +21,6 @@ texture_hover = ExtResource("3_fuhwy")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("1_op663")
-player_evolve_stat = 1
 card_name_array = Array[String](["PLAYER_EVOLVE_IMMUNE_TEXT_1", "PLAYER_EVOLVE_IMMUNE_TEXT_2", "PLAYER_EVOLVE_IMMUNE_TEXT_3", "PLAYER_EVOLVE_IMMUNE_TEXT_4", "PLAYER_EVOLVE_IMMUNE_TEXT_5"])
 card_name_text = NodePath("CardName")
 

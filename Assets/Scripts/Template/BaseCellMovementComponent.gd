@@ -20,9 +20,9 @@ func _physics_process(delta: float) -> void:
 	move_cell(delta)
 
 
-func set_cell_move_speed(cell_swiftness: int) -> void:
+func set_cell_move_speed(cell_swiftness: int, balance: CellBalanceConfig) -> void:
 	# Base speed comes from the stat; states like chase scale it and return to it
-	cell_base_speed = cell_swiftness * 60 - 50 * (cell_swiftness - 1)
+	cell_base_speed = balance.speed(cell_swiftness)
 	cell_current_speed = cell_base_speed
 
 

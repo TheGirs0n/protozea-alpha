@@ -2,6 +2,8 @@ extends BaseCellAnimatedSprite
 class_name PlayerCellAnimatedSpriteComponent
 
 @export var sprites_array: Array[CompressedTexture2D]
+## Stat sum from which sprites_array[i + 1] is shown (start stats 1/1/1 sum to 3).
+@export var sprite_stat_sum_thresholds: Array[int] = [8, 13, 18]
 
 
 func _ready() -> void:
@@ -11,9 +13,8 @@ func _ready() -> void:
 
 ## Connected in Player.tscn to PlayerCell.player_cell_stats_check_evolve.
 func _on_player_cell_stats_check_evolve(stat_sum: int) -> void:
-	if stat_sum - 3 == 5:
-		texture = sprites_array[1]
-	elif stat_sum - 3 == 10:
-		texture = sprites_array[2]
-	elif stat_sum - 3 == 15:
-		texture = sprites_array[3]
+	var sprite_index: int = 0
+	for threshold: int in sprite_stat_sum_thresholds:
+		if stat_sum >= threshold:
+			sprite_index += 1
+	texture = sprites_array[mini(sprite_index, sprites_array.size() - 1)]

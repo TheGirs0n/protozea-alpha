@@ -44,7 +44,9 @@ func _wire_evolve_events() -> void:
 	EventBus.evolve_all_requested.connect(_evolve_all)
 
 
+## The final card: every stat goes past the cap and evolution is over.
 func _evolve_all() -> void:
 	player_cell_add_one_strength()
 	player_cell_add_one_immune()
 	player_cell_add_one_swiftness()
+	player_evolve_component.finish_evolution()

@@ -1,27 +1,27 @@
 extends Node
 class_name PlayerEvolveComponent
 
+## Decides when the player may evolve and charges for it.
+## The evolution is paid on the key press; the cards only choose which stat grows.
+
 signal player_click_evolve()
 signal player_evolve_new_max(new_value: int)
 signal player_evolve_money_changed(money_amount: int)
+signal can_evolve_changed(can_evolve: bool)
+signal evolution_finished()
 
+## Cost of each evolution in order; after the last one the evolution is finished.
 @export var cell_evolve_array_cost: Array[int]
 
-var cell_base_evolve_index: int = 0
-var cell_current_evolve_index: int
-var cell_max_evolve_index: int
-
+var cell_current_evolve_index: int = 0
 var can_player_evolve_in_current: bool = false
-var can_player_evolve_in_total: bool = true
-
 var is_final_evolve: bool = false
+
+var _money: int = 0
 
 
 func _ready() -> void:
-	cell_current_evolve_index = cell_base_evolve_index
-	cell_max_evolve_index = cell_evolve_array_cost.size() - 1
-
-	player_evolve_new_max.emit(cell_evolve_array_cost[cell_current_evolve_index])
+	player_evolve_new_max.emit(get_current_cost())
 
 
 func _input(event: InputEvent) -> void:
@@ -29,19 +29,41 @@ func _input(event: InputEvent) -> void:
 		player_click_evolve.emit()
 
 
+## Cost of the next evolution. Only meaningful while is_final_evolve is false.
+func get_current_cost() -> int:
+	return cell_evolve_array_cost[cell_current_evolve_index]
+
+
 ## Connected in Player.tscn to player_click_evolve.
 func player_evolve() -> void:
-	if cell_current_evolve_index < cell_evolve_array_cost.size() - 1:
-		player_evolve_money_changed.emit(cell_evolve_array_cost[cell_current_evolve_index])
-		cell_current_evolve_index += 1
-		player_evolve_new_max.emit(cell_evolve_array_cost[cell_current_evolve_index])
-		can_player_evolve_in_current = false
+	var cost: int = get_current_cost()
+	cell_current_evolve_index += 1
+	if cell_current_evolve_index >= cell_evolve_array_cost.size():
+		finish_evolution()
 	else:
-		is_final_evolve = true
-		can_player_evolve_in_total = false
+		player_evolve_new_max.emit(get_current_cost())
+	# Charge after moving to the next cost so the money update re-checks against it
+	player_evolve_money_changed.emit(cost)
 
 
 ## Connected in Player.tscn to PlayerEconomyComponent.player_money_changed.
 func can_player_evolve_current(new_money: int) -> void:
-	if new_money >= cell_evolve_array_cost[cell_current_evolve_index]:
-		can_player_evolve_in_current = true
+	_money = new_money
+	_update_can_evolve()
+
+
+## Called by PlayerCell when the final card has been taken.
+func finish_evolution() -> void:
+	if is_final_evolve:
+		return
+	is_final_evolve = true
+	evolution_finished.emit()
+	_update_can_evolve()
+
+
+func _update_can_evolve() -> void:
+	var can_evolve: bool = not is_final_evolve and _money >= get_current_cost()
+	if can_evolve == can_player_evolve_in_current:
+		return
+	can_player_evolve_in_current = can_evolve
+	can_evolve_changed.emit(can_evolve)

@@ -19,8 +19,10 @@ class_name MainUI
 @export var lose_game_screen: PackedScene
 @export var win_game_screen: PackedScene
 
-var _player: PlayerCell = null
 var is_autobattle_ui_active: bool = false
+
+var _player: PlayerCell = null
+var _is_evolve_cards_open: bool = false
 
 
 func setup(player: PlayerCell) -> void:
@@ -37,24 +39,24 @@ func setup(player: PlayerCell) -> void:
 	)
 
 	player.player_evolve_component.player_click_evolve.connect(create_evolve_cards)
+	player.player_evolve_component.can_evolve_changed.connect(_on_can_evolve_changed)
 
 	EventBus.player_stats_changed.connect(update_player_stats)
 	EventBus.battle_started.connect(show_auto_battle_ui)
 	EventBus.battle_ended.connect(hide_auto_battle_ui)
 	EventBus.all_enemies_cleared.connect(show_win_game_screen)
 	EventBus.player_died.connect(show_lose_game_screen)
-	EventBus.show_evolve_text_requested.connect(show_evolve_text)
+	EventBus.player_resume_requested.connect(_on_evolve_cards_closed)
+
+	_refresh_evolve_text()
 
 
 func create_evolve_cards() -> void:
 	var cards: PlayerEvolveCardsUI = evolve_cards_scene.instantiate() as PlayerEvolveCardsUI
-	cards.prepare_cards(
-		_player.cell_strength_value,
-		_player.cell_immune_value,
-		_player.cell_swiftness_value
-	)
+	cards.prepare_cards(_player)
 	add_child(cards)
-	player_can_evolve_text.hide()
+	_is_evolve_cards_open = true
+	_refresh_evolve_text()
 
 
 func update_player_stats(player_strength: int, player_immune: int, player_swiftness: int) -> void:
@@ -67,8 +69,8 @@ func show_auto_battle_ui(player: BaseCell, enemy: BaseCell) -> void:
 	auto_battle_ui.setup_battle_ui(player, enemy)
 	player_health_progress_bar.hide()
 	player_evolve_progress_bar.hide()
-	player_can_evolve_text.hide()
 	is_autobattle_ui_active = true
+	_refresh_evolve_text()
 
 
 func hide_auto_battle_ui() -> void:
@@ -76,22 +78,15 @@ func hide_auto_battle_ui() -> void:
 	player_health_progress_bar.show()
 	player_evolve_progress_bar.show()
 	is_autobattle_ui_active = false
+	_refresh_evolve_text()
 
 
-func show_evolve_text() -> void:
-	if not is_autobattle_ui_active:
-		player_can_evolve_text.show()
-
-
-## MainScene frees itself (and this UI) on the same EventBus signals.
 func show_lose_game_screen() -> void:
-	var scene: Node = lose_game_screen.instantiate()
-	get_tree().root.add_child(scene)
+	get_tree().change_scene_to_packed(lose_game_screen)
 
 
 func show_win_game_screen() -> void:
-	var scene: Node = win_game_screen.instantiate()
-	get_tree().root.add_child(scene)
+	get_tree().change_scene_to_packed(win_game_screen)
 
 
 func show_pause() -> void:
@@ -100,3 +95,22 @@ func show_pause() -> void:
 
 func hide_pause() -> void:
 	pause_ui.hide()
+
+
+func _on_can_evolve_changed(_can_evolve: bool) -> void:
+	_refresh_evolve_text()
+
+
+## The cards emit player_resume_requested when one of them is picked.
+func _on_evolve_cards_closed() -> void:
+	_is_evolve_cards_open = false
+	_refresh_evolve_text()
+
+
+## The hint is shown only when the player can act on it right now.
+func _refresh_evolve_text() -> void:
+	player_can_evolve_text.visible = (
+		_player.player_evolve_component.can_player_evolve_in_current
+		and not is_autobattle_ui_active
+		and not _is_evolve_cards_open
+	)

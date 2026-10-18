@@ -29,14 +29,14 @@ func _process(_delta: float) -> void:
 		is_attack_gain = false
 
 
-func set_cell_strength_parameters(cell_strength: int) -> void:
-	cell_current_damage = 1 + (cell_strength - 1) * 0.5
+func set_cell_strength_parameters(cell_strength: int, balance: CellBalanceConfig) -> void:
+	cell_current_damage = balance.damage(cell_strength)
 
 
-func set_cell_swiftness_parameters(cell_swiftness: int) -> void:
-	cell_max_endurance = 10
-	cell_endurance_timer.wait_time = 0.5
-	cell_gain_per_timer_endurance = 3 - (0.3 - (cell_swiftness - 1))
+func set_cell_swiftness_parameters(cell_swiftness: int, balance: CellBalanceConfig) -> void:
+	cell_max_endurance = balance.max_endurance
+	cell_endurance_timer.wait_time = balance.endurance_tick
+	cell_gain_per_timer_endurance = balance.endurance_gain(cell_swiftness)
 
 
 func try_hit_target() -> void:

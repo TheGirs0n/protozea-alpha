@@ -24,6 +24,10 @@ func _setup_battle(player: BaseCell, enemy: BaseCell) -> void:
 	player.cell_movement_component.disable_component()
 	enemy.cell_movement_component.disable_component()
 
+	# No passive regeneration while fighting
+	player.cell_health_component.in_battle = true
+	enemy.cell_health_component.in_battle = true
+
 	player.cell_health_component.cell_died.connect(_on_player_died)
 	enemy.cell_health_component.cell_died.connect(_on_enemy_died)
 
@@ -37,11 +41,13 @@ func _end_battle() -> void:
 	if player_cell:
 		if player_cell.cell_health_component.cell_died.is_connected(_on_player_died):
 			player_cell.cell_health_component.cell_died.disconnect(_on_player_died)
+		player_cell.cell_health_component.in_battle = false
 		player_cell.cell_movement_component.enable_component()
 
 	if enemy_cell:
 		if enemy_cell.cell_health_component.cell_died.is_connected(_on_enemy_died):
 			enemy_cell.cell_health_component.cell_died.disconnect(_on_enemy_died)
+		enemy_cell.cell_health_component.in_battle = false
 		enemy_cell.cell_movement_component.enable_component()
 
 	EventBus.battle_ended.emit()
