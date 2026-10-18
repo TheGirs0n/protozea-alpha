@@ -5,7 +5,8 @@ class_name MainLevel
 @export var main_background: Sprite2D
 @export var main_background_speed: float = 2.0
 
-func setup():
+
+func setup() -> void:
 	EventBus.background_move_requested.connect(move_main_background)
 
 

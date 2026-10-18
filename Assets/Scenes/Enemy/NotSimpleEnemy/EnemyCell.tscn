@@ -49,4 +49,5 @@ input_pickable = false
 shape = SubResource("CircleShape2D_xte72")
 
 [connection signal="cell_died" from="EnemyCellHealthComponent" to="." method="enemy_cell_die"]
+[connection signal="cell_died" from="EnemyCellHealthComponent" to="." method="queue_free"]
 [connection signal="body_entered" from="PlayerAreaContact" to="EnemyCellMovementComponent" method="player_enter_area"]

@@ -30,28 +30,21 @@ var current_speed: float = 0.0
 
 
 func _ready() -> void:
-	cell_current_speed = cell_base_speed
+	super()
 	_sync_acceleration()
-	target_position = body_to_move.global_position
 	_on_timer_timeout()
 
 
 func set_cell_move_speed(cell_swiftness: int) -> void:
-	# FIX: переопределяем базовый метод, чтобы синхронизировать acceleration
+	# Keep acceleration in sync with the stat speed
 	super.set_cell_move_speed(cell_swiftness)
 	_sync_acceleration()
 
 
-func _sync_acceleration() -> void:
-	acceleration = cell_current_speed
-	friction = cell_current_speed + 10
-
-
-func move_cell() -> void:
-	var delta := get_physics_process_delta_time()
+func move_cell(delta: float) -> void:
 	match current_movement_state:
 		MOVEMENT_STATE.RANDOM:
-			var distance := body_to_move.global_position.distance_to(target_position)
+			var distance: float = body_to_move.global_position.distance_to(target_position)
 			if distance < 2.0:
 				current_speed = move_toward(current_speed, 0, friction * delta)
 				body_to_move.velocity = Vector2.ZERO
@@ -59,38 +52,15 @@ func move_cell() -> void:
 				return
 
 			direction = body_to_move.global_position.direction_to(target_position)
-			var dir_angle := direction.angle() + PI / 2
-			body_to_move.cell_animated_sprite_component.rotation = lerp_angle(
-				body_to_move.cell_animated_sprite_component.rotation, dir_angle, 5.0 * delta
-			)
-			current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
-			body_to_move.velocity = direction * current_speed
-			body_to_move.move_and_slide()
+			_steer(delta)
 
 		MOVEMENT_STATE.CHASE:
-			if chased_body == null:
+			if not is_instance_valid(chased_body):
 				change_state(false)
 				return
 
 			direction = body_to_move.global_position.direction_to(chased_body.global_position)
-			var dir_angle := direction.angle() + PI / 2
-			body_to_move.cell_animated_sprite_component.rotation = lerp_angle(
-				body_to_move.cell_animated_sprite_component.rotation, dir_angle, 5.0 * delta
-			)
-			current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
-			body_to_move.velocity = direction * current_speed
-			body_to_move.move_and_slide()
-
-
-func _on_chase_timer_timeout() -> void:
-	change_state(false)
-
-
-func _on_timer_timeout() -> void:
-	var random_x := randf_range(random_movement_x_min_difference, random_movement_x_max_difference)
-	var random_y := randf_range(random_movement_y_min_difference, random_movement_y_max_difference)
-	target_position = body_to_move.global_position + Vector2(random_x, random_y)
-	random_timer()
+			_steer(delta)
 
 
 func random_timer() -> void:
@@ -117,7 +87,43 @@ func change_state(is_chasing: bool) -> void:
 		random_move_timer.start()
 
 
+## Connected in EnemyCell.tscn to PlayerAreaContact.body_entered.
 func player_enter_area(body: Node2D) -> void:
-	if body is PlayerCell:
-		change_state(true)
-		chased_body = body
+	var player: PlayerCell = body as PlayerCell
+	if player == null:
+		return
+
+	change_state(true)
+	chased_body = player
+
+
+## Connected in EnemyCellMovementComponent.tscn to ChaseTimer.timeout.
+func _on_chase_timer_timeout() -> void:
+	change_state(false)
+
+
+## Connected in EnemyCellMovementComponent.tscn to PatrolTimer.timeout.
+func _on_timer_timeout() -> void:
+	var random_x: float = randf_range(
+		random_movement_x_min_difference, random_movement_x_max_difference
+	)
+	var random_y: float = randf_range(
+		random_movement_y_min_difference, random_movement_y_max_difference
+	)
+	target_position = body_to_move.global_position + Vector2(random_x, random_y)
+	random_timer()
+
+
+func _sync_acceleration() -> void:
+	acceleration = cell_current_speed
+	friction = cell_current_speed + 10
+
+
+func _steer(delta: float) -> void:
+	var dir_angle: float = direction.angle() + PI / 2
+	body_to_move.cell_animated_sprite_component.rotation = lerp_angle(
+		body_to_move.cell_animated_sprite_component.rotation, dir_angle, 5.0 * delta
+	)
+	current_speed = move_toward(current_speed, cell_current_speed, acceleration * delta)
+	body_to_move.velocity = direction * current_speed
+	body_to_move.move_and_slide()

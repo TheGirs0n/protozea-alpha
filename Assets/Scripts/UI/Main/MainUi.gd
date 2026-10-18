@@ -47,7 +47,7 @@ func setup(player: PlayerCell) -> void:
 
 
 func create_evolve_cards() -> void:
-	var cards := evolve_cards_scene.instantiate() as PlayerEvolveCardsUI
+	var cards: PlayerEvolveCardsUI = evolve_cards_scene.instantiate() as PlayerEvolveCardsUI
 	cards.prepare_cards(
 		_player.cell_strength_value,
 		_player.cell_immune_value,

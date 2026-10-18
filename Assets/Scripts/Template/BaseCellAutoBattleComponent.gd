@@ -2,6 +2,8 @@
 extends Node
 class_name BaseCellAutoBattleComponent
 
+signal endurance_changed(new_value: float)
+
 @export_group("Damage Parameters")
 @export var cell_base_damage: float
 @export var cell_current_damage: float
@@ -12,8 +14,6 @@ class_name BaseCellAutoBattleComponent
 @export var cell_max_endurance: int
 @export var cell_gain_per_timer_endurance: float
 @export var cell_endurance_timer: Timer
-
-signal endurance_changed(new_value: float)
 
 var is_attack_gain: bool = false
 var target_cell: BaseCell
@@ -40,10 +40,11 @@ func set_cell_swiftness_parameters(cell_swiftness: int) -> void:
 
 
 func try_hit_target() -> void:
-	if target_cell and is_instance_valid(target_cell):
+	if is_instance_valid(target_cell):
 		target_cell.cell_health_component.try_take_damage(cell_current_damage)
 
 
+## Connected in the auto battle component scenes to Timer.timeout.
 func restore_endurance() -> void:
 	cell_current_endurance += cell_gain_per_timer_endurance
 
@@ -68,5 +69,4 @@ func reset_parameters_after_battle() -> void:
 	is_attack_gain = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	endurance_changed.emit(0)
-	# FIX: обнуляем ссылку на цель — было висячей ссылкой
 	target_cell = null

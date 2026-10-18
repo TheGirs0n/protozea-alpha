@@ -6,7 +6,7 @@ class_name PlayerHealthProgressBarUi
 
 
 func setup(player: PlayerCell) -> void:
-	var health_comp := player.cell_health_component
+	var health_comp: BaseCellHealthComponent = player.cell_health_component
 
 	health_comp.health_changed.connect(set_new_value)
 	health_comp.new_maximum_health.connect(set_new_max)

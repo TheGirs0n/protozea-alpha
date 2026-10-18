@@ -24,16 +24,11 @@ class_name EnemyManager
 @export var enemy_area_to_spawn: CollisionShape2D
 
 
-func setup(_player: BaseCell) -> void:
-	# Зарезервировано для будущей логики, зависящей от игрока
-	pass
-
-
 func _ready() -> void:
-	for i in range(simple_enemy_spawn_initial_count):
+	for i: int in range(simple_enemy_spawn_initial_count):
 		spawn_simple_enemy()
 
-	for i in range(enemy_spawn_initial_count):
+	for i: int in range(enemy_spawn_initial_count):
 		spawn_enemy()
 
 	simple_enemy_spawn_timer.wait_time = randf_range(
@@ -44,24 +39,21 @@ func _ready() -> void:
 	)
 
 
-func _check_win_condition() -> void:
-	# FIX: was checking size() != 0 — inverted condition, win was impossible
-	if cells_to_destroy.is_empty():
-		EventBus.all_enemies_cleared.emit()
+func setup(_player: BaseCell) -> void:
+	# Зарезервировано для будущей логики, зависящей от игрока
+	pass
 
 
+## Connected in MainLevel.tscn to EnemyManager/Timer2.timeout.
 func spawn_enemy() -> void:
 	if cells_to_destroy.size() >= enemy_spawn_max_count:
 		return
 
-	var enemy := enemy_scene.instantiate() as EnemyCell
+	var enemy: EnemyCell = enemy_scene.instantiate() as EnemyCell
 	enemy.cell_start_stats_resource = CellStatsResourceFabric.create_random()
 	enemy.global_position = get_random_point_in_area(enemy_area_to_spawn)
 
-	var health_comp := enemy.cell_health_component as EnemyCellHealthComponent
-
-	# FIX: при смерти удаляем из массива и эмитим событие
-	health_comp.cell_died.connect(func() -> void:
+	enemy.cell_health_component.cell_died.connect(func() -> void:
 		cells_to_destroy.erase(enemy)
 		EventBus.enemy_died.emit(enemy)
 		_check_win_condition()
@@ -75,18 +67,19 @@ func spawn_enemy() -> void:
 	add_child(enemy)
 
 
+## Connected in MainLevel.tscn to EnemyManager/Timer.timeout.
 func spawn_simple_enemy() -> void:
 	if simple_cell_array.size() >= simple_enemy_spawn_max_count:
 		return
 
-	var simple_enemy := simple_enemy_scene.instantiate() as SimpleEnemyCell
+	var simple_enemy: SimpleEnemyCell = simple_enemy_scene.instantiate() as SimpleEnemyCell
 	simple_enemy.global_position = get_random_point_in_area(simple_enemy_area_to_spawn)
 
 	simple_enemy_spawn_timer.wait_time = randf_range(
 		simple_enemy_spawn_min_value, simple_enemy_spawn_max_value
 	)
 
-	# FIX: убираем из массива когда узел удаляется из дерева
+	# Убираем из массива, когда узел удаляется из дерева
 	simple_enemy.tree_exited.connect(func() -> void:
 		simple_cell_array.erase(simple_enemy)
 	)
@@ -96,23 +89,18 @@ func spawn_simple_enemy() -> void:
 
 
 func get_random_point_in_area(area: CollisionShape2D) -> Vector2:
-	# FIX: раньше всегда использовался simple_enemy_area_to_spawn
-	var shape := area.shape
+	var rectangle: RectangleShape2D = area.shape as RectangleShape2D
+	if rectangle == null:
+		return Vector2.ZERO
 
-	if shape is RectangleShape2D:
-		var extents : Vector2 = shape.size / 2 - Vector2(50, 50)
-		var local_point := Vector2(
-			randf_range(-extents.x, extents.x),
-			randf_range(-extents.y, extents.y)
-		)
-		return area.global_position + local_point
-
-	return Vector2.ZERO
+	var extents: Vector2 = rectangle.size / 2 - Vector2(50, 50)
+	var local_point: Vector2 = Vector2(
+		randf_range(-extents.x, extents.x),
+		randf_range(-extents.y, extents.y)
+	)
+	return area.global_position + local_point
 
 
-func _on_simple_enemy_spawn_timer_timeout() -> void:
-	spawn_simple_enemy()
-
-
-func _on_enemy_spawn_timer_timeout() -> void:
-	spawn_enemy()
+func _check_win_condition() -> void:
+	if cells_to_destroy.is_empty():
+		EventBus.all_enemies_cleared.emit()

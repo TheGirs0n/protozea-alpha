@@ -25,7 +25,8 @@ func prepare_final_card() -> void:
 
 
 ## Connected in PlayerEvolveCardsUI.tscn to every card's player_pick_card.
-## The evolution itself is paid on the key press (Player.tscn: player_click_evolve -> player_evolve).
+## The evolution itself is paid on the key press
+## (Player.tscn: player_click_evolve -> player_evolve).
 func player_pick_one_card() -> void:
 	EventBus.player_resume_requested.emit()
 	queue_free()

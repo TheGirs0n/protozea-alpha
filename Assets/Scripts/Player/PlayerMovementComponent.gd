@@ -1,16 +1,15 @@
 extends BaseCellMovementComponent
 class_name PlayerMovementComponent
 
+
 func _process(_delta: float) -> void:
-	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	direction = Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
 
 
-func move_cell() -> void:
-	var delta := get_physics_process_delta_time()
-
-	# FIX: обновляем угол только при движении
+func move_cell(delta: float) -> void:
+	# Угол обновляем только при движении
 	if direction != Vector2.ZERO:
-		var dir_angle := direction.angle()
+		var dir_angle: float = direction.angle()
 		body_to_move.cell_animated_sprite_component.rotation = lerp_angle(
 			body_to_move.cell_animated_sprite_component.rotation,
 			dir_angle,

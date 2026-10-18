@@ -1,10 +1,8 @@
 extends Node
 class_name AutoBattleHandler
 
-## Исправлены:
-##   - GlobalContext убран → _enter_tree/_exit_tree удалены
-##   - target_cell не обнулялся после боя → висячая ссылка → добавлен target_cell = null
-##   - Подписывается на EventBus.battle_requested вместо прямого вызова из BattleAreaContact
+## Начинает бой по EventBus.battle_requested и заканчивает его,
+## когда умирает одна из сторон.
 
 var player_cell: BaseCell = null
 var enemy_cell: BaseCell = null
@@ -54,15 +52,11 @@ func _end_battle() -> void:
 func _on_enemy_died() -> void:
 	if player_cell:
 		player_cell.cell_auto_battle_component.reset_parameters_after_battle()
-		# FIX: обнуляем ссылку на цель после боя
-		player_cell.cell_auto_battle_component.target_cell = null
 	_end_battle()
 
 
 func _on_player_died() -> void:
 	if enemy_cell:
 		enemy_cell.cell_auto_battle_component.reset_parameters_after_battle()
-		# FIX: обнуляем ссылку на цель после боя
-		enemy_cell.cell_auto_battle_component.target_cell = null
 	EventBus.player_died.emit()
 	_end_battle()

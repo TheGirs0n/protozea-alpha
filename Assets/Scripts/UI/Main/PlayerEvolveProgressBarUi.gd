@@ -6,8 +6,8 @@ class_name PlayerEvolveProgressBarUi
 
 
 func setup(player: PlayerCell) -> void:
-	var economy_comp := player.player_economy_component
-	var evolve_comp := player.player_evolve_component
+	var economy_comp: PlayerEconomyComponent = player.player_economy_component
+	var evolve_comp: PlayerEvolveComponent = player.player_evolve_component
 
 	economy_comp.player_money_changed.connect(set_value)
 	evolve_comp.player_evolve_new_max.connect(set_new_max)

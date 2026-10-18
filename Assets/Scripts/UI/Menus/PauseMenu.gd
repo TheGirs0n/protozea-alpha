@@ -9,6 +9,6 @@ func _on_continue_game_button_pressed() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
-	var scene := main_menu.instantiate()
+	var scene: Node = main_menu.instantiate()
 	get_tree().root.add_child(scene)
 	EventBus.go_to_main_menu_requested.emit()
