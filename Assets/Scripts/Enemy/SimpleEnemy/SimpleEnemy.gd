@@ -1,5 +1,7 @@
-extends BaseCell
+extends CellBody
 class_name SimpleEnemyCell
+
+## Plankton: food without stats, eaten on touch.
 
 @export_group("Simple Enemy Money Parameters")
 @export var min_money_value: int = 1

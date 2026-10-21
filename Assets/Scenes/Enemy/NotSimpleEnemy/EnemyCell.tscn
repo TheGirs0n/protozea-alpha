@@ -31,8 +31,6 @@ shape = SubResource("CircleShape2D_kcrxv")
 [node name="EnemyCellHealthComponent" parent="." unique_id=488025843 instance=ExtResource("3_5erc5")]
 
 [node name="EnemyCellMovementComponent" parent="." unique_id=1843292205 node_paths=PackedStringArray("body_to_move") instance=ExtResource("4_kcrxv")]
-cell_base_speed = 50.0
-cell_current_speed = 50.0
 body_to_move = NodePath("..")
 
 [node name="EnemyCellAutoBattleComponent" parent="." unique_id=1463796902 instance=ExtResource("2_fh4fs")]

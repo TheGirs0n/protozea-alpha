@@ -1,16 +1,16 @@
 @abstract
-extends CharacterBody2D
+extends CellBody
 class_name BaseCell
+
+## A cell with stats that can fight: health and auto battle on top of CellBody.
 
 signal cell_stats_changed
 
 const SIZE_TWEEN_DURATION: float = 0.25
 
-@export_group("Components")
+@export_group("Battle Components")
 @export var cell_health_component: BaseCellHealthComponent
-@export var cell_movement_component: BaseCellMovementComponent
 @export var cell_auto_battle_component: BaseCellAutoBattleComponent
-@export var cell_animated_sprite_component: BaseCellAnimatedSprite
 
 @export_group("Resource")
 @export var cell_start_stats_resource: CellStartStatResource
@@ -31,15 +31,10 @@ func _ready() -> void:
 
 
 func set_base_stat() -> void:
-	if (
-		cell_health_component != null
-		and cell_movement_component != null
-		and cell_auto_battle_component != null
-	):
-		set_cell_strength(cell_start_stats_resource.cell_base_strength)
-		set_cell_immune(cell_start_stats_resource.cell_base_immune)
-		set_cell_swiftness(cell_start_stats_resource.cell_base_swiftness)
-		set_cell_size_scale()
+	set_cell_strength(cell_start_stats_resource.cell_base_strength)
+	set_cell_immune(cell_start_stats_resource.cell_base_immune)
+	set_cell_swiftness(cell_start_stats_resource.cell_base_swiftness)
+	set_cell_size_scale()
 
 
 func set_cell_strength(new_value: int) -> void:

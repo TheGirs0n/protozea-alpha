@@ -3,10 +3,13 @@ extends Node
 class_name BaseCellMovementComponent
 
 @export_group("Base Speed Parameters")
+## Starting speed; cells with stats replace it with the speed from swiftness.
 @export var cell_base_speed: float
-@export var cell_current_speed: float
-@export var body_to_move: BaseCell
+@export var body_to_move: CellBody
+## How fast the sprite turns towards the movement direction.
+@export var turn_speed: float = 5.0
 
+var cell_current_speed: float
 var direction: Vector2
 var target_position: Vector2
 
@@ -35,3 +38,8 @@ func enable_component() -> void:
 
 
 @abstract func move_cell(delta: float) -> void
+
+
+func _turn_sprite(angle: float, delta: float) -> void:
+	var sprite: Node2D = body_to_move.cell_animated_sprite_component
+	sprite.rotation = lerp_angle(sprite.rotation, angle, turn_speed * delta)

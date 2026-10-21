@@ -8,21 +8,15 @@ signal new_maximum_health(new_max: float)
 signal cell_died
 
 @export_group("Health Parameters")
-@export var cell_current_health: float
-@export var cell_max_health: float
 @export var cell_passive_health_gain_per_second: float
 @export var cell_passive_health_timer: Timer
-@export var cell_base_defense: int
-@export var cell_current_defense: int
 
+## Health and defense come from the immune stat (set_cell_health_parameters).
+var cell_current_health: float
+var cell_max_health: float
+var cell_current_defense: int
 ## Set by AutoBattleHandler; stops passive regeneration during a battle.
 var in_battle: bool = false
-
-
-func _ready() -> void:
-	in_battle = false
-	cell_current_health = cell_max_health
-	cell_current_defense = cell_base_defense
 
 
 func set_cell_health_parameters(cell_immune: int, balance: CellBalanceConfig) -> void:

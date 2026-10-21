@@ -14,6 +14,7 @@ radius = 15.0
 height = 70.0
 
 [node name="SimpleEnemy" type="CharacterBody2D" unique_id=2011984693 node_paths=PackedStringArray("cell_movement_component", "cell_animated_sprite_component")]
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_te1aw")
@@ -32,7 +33,6 @@ sprites_array = Array[CompressedTexture2D]([ExtResource("3_ht5lm"), ExtResource(
 random_movement_timer_min_value = 0.8
 random_movement_timer_max_value = 2.0
 cell_base_speed = 25.0
-cell_current_speed = 125.0
 body_to_move = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=938557058]

@@ -9,12 +9,7 @@ func _process(_delta: float) -> void:
 func move_cell(delta: float) -> void:
 	# Угол обновляем только при движении
 	if direction != Vector2.ZERO:
-		var dir_angle: float = direction.angle()
-		body_to_move.cell_animated_sprite_component.rotation = lerp_angle(
-			body_to_move.cell_animated_sprite_component.rotation,
-			dir_angle,
-			5.0 * delta
-		)
+		_turn_sprite(direction.angle(), delta)
 
 	body_to_move.velocity = direction * cell_current_speed
 	body_to_move.move_and_slide()

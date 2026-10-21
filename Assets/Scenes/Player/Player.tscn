@@ -36,8 +36,6 @@ shape = SubResource("CircleShape2D_d06bf")
 [node name="PlayerHealthComponent" parent="." unique_id=1674705355 instance=ExtResource("2_qy8wf")]
 
 [node name="PlayerMovementComponent" parent="." unique_id=1329042061 node_paths=PackedStringArray("body_to_move") instance=ExtResource("3_2xki1")]
-cell_base_speed = 150.0
-cell_current_speed = 150.0
 body_to_move = NodePath("..")
 
 [node name="PlayerAutoBattleComponent" parent="." unique_id=569556963 instance=ExtResource("4_tlg0o")]
@@ -45,7 +43,6 @@ body_to_move = NodePath("..")
 [node name="PlayerEconomyComponent" parent="." unique_id=992692729 instance=ExtResource("6_tlg0o")]
 
 [node name="PlayerEvolveComponent" parent="." unique_id=740213474 instance=ExtResource("7_l33h3")]
-cell_evolve_array_cost = Array[int]([5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35])
 
 [node name="BattleAreaContact" type="Area2D" parent="." unique_id=1645639352 node_paths=PackedStringArray("player")]
 collision_layer = 0
