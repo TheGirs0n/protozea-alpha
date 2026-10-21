@@ -21,7 +21,7 @@ texture_hover = ExtResource("3_hapgu")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("1_kqae0")
-card_name_array = Array[String](["PLAYER_EVOLVE_OVERRAL_TEXT"])
+card_name_array = Array[String](["PLAYER_EVOLVE_OVERALL_TEXT"])
 card_name_text = NodePath("CardName")
 
 [node name="CardName" type="RichTextLabel" parent="." unique_id=717378508]
@@ -61,7 +61,7 @@ anchor_bottom = 0.929
 size_flags_vertical = 3
 theme = ExtResource("2_1smg6")
 bbcode_enabled = true
-text = "PLAYER_EVOLVE_OVERRAL_DESCRIPTION"
+text = "PLAYER_EVOLVE_OVERALL_DESCRIPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 

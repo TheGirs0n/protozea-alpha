@@ -14,7 +14,7 @@ PLAYER_EVOLVE_TEXT;Эволюция;Evolution
 PLAYER_EVOLVE_STRENGTH_DESCRIPTION;Поглощай и уничтожай;Consume and destroy
 PLAYER_EVOLVE_IMMUNE_DESCRIPTION;Выдержи любой удар;Endure any strike
 PLAYER_EVOLVE_SWIFTNESS_DESCRIPTION;Двигайся быстрее жертвы;Move faster than your prey
-PLAYER_EVOLVE_OVERRAL_DESCRIPTION;Общий уровень эволюции;Overall evolution level
+PLAYER_EVOLVE_OVERALL_DESCRIPTION;Общий уровень эволюции;Overall evolution level
 PLAYER_EVOLVE_STRENGTH_TEXT_1;Псевдоподии;Pseudopods
 PLAYER_EVOLVE_STRENGTH_TEXT_2;Клеточные шипы;Cell Spikes
 PLAYER_EVOLVE_STRENGTH_TEXT_3;Токсичные ферменты;Toxic Enzymes
@@ -30,4 +30,11 @@ PLAYER_EVOLVE_SWIFTNESS_TEXT_2;Реактивный цитоплазмин;React
 PLAYER_EVOLVE_SWIFTNESS_TEXT_3;Осмотический импульс;Osmotic Impulse
 PLAYER_EVOLVE_SWIFTNESS_TEXT_4;Турбо-реснички;Turbo Cilia
 PLAYER_EVOLVE_SWIFTNESS_TEXT_5;Квантовый дрейф;Quantum Drift
-PLAYER_EVOLVE_OVERRAL_TEXT;Вершина эволюции;Apex of Evolution
+PLAYER_EVOLVE_OVERALL_TEXT;Вершина эволюции;Apex of Evolution
+PLAYER_EVOLVE_HINT;Эволюция — нажми %s;Evolve — press %s
+PREDATORS_EATEN;Съедено хищников: %d/%d;Predators eaten: %d/%d
+CONTROLS_TEXT;Движение: %s     Эволюция: %s     Пауза: %s;Move: %s     Evolve: %s     Pause: %s
+QUIT_GAME;Выйти из игры;Quit Game
+SETTINGS_MASTER;Общая;Master
+SETTINGS_MUSIC;Музыка;Music
+SETTINGS_SFX;Эффекты;Effects

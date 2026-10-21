@@ -1,7 +1,7 @@
 extends Control
 class_name PlayerEvolveProgressBarUi
 
-const FINISHED_TEXT_KEY: String = "PLAYER_EVOLVE_OVERRAL_TEXT"
+const FINISHED_TEXT_KEY: String = "PLAYER_EVOLVE_OVERALL_TEXT"
 
 @export var player_evolve_progress_bar: TextureProgressBar
 @export var player_evolve_progress_bar_text: RichTextLabel

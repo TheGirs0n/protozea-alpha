@@ -46,14 +46,10 @@ func setup_battle_ui(player: BaseCell, enemy: BaseCell) -> void:
 	_update_bar_text(enemy_health_progress_bar, enemy_health_progress_bar_text)
 
 	player_endurance_progress_bar.max_value = player.cell_auto_battle_component.cell_max_endurance
-	player_endurance_progress_bar.value = 0
-	player_endurance_text.text = "0.0"
-	_update_bar_text(player_endurance_progress_bar, player_endurance_progress_bar_text)
+	set_player_endurance_new_value(player.cell_auto_battle_component.cell_current_endurance)
 
 	enemy_endurance_progress_bar.max_value = enemy.cell_auto_battle_component.cell_max_endurance
-	enemy_endurance_progress_bar.value = 0
-	enemy_endurance_text.text = "0.0"
-	_update_bar_text(enemy_endurance_progress_bar, enemy_endurance_progress_bar_text)
+	set_enemy_endurance_new_value(enemy.cell_auto_battle_component.cell_current_endurance)
 
 	player.cell_health_component.health_changed.connect(_on_player_health_changed)
 	enemy.cell_health_component.health_changed.connect(_on_enemy_health_changed)
@@ -89,15 +85,15 @@ func _on_enemy_health_changed(new_value: float) -> void:
 
 func set_player_endurance_new_value(new_value: float) -> void:
 	player_endurance_progress_bar.value = new_value
-	player_endurance_text.text = str(new_value)
+	player_endurance_text.text = "%.1f" % new_value
 	_update_bar_text(player_endurance_progress_bar, player_endurance_progress_bar_text)
 
 
 func set_enemy_endurance_new_value(new_value: float) -> void:
 	enemy_endurance_progress_bar.value = new_value
-	enemy_endurance_text.text = str(new_value)
+	enemy_endurance_text.text = "%.1f" % new_value
 	_update_bar_text(enemy_endurance_progress_bar, enemy_endurance_progress_bar_text)
 
 
 func _update_bar_text(bar: TextureProgressBar, label: RichTextLabel) -> void:
-	label.text = str(bar.value) + "/" + str(bar.max_value)
+	label.text = "%.1f/%.1f" % [bar.value, bar.max_value]

@@ -59,6 +59,9 @@ func restore_endurance() -> void:
 
 func set_target(target: BaseCell) -> void:
 	target_cell = target
+	# Random head start: with equal stats the cell earlier in the tree would always hit first
+	cell_current_endurance = randf() * cell_max_endurance
+	endurance_changed.emit(cell_current_endurance)
 	process_mode = Node.PROCESS_MODE_INHERIT
 	cell_endurance_timer.start()
 

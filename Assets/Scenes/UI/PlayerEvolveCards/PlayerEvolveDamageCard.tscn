@@ -34,7 +34,6 @@ anchor_bottom = 0.124
 size_flags_vertical = 3
 theme = ExtResource("2_qrj5i")
 bbcode_enabled = true
-text = "ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы"
 horizontal_alignment = 1
 vertical_alignment = 1
 

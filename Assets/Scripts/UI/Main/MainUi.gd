@@ -7,6 +7,7 @@ class_name MainUI
 @export var player_health_progress_bar: PlayerHealthProgressBarUi
 @export var player_evolve_progress_bar: PlayerEvolveProgressBarUi
 @export var player_can_evolve_text: RichTextLabel
+@export var eaten_counter_text: RichTextLabel
 @export var pause_ui: PauseMenu
 
 @export_group("Auto Battle UI")
@@ -23,10 +24,18 @@ var is_autobattle_ui_active: bool = false
 
 var _player: PlayerCell = null
 var _is_evolve_cards_open: bool = false
+var _eaten: int = 0
+var _eaten_goal: int = 0
 
 
-func setup(player: PlayerCell) -> void:
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and _player != null:
+		_update_texts()
+
+
+func setup(player: PlayerCell, predators_to_win: int) -> void:
 	_player = player
+	_eaten_goal = predators_to_win
 
 	player_health_progress_bar.setup(player)
 	player_evolve_progress_bar.setup(player)
@@ -44,10 +53,12 @@ func setup(player: PlayerCell) -> void:
 	EventBus.player_stats_changed.connect(update_player_stats)
 	EventBus.battle_started.connect(show_auto_battle_ui)
 	EventBus.battle_ended.connect(hide_auto_battle_ui)
-	EventBus.all_enemies_cleared.connect(show_win_game_screen)
+	EventBus.game_won.connect(show_win_game_screen)
 	EventBus.player_died.connect(show_lose_game_screen)
+	EventBus.predator_eaten.connect(_on_predator_eaten)
 	EventBus.player_resume_requested.connect(_on_evolve_cards_closed)
 
+	_update_texts()
 	_refresh_evolve_text()
 
 
@@ -99,6 +110,18 @@ func hide_pause() -> void:
 
 func _on_can_evolve_changed(_can_evolve: bool) -> void:
 	_refresh_evolve_text()
+
+
+func _on_predator_eaten(eaten: int, goal: int) -> void:
+	_eaten = eaten
+	_eaten_goal = goal
+	_update_texts()
+
+
+## Texts built from translation templates; refreshed when the language changes.
+func _update_texts() -> void:
+	eaten_counter_text.text = tr("PREDATORS_EATEN") % [_eaten, _eaten_goal]
+	player_can_evolve_text.text = tr("PLAYER_EVOLVE_HINT") % InputHints.first_key(&"try_evolve")
 
 
 ## The cards emit player_resume_requested when one of them is picked.

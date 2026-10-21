@@ -15,7 +15,6 @@ func move_cell(delta: float) -> void:
 			dir_angle,
 			5.0 * delta
 		)
-		EventBus.background_move_requested.emit(direction)
 
 	body_to_move.velocity = direction * cell_current_speed
 	body_to_move.move_and_slide()

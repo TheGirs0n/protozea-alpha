@@ -3,9 +3,9 @@ extends Node
 # --- Экономика ---
 signal money_earned(amount: int)
 
-# --- Враги ---
-signal enemy_died(enemy: EnemyCell)
-signal all_enemies_cleared()
+# --- Враги и победа ---
+signal predator_eaten(eaten: int, goal: int)
+signal game_won()
 
 # --- Бой ---
 signal battle_requested(player: BaseCell, enemy: BaseCell)
@@ -25,6 +25,3 @@ signal player_resume_requested()
 
 # --- Навигация ---
 signal continue_requested()
-
-# --- UI ---
-signal background_move_requested(direction: Vector2)

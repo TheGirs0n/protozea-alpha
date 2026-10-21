@@ -4,6 +4,7 @@
 
 [node name="PlayerHealthComponent" type="Node" unique_id=1674705355 node_paths=PackedStringArray("cell_passive_health_timer")]
 script = ExtResource("1_3ma36")
+cell_passive_health_gain_per_second = 0.5
 cell_passive_health_timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="." unique_id=823165617]

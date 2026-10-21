@@ -18,9 +18,13 @@ var can_player_evolve_in_current: bool = false
 var is_final_evolve: bool = false
 
 var _money: int = 0
+var _is_in_battle: bool = false
 
 
 func _ready() -> void:
+	# Choosing a card pauses the player, so it is not allowed mid-fight
+	EventBus.battle_started.connect(_on_battle_started)
+	EventBus.battle_ended.connect(_on_battle_ended)
 	player_evolve_new_max.emit(get_current_cost())
 
 
@@ -61,8 +65,20 @@ func finish_evolution() -> void:
 	_update_can_evolve()
 
 
+func _on_battle_started(_player: BaseCell, _enemy: BaseCell) -> void:
+	_is_in_battle = true
+	_update_can_evolve()
+
+
+func _on_battle_ended() -> void:
+	_is_in_battle = false
+	_update_can_evolve()
+
+
 func _update_can_evolve() -> void:
-	var can_evolve: bool = not is_final_evolve and _money >= get_current_cost()
+	var can_evolve: bool = (
+		not is_final_evolve and not _is_in_battle and _money >= get_current_cost()
+	)
 	if can_evolve == can_player_evolve_in_current:
 		return
 	can_player_evolve_in_current = can_evolve

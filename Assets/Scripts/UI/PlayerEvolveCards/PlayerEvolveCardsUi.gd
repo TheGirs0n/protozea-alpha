@@ -21,9 +21,13 @@ func prepare_cards(player: PlayerCell) -> void:
 	player_damage_evolve_card.visible = can_raise_strength
 	player_defense_evolve_card.visible = can_raise_immune
 	player_speed_evolve_card.visible = can_raise_swiftness
+	player_damage_evolve_card.show_level(player.cell_strength_value + 1)
+	player_defense_evolve_card.show_level(player.cell_immune_value + 1)
+	player_speed_evolve_card.show_level(player.cell_swiftness_value + 1)
 
 
 func prepare_final_card() -> void:
+	player_final_evolve_card.show_level(1)
 	player_final_evolve_card.show()
 
 

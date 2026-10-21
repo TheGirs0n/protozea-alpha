@@ -13,8 +13,13 @@ var simple_tween: Tween
 
 
 func _ready() -> void:
-	card_name_text.text = card_name_array.pick_random()
 	pivot_offset_ratio = Vector2(0.5, 0.5)
+
+
+## Shows the name of the level this card evolves the stat to (names go from level 1 up).
+func show_level(level: int) -> void:
+	var index: int = clampi(level - 1, 0, card_name_array.size() - 1)
+	card_name_text.text = card_name_array[index]
 
 
 ## Connected in the card scenes to mouse_entered.

@@ -36,6 +36,7 @@ cell_current_speed = 125.0
 body_to_move = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=938557058]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1737870200]
 shape = SubResource("CapsuleShape2D_shmc3")

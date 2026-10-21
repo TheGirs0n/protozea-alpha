@@ -20,8 +20,8 @@ func _wire_dependencies() -> void:
 	# Каждый узел получает только нужные ему зависимости
 	enemy_manager.setup(player)
 	auto_battle_handler.setup()
-	main_ui.setup(player)
-	main_level.setup()
+	main_ui.setup(player, enemy_manager.predators_to_win)
+	main_level.setup(player)
 
 
 func _wire_events() -> void:
@@ -35,20 +35,29 @@ func _wire_events() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"pause_game"):
-		pause_game()
+		if get_tree().paused:
+			continue_game()
+		else:
+			pause_game()
+
+
+func _exit_tree() -> void:
+	# Leaving the game from the pause menu must not leave the next scene paused
+	get_tree().paused = false
 
 
 func pause_player() -> void:
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 
+## MainScene runs always; MainLevel and MainUI are pausable, the pause menu runs when paused.
 func pause_game() -> void:
-	main_level.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = true
 	main_ui.show_pause()
 
 
 func continue_game() -> void:
-	main_level.process_mode = Node.PROCESS_MODE_INHERIT
+	get_tree().paused = false
 	main_ui.hide_pause()
 
 

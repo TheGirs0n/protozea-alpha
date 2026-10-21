@@ -13,7 +13,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcrxv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xte72"]
-radius = 20.0
+radius = 80.0
 
 [node name="EnemyCell" type="CharacterBody2D" unique_id=697730910 node_paths=PackedStringArray("cell_health_component", "cell_movement_component", "cell_auto_battle_component", "cell_animated_sprite_component")]
 collision_layer = 4
@@ -43,6 +43,7 @@ texture = ExtResource("7_hhs5d")
 sprites_array = Array[CompressedTexture2D]([ExtResource("7_hhs5d"), ExtResource("8_luwtw"), ExtResource("9_4vnvj")])
 
 [node name="PlayerAreaContact" type="Area2D" parent="." unique_id=1885006666]
+collision_layer = 0
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaContact" unique_id=1895422165]

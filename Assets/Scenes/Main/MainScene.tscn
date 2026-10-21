@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b23t35a6tvy0f" path="res://Assets/Scenes/UI/Main/MainUI.tscn" id="2_scsgb"]
 
 [node name="MainScene" type="Node" unique_id=930684345 node_paths=PackedStringArray("main_level", "main_ui")]
+process_mode = 3
 script = ExtResource("1_scsgb")
 main_level = NodePath("MainLevel")
 main_ui = NodePath("MainUi")
@@ -12,3 +13,4 @@ main_ui = NodePath("MainUi")
 [node name="MainLevel" parent="." unique_id=1839840135 instance=ExtResource("2_0ilqw")]
 
 [node name="MainUi" parent="." unique_id=1882197517 instance=ExtResource("2_scsgb")]
+process_mode = 1
