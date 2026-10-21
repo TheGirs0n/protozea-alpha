@@ -4,7 +4,7 @@ class_name PauseMenu
 @export var main_menu: PackedScene
 
 
-## Connected in PauseMenu.tscn to ContineGameButton.pressed.
+## Connected in PauseMenu.tscn to ContinueGameButton.pressed.
 func _on_continue_game_button_pressed() -> void:
 	EventBus.continue_requested.emit()
 

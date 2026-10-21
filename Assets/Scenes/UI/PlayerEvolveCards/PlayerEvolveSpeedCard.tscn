@@ -27,15 +27,16 @@ card_name_text = NodePath("CardName")
 [node name="CardName" type="RichTextLabel" parent="." unique_id=717378508]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.36
+anchor_left = 0.18
 anchor_top = 0.005
-anchor_right = 0.64
+anchor_right = 0.82
 anchor_bottom = 0.124
 size_flags_vertical = 3
 theme = ExtResource("2_uvryd")
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
+scroll_active = false
 
 [node name="StatIcon" type="TextureRect" parent="." unique_id=1054169804]
 layout_mode = 1

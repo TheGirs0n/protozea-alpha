@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1sqidndjbxc3" path="res://Assets/Scenes/UI/Menus/MainMenu.tscn" id="2_f5fp7"]
 [ext_resource type="Theme" uid="uid://bgh4rh8eskkto" path="res://Assets/Resources/Text/ButtonTheme.tres" id="3_6edl6"]
 [ext_resource type="Theme" uid="uid://cvn157j0qm0e3" path="res://Assets/Resources/Text/TextTheme.tres" id="3_l7coi"]
+[ext_resource type="Texture2D" uid="uid://m7frcwhcs4ky" path="res://Assets/Sprites/UI/Menu/menu_background.png" id="10_bg"]
 
 [sub_resource type="Animation" id="Animation_f5fp7"]
 length = 0.001
@@ -61,6 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 3
 stretch_mode = 5
+texture = ExtResource("10_bg")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect" unique_id=42303302]
 layout_mode = 1

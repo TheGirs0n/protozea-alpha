@@ -9,3 +9,8 @@ const TUTORIAL_SCENE_PATH: String = "res://Assets/Scenes/UI/Menus/TutorialMenu.t
 ## Connected in MainMenu.tscn to StartGameButton.pressed.
 func _on_start_game_button_pressed() -> void:
 	get_tree().change_scene_to_file(TUTORIAL_SCENE_PATH)
+
+
+## Connected in MainMenu.tscn to QuitGameButton.pressed.
+func _on_quit_game_button_pressed() -> void:
+	get_tree().quit()

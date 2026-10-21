@@ -36,9 +36,9 @@ func set_value(new_value: int) -> void:
 
 
 func _update_text() -> void:
-	player_evolve_progress_bar_text.text = (
-		str(player_evolve_progress_bar.value) + "/" + str(player_evolve_progress_bar.max_value)
-	)
+	player_evolve_progress_bar_text.text = "%d/%d" % [
+		player_evolve_progress_bar.value, player_evolve_progress_bar.max_value
+	]
 
 
 func _on_evolution_finished() -> void:

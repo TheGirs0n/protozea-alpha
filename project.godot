@@ -29,6 +29,11 @@ gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_cast=1
 gdscript/warnings/unsafe_call_argument=1
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
 [file_customization]
 
 folder_colors={
@@ -89,12 +94,7 @@ locale/translations=PackedStringArray("res://Assets/Translation/TEST_TRANSLATION
 2d_physics/layer_3="NotSimpleEnemy"
 2d_physics/layer_4="Walls"
 
-[physics]
-
-3d/physics_engine="Jolt Physics"
-
 [rendering]
 
-rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

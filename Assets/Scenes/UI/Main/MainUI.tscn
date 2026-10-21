@@ -72,6 +72,7 @@ bbcode_enabled = true
 text = "PLAYER_EVOLVE_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
+theme = ExtResource("11_text")
 
 [node name="PlayerEvolveProgressBarUi" parent="VBoxContainer" unique_id=1748930590 instance=ExtResource("3_kfg1n")]
 layout_mode = 2
