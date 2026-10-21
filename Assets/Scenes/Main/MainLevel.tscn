@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dj67vt74b4ekl" path="res://Assets/Scenes/Enemy/NotSimpleEnemy/EnemyCell.tscn" id="6_el6tv"]
 [ext_resource type="Texture2D" uid="uid://bhgr40x7g1q2h" path="res://Assets/Sprites/MainLevel/Particles/particle_5.png" id="7_6mpxr"]
 [ext_resource type="Material" uid="uid://c5rn4m5p1qgbl" path="res://Assets/Resources/Particles/MainSceneParticles.tres" id="7_xutpi"]
-[ext_resource type="Texture2D" uid="uid://c432gfpiyvrk3" path="res://Assets/Sprites/MainLevel/Particles/particle_1-0 (1).png" id="9_dk1rd"]
+[ext_resource type="Texture2D" uid="uid://c432gfpiyvrk3" path="res://Assets/Sprites/MainLevel/Particles/living_trash_sheet.png" id="9_dk1rd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgnp"]
 size = Vector2(1143, 611)

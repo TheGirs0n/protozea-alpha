@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7dmgqmh1de23"
-path="res://.godot/imported/ворсинки_даль.png-d2222334352afa70297dc2db600b70f3.ctex"
+uid="uid://c432gfpiyvrk3"
+path="res://.godot/imported/living_trash_sheet.png-ba3c9c44885cb684eaec36ffa935af3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/MainLevel/Bounds/ворсинки_даль.png"
-dest_files=["res://.godot/imported/ворсинки_даль.png-d2222334352afa70297dc2db600b70f3.ctex"]
+source_file="res://Assets/Sprites/MainLevel/Particles/living_trash_sheet.png"
+dest_files=["res://.godot/imported/living_trash_sheet.png-ba3c9c44885cb684eaec36ffa935af3a.ctex"]
 
 [params]
 

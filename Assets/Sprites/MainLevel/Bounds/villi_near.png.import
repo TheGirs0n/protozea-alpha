@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c432gfpiyvrk3"
-path="res://.godot/imported/particle_1-0 (1).png-ec77d39ab35c0b181a84819bba05c61f.ctex"
+uid="uid://2cpcnwgken4o"
+path="res://.godot/imported/villi_near.png-ac2b685b23dd5104c8c2d9dcf3203e96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/MainLevel/Particles/particle_1-0 (1).png"
-dest_files=["res://.godot/imported/particle_1-0 (1).png-ec77d39ab35c0b181a84819bba05c61f.ctex"]
+source_file="res://Assets/Sprites/MainLevel/Bounds/villi_near.png"
+dest_files=["res://.godot/imported/villi_near.png-ac2b685b23dd5104c8c2d9dcf3203e96.ctex"]
 
 [params]
 

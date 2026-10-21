@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2cpcnwgken4o"
-path="res://.godot/imported/ворсинки_близь.png-af1b73939622dba0dde7fd153e4bc362.ctex"
+uid="uid://7dmgqmh1de23"
+path="res://.godot/imported/villi_far.png-61009f9ad3e75109a61dcdc8bde00adb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/MainLevel/Bounds/ворсинки_близь.png"
-dest_files=["res://.godot/imported/ворсинки_близь.png-af1b73939622dba0dde7fd153e4bc362.ctex"]
+source_file="res://Assets/Sprites/MainLevel/Bounds/villi_far.png"
+dest_files=["res://.godot/imported/villi_far.png-61009f9ad3e75109a61dcdc8bde00adb.ctex"]
 
 [params]
 
